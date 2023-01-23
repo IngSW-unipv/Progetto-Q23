@@ -1,6 +1,7 @@
-Casi D’uso
-
+**Casi D’uso
+**
 Requisito Piste:
+```markdown
 
 Scope- Gestione Voli da Utente Torre
 Level - Obiettivo Utente
@@ -32,6 +33,7 @@ In questo caso il volo non può essere aggiunto, le soluzioni per l’utente Tor
 Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre
 Open Issues - Se il volo non viene accettato, ci potrebbe essere la possibilità di consigliare una lista di aeroporti vicini per fare atterrare questo aereo?
 
+```
 Requisito Bagagli: 
 Aggiunta bagaglio per Arrivo .
 Aggiunta bagaglio per Partenze.
