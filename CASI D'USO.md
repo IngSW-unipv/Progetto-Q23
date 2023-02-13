@@ -100,3 +100,46 @@ Special Requirements -
 Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
 Open Issues - 
+
+
+Requisito schermata di accesso:
+```markdown
+Login.
+Logout.
+Eliminazione account.
+
+Scope -  L’utente effettua il login all’interno della pagina
+Level - (da specificare)
+Primary Actor – Il dipendente che deve effettuare l’accesso
+Preconditions – Deve esistere una combinazione utente/password all’interno del database
+Success Guarantee – L’utente inserisce la combinazione corretta di nome utente e password
+Main Success Scenario - L’utente riesce ad accedere alla schermata adibita alla sua mansione
+Extensions/Alternative Scenarios – Viene inserita una combinazione di nome utente e password errata o inesistente
+Special Requirements - 
+Technology and Data Variation  List - (Da specificare)
+Frequency of Occurrence – Ogni volta che un dipendente necessita di accedere alla piattaforma che gli consente di gestire la mansione o le mansioni di cui si occupa
+Open Issues - 
+
+Scope – L’utente si scollega dalla piattaforma
+Level - (da specificare)
+Primary Actor – L’utente che stava lavorando
+Preconditions – L’utente deve avere già effettuato l’accesso 
+Main Success Scenario – L’utente riesce a scollegarsi dalla piattaforma
+Extensions/Alternative Scenarios - 
+Special Requirements - 
+Technology and Data Variation  List - (Da specificare)
+Frequency of Occurrence – Ogni volta che un dipendente ha finito il lavoro di cui si doveva occupare
+Open Issues - 
+
+Scope – Viene eliminato un account
+Level - (da specificare)
+Primary Actor – L’amministratore
+Preconditions – L’account deve esistere, chi svolge questa operazione deve essere un account amministratore
+Main Success Scenario – L’account selezionato viene eliminato
+Extensions/Alternative Scenarios - 
+Special Requirements - 
+Technology and Data Variation  List - (Da specificare)
+Frequency of Occurrence – Quando un utente non fa più parte della gestione aeroportuale
+Open Issues -.
+
+```
