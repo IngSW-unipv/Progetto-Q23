@@ -36,6 +36,7 @@ Open Issues - Se il volo non viene accettato, ci potrebbe essere la possibilità
 
 ```
 Requisito Bagagli: 
+```markdown
 Aggiunta bagaglio per Arrivo .
 Aggiunta bagaglio per Partenze.
 Ricerca ed amministrazione bagagli. 
@@ -77,8 +78,10 @@ Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
 Open Issues - Cosa accade se non viene specificato lo stato o alcuni campi?
 
+```
 
 Requisito Terreni:
+```markdown
 
 Scope -  Assegnazione di un terreno 
 Level - (da specificare)
@@ -101,6 +104,7 @@ Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
 Open Issues - 
 
+```
 
 Requisito schermata di accesso:
 ```markdown
