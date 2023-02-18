@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" style="-fx-background-image: /background.jpg;" styleClass="background" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField layoutX="437.0" layoutY="191.0" promptText="Username" />
       <PasswordField layoutX="437.0" layoutY="243.0" promptText="Password" />
@@ -16,6 +16,6 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="437.0" layoutY="296.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Button" />
+      <Button alignment="CENTER" layoutX="437.0" layoutY="296.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Login" />
    </children>
 </AnchorPane>
