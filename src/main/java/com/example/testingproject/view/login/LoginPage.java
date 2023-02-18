@@ -13,7 +13,7 @@ public class LoginPage extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(LoginPage.class.getResource("login_view.fxml"));
         System.out.print(LoginPage.class.getResource("login_view.fxml"));
       Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
-        stage.setTitle("LoginPage");
+        stage.setTitle("Login Page");
         stage.setScene(scene);
         stage.show();
     }
