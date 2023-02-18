@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 
 public class LoginController {
 
+private String SampleUsername = "username";
+    private String SamplePassword = "password123";
 
 
 
