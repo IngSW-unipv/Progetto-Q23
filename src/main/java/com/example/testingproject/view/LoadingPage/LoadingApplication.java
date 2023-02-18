@@ -12,7 +12,7 @@ public class LoadingApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(LoadingApplication.class.getResource("Loading_Page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 580, 400);
         stage.setTitle("Loading Page");
         stage.setScene(scene);
         stage.show();
