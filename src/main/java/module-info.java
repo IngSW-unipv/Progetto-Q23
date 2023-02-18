@@ -11,6 +11,9 @@ module com.example.testingproject {
     opens com.example.testingproject.view.login to javafx.fxml;
     exports com.example.testingproject.view.login;
 
+    opens com.example.testingproject.view.LoadingPage to javafx.fxml;
+    exports com.example.testingproject.view.LoadingPage;
+
 
 
 
