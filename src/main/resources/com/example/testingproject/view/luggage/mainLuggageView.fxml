@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.testingproject.control.LuggageController">
+
+   <Button fx:id="buttonLuggageDepartures" layoutX="163.0" layoutY="260.0" mnemonicParsing="false"
+           onAction="#openLuggageDeparturesView" text="PARTENZE"/>
+   <Button fx:id="buttonLuggageArrivals" layoutX="57.0" layoutY="260.0" mnemonicParsing="false"
+           onAction="#openArrivalsLuggageView" text="ARRIVI"/>
+   <Button fx:id="buttonLuggageManage" layoutX="288.0" layoutY="260.0" mnemonicParsing="false"
+           onAction="#openLuggageManageView" text="GESTIONE BAGAGLI"/>
+   <Button fx:id="buttonLuggageFly" layoutX="460.0" layoutY="260.0" mnemonicParsing="false"
+           onAction="#openLuggageFlyView" text="VOLI"/>
+</Pane>
