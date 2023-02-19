@@ -11,8 +11,8 @@ import java.io.IOException;
 public class HomePage extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomePage.class.getResource("home_view.fxml"));
-        System.out.print(HomePage.class.getResource("home_view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HomePage.class.getResource("homePage_view.fxml"));
+        System.out.print(HomePage.class.getResource("homePage_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
         stage.setTitle("Home Page");
         stage.setScene(scene);

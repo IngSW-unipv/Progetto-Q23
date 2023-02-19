@@ -1,6 +1,7 @@
 module com.example.testingproject {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.testingproject to javafx.fxml;
@@ -17,7 +18,8 @@ module com.example.testingproject {
     opens com.example.testingproject.view.luggage to javafx.fxml;
     exports com.example.testingproject.view.luggage;
 
-    opens com.example.testingproject.view.homePage to javafx.fxml;
+
+    opens com.example.testingproject.view.homePage to javafx.fxml,LoginController.java,LoginPage.java;
     exports com.example.testingproject.view.homePage;
 
 }
