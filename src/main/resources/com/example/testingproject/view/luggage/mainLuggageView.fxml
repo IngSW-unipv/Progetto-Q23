@@ -6,6 +6,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
       prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      style="-fx-background-image: url('C:\Users\danie\Documents\GitHub\Progetto-Q23\src\main\resources\com\example\testingproject\view\background.jpg');"
       fx:controller="com.example.testingproject.control.LuggageController">
 
    <Button fx:id="buttonLuggageDepartures" layoutX="163.0" layoutY="260.0" mnemonicParsing="false"
