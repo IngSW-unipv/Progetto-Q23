@@ -1,6 +1,8 @@
 
-.background{
--fx-background-image: url("/background.jpg");
-
+.back1{
+-fx-background-image: url("../background_gradient.jpg");
+    -fx-background-position: center center;
+    -fx-background-size: cover;
 
 }
+
