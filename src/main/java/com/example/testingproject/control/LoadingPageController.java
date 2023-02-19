@@ -40,7 +40,7 @@ public class LoadingPageController implements Initializable{
             progress += 0.1;
             System.out.println(progress);
             myProgressBar.setProgress(progress);
-            myLabel.setText(Integer.toString((int)Math.round(progress * 100)) + "%");
+            myLabel.setText("            " + Integer.toString((int)Math.round(progress * 100)) + "%");  //gli spazi tra apici sono per permettere che la percentuale stia al centro
         }
     }
 }
