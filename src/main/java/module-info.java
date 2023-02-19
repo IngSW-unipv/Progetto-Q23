@@ -17,5 +17,7 @@ module com.example.testingproject {
     opens com.example.testingproject.view.luggage to javafx.fxml;
     exports com.example.testingproject.view.luggage;
 
+    opens com.example.testingproject.view.homePage to javafx.fxml;
+    exports com.example.testingproject.view.homePage;
 
 }
