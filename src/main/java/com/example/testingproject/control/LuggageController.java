@@ -36,8 +36,8 @@ public class LuggageController{
 
     @FXML
     protected void openLuggageManageView() {Label.setText("Manage");
-      /* System.out.print(Manage.class.getResource("manageView.fxml"));
-        root = FXMLLoader.load(ManageMain.class.getResource("manageView.fxml"));
+      /* System.out.print(manage.class.getResource("manageView.fxml"));
+        root = FXMLLoader.load(manageMain.class.getResource("manageView.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,1024, 512);
         stage.setScene(scene);
