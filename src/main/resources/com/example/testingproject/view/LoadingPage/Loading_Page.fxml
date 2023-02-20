@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.LoadingPageController">
+<Pane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@loadingStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.LoadingPageController">
    <children>
-      <ProgressBar fx:id="myProgressBar" layoutX="77.0" layoutY="177.0" opacity="0.89" prefHeight="47.0" prefWidth="446.0" progress="0.0" />
-      <Button fx:id="myButton" layoutX="274.0" layoutY="260.0" mnemonicParsing="false" onAction="#increaseProgress" text="Button" />
-      <Label fx:id="myLabel" alignment="CENTER" layoutX="183.0" layoutY="120.0" text="Carimento in corso">
+      <ProgressBar fx:id="myProgressBar" layoutX="289.0" layoutY="256.0" opacity="0.89" prefHeight="47.0" prefWidth="446.0" progress="0.0">
+         <effect>
+            <Bloom />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></ProgressBar>
+      <Label fx:id="myLabel" alignment="CENTER" layoutX="395.0" layoutY="202.0" text="Carimento in corso">
          <font>
             <Font size="28.0" />
          </font>
