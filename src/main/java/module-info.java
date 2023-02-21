@@ -25,5 +25,5 @@ module com.example.testingproject {
     exports com.example.testingproject.view.Voli;
 
 
-    exports com.example.testingproject.view.luggage.manage to javafx.graphics;
+
 }
