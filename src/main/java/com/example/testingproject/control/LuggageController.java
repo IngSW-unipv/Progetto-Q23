@@ -42,6 +42,7 @@ public class LuggageController{
         scene = new Scene(root,1024, 512);
         stage.setScene(scene);
         stage.show();
+
     }
 
     @FXML
