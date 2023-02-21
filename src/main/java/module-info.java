@@ -24,4 +24,6 @@ module com.example.testingproject {
     opens com.example.testingproject.view.Voli to javafx.fxml;
     exports com.example.testingproject.view.Voli;
 
+
+    exports com.example.testingproject.view.luggage.manage to javafx.graphics;
 }
