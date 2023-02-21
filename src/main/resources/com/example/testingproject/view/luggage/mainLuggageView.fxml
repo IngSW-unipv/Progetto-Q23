@@ -6,7 +6,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0"
       xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      styleClass="back1" stylesheets="@loginStyle.css"
+      styleClass="back1" stylesheets="@Style.css"
       fx:controller="com.example.testingproject.control.LuggageController">
 
    <children>

@@ -21,11 +21,13 @@ module com.example.testingproject {
 
     opens com.example.testingproject.view.homePage to javafx.fxml,LoginController.java,LoginPage.java;
     exports com.example.testingproject.view.homePage;
+<<<<<<< HEAD
 
-    opens com.example.testingproject.view.Voli to javafx.fxml;
-    exports com.example.testingproject.view.Voli;
+    
 
     /*opens com.example.testingproject.view.luggage.manage to javafx.fxml,LuggageController.java,LuggageMainApplication.java;
     exports com.example.testingproject.view.luggage.manage;
     */
+=======
+>>>>>>> 88839e976a0ed9ceed81c59c045260309a249fc3
 }

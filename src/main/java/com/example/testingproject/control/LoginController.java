@@ -49,20 +49,14 @@ private TextField InputUsername;
             System.out.print(HomePage.class.getResource("homePage_view.fxml"));
             root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-           scene = new Scene(root,1024, 512);
+            scene = new Scene(root,1024, 512);
             stage.setScene(scene);
             stage.show();
-
-
      }
 
      else{
          emptyInput.setText("");
          WrongLogIn.setText("Wrong Username or Password");
-
      }
     }
-
-
-
 }
