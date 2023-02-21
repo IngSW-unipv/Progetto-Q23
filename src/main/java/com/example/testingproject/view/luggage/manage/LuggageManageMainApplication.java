@@ -1,4 +1,4 @@
-package com.example.testingproject.view.luggage;
+package com.example.testingproject.view.luggage.manage;
 
 
 import javafx.application.Application;
@@ -8,17 +8,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LuggageMainApplication extends Application {
+public class LuggageManageMainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LuggageMainApplication.class.getResource("mainLuggageView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LuggageManageMainApplication.class.getResource("luggageManageView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
-        stage.setTitle("Bagagli");
+        stage.setTitle("Luggage Manage");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
         launch();
+
     }
 }
