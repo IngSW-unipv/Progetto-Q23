@@ -20,5 +20,6 @@ public class ManageMainApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+
     }
 }
