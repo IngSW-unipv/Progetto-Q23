@@ -6,7 +6,6 @@ module com.example.testingproject {
 
     opens com.example.testingproject to javafx.fxml;
     exports com.example.testingproject.view;
-
     opens com.example.testingproject.view to javafx.fxml;
     exports com.example.testingproject.control;
     opens com.example.testingproject.control to javafx.fxml;
@@ -27,5 +26,4 @@ module com.example.testingproject {
 
 
     exports com.example.testingproject.view.luggage.manage to javafx.graphics;
-
 }
