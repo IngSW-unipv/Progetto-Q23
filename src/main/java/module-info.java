@@ -21,6 +21,7 @@ module com.example.testingproject {
     opens com.example.testingproject.view.homePage to javafx.fxml,LoginController.java,LoginPage.java;
     exports com.example.testingproject.view.homePage;
 
-    opens com.example.testingproject.view.luggage.manage to javafx.fxml,LuggageController.java,LuggageMainApplication.java;
+    /*opens com.example.testingproject.view.luggage.manage to javafx.fxml,LuggageController.java,LuggageMainApplication.java;
     exports com.example.testingproject.view.luggage.manage;
+    */
 }
