@@ -1,6 +1,7 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.view.homePage.HomePage;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import javafx.stage.Stage;
 
 import com.example.testingproject.view.homePage.HomePage;
@@ -51,5 +53,6 @@ public class VoliController{
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
+    }
 
 }
