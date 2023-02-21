@@ -1,6 +1,5 @@
 package com.example.testingproject.control;
 
-import com.example.testingproject.view.homePage.HomePage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,9 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import javafx.stage.Stage;
+import com.example.testingproject.view.luggage.manage.ManageMainApplication;
 
-import com.example.testingproject.view.homePage.HomePage;
+import java.io.IOException;
+
 public class LuggageController{
 
     @FXML
@@ -35,14 +35,13 @@ public class LuggageController{
     protected void openArrivalsLuggageView() {Label.setText("Arrivals");}
 
     @FXML
-    protected void openLuggageManageView() {Label.setText("Manage");
-      /* System.out.print(manage.class.getResource("manageView.fxml"));
-        root = FXMLLoader.load(manageMain.class.getResource("manageView.fxml"));
+    protected void openLuggageManageView(ActionEvent event) throws IOException {
+        Label.setText("Manage");
+        root = FXMLLoader.load(ManageMainApplication.class.getResource("manageView.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root,1024, 512);
         stage.setScene(scene);
         stage.show();
-*/
     }
 
     @FXML
