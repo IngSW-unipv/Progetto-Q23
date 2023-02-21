@@ -12,8 +12,9 @@ import javafx.stage.Stage;
 
 import com.example.testingproject.view.luggage.manage.LuggageManageMainApplication;
 import com.example.testingproject.view.luggage.departure.LuggageDepartureMainApplication;
-import com.example.testingproject.view.luggage.fly.LuggageFlyMainApplication;
+import com.example.testingproject.view.Voli.VoliMainApplication;
 import com.example.testingproject.view.luggage.arrive.LuggageArriveMainApplication;
+
 
 import java.io.IOException;
 
@@ -63,7 +64,7 @@ public class LuggageController {
 
     @FXML
     protected void openLuggageFlyView(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(LuggageFlyMainApplication.class.getResource("luggageFlyView.fxml"));
+        root = FXMLLoader.load(VoliMainApplication.class.getResource("VoliVis.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
