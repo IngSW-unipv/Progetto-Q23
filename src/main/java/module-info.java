@@ -19,11 +19,11 @@ module com.example.testingproject {
     opens com.example.testingproject.view.luggage to javafx.fxml;
     exports com.example.testingproject.view.luggage;
 
-    opens com.example.testingproject.view.homePage to javafx.fxml,LoginController.java,LoginPage.java;
+    opens com.example.testingproject.view.homePage to javafx.fxml;
     exports com.example.testingproject.view.homePage;
     opens com.example.testingproject.view.Voli to javafx.fxml;
     exports com.example.testingproject.view.Voli;
 
 
-
+    exports com.example.testingproject.view.luggage.manage to javafx.graphics;
 }
