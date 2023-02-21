@@ -6,7 +6,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0"
       xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.testingproject.control.LuggageController">
+      fx:controller="com.example.testingproject.control.LuggageFlyController">
 
     <children>
         <Label fx:id="Label" layoutX="399.0" layoutY="322.0" prefHeight="26.0" prefWidth="267.0" textFill="RED"/>
