@@ -32,10 +32,10 @@ public class LoginController {
     @FXML
     private Label emptyInput;
 
-  //  @FXML
-  //  private ChoiceBox<String> userTypeChoices;
+    @FXML
+    private ChoiceBox<String> userTypeChoices;
 
-  //  private String[] userTypes ={"Administrator","Gestore Bagagli", "Gestore Terreni","Gestore Voli"};
+    private String[] userTypes ={"Administrator","Gestore Bagagli", "Gestore Terreni","Gestore Voli"};
 
     private Stage stage;
     private Scene scene;
@@ -70,11 +70,10 @@ public class LoginController {
          WrongLogIn.setText("Wrong Username or Password");
      }
     }
-/*
+
     public void initialize(URL arg0, ResourceBundle arg1){
         userTypeChoices.getItems().addAll(userTypes);
 
 
 }
-*/
 }

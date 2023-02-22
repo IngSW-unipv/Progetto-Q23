@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -18,7 +19,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="437.0" layoutY="296.0" mnemonicParsing="false" onAction="#onLogInButtonClick" prefHeight="26.0" prefWidth="150.0" text="Login" />
+      <Button alignment="CENTER" layoutX="437.0" layoutY="346.0" mnemonicParsing="false" onAction="#onLogInButtonClick" prefHeight="26.0" prefWidth="150.0" text="Login" />
       <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="402.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@rightone.png" />
@@ -29,14 +30,20 @@
             <Image url="@passwordIcon.png" />
          </image>
       </ImageView>
-      <Label fx:id="WrongLogIn" layoutX="399.0" layoutY="322.0" prefHeight="26.0" prefWidth="267.0" textFill="RED">
+      <Label fx:id="WrongLogIn" layoutX="466.0" layoutY="404.0" prefHeight="26.0" prefWidth="267.0" textFill="RED">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label fx:id="emptyInput" layoutX="419.0" layoutY="322.0" prefHeight="26.0" prefWidth="186.0" textFill="RED">
+      <Label fx:id="emptyInput" layoutX="414.0" layoutY="391.0" prefHeight="26.0" prefWidth="186.0" textFill="RED">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
+      <ChoiceBox fx:id="userTypeChoices" layoutX="437.0" layoutY="295.0" prefWidth="150.0" />
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="400.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@menuIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
