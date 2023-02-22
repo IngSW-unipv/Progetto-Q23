@@ -2,18 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0"
-      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      styleClass="back1" stylesheets="@Style.css"
-      fx:controller="com.example.testingproject.control.LuggageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.LuggageController">
 
    <children>
       <Button fx:id="buttonLuggageDepartures" layoutX="116.0" layoutY="371.0" mnemonicParsing="false" onAction="#openLuggageDeparturesView" prefHeight="62.0" prefWidth="128.0" text="PARTENZE" />
       <Button fx:id="buttonLuggageArrivals" layoutX="310.0" layoutY="371.0" mnemonicParsing="false" onAction="#openArrivalsLuggageView" prefHeight="62.0" prefWidth="128.0" text="ARRIVI" />
       <Button fx:id="buttonLuggageManage" layoutX="503.0" layoutY="371.0" mnemonicParsing="false" onAction="#openLuggageManageView" prefHeight="62.0" prefWidth="128.0" text="GESTIONE BAGAGLI" />
       <Button fx:id="buttonLuggageFly" layoutX="712.0" layoutY="371.0" mnemonicParsing="false" onAction="#openLuggageFlyView" prefHeight="62.0" prefWidth="128.0" text="VOLI" />
-      <Label fx:id="Label" layoutX="399.0" layoutY="322.0" prefHeight="26.0" prefWidth="267.0" textFill="RED"/>
+      <Label fx:id="Label" layoutX="399.0" layoutY="322.0" prefHeight="26.0" prefWidth="267.0" textFill="RED" />
+      <MenuBar prefHeight="25.0" prefWidth="1024.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </Pane>
