@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 import com.example.testingproject.view.homePage.HomePage;
 import com.example.testingproject.view.Voli.VoliArrivo.VoliArrivoApplication;
+import com.example.testingproject.view.Voli.VoliPartenze.VoliPartenzeApplication;
+
 public class VoliController{
 
     @FXML
@@ -56,7 +58,7 @@ public class VoliController{
     }
     @FXML
     protected void openVoliDeparturesView(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(VoliArrivoApplication.class.getResource("VoliPartenze.fxml"));
+        root = FXMLLoader.load(VoliPartenzeApplication.class.getResource("VoliPartenze.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
