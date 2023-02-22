@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.HomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@HomePageStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.HomePageController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="1024.0">
         <menus>
@@ -19,11 +19,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="buttonlogin" layoutX="486.0" layoutY="346.0" onAction="#openLoginView" mnemonicParsing="false" text="Login" />
-      <TextArea layoutX="255.0" layoutY="107.0" prefHeight="200.0" prefWidth="559.0" text="AIRPORT MANAGMENT SYSTEM">
+      <Button fx:id="buttonlogin" layoutX="486.0" layoutY="346.0" mnemonicParsing="false" onAction="#openLoginView" text="Login" />
+      <Label layoutX="343.0" layoutY="123.0" prefHeight="101.0" prefWidth="338.0" text="Airport Managment System">
          <font>
-            <Font size="36.0" />
+            <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
-      </TextArea>
+      </Label>
    </children>
 </AnchorPane>
