@@ -11,12 +11,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HomePageController{
-
+    @FXML
+    MenuBar myMenuBar;
     @FXML
     private Button buttonlogin;
     @FXML
@@ -33,5 +35,8 @@ public class HomePageController{
         stage.setScene(scene);
         stage.show();
     }
-
+    public void CloseWindow(ActionEvent event) {
+        Stage stage = (Stage) myMenuBar.getScene().getWindow();
+        stage.close();
+    }
 }

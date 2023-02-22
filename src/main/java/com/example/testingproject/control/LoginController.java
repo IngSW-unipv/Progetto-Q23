@@ -7,22 +7,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import com.example.testingproject.view.homePage.HomePage;
 
-import javax.security.auth.callback.ChoiceCallback;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LoginController {
     @FXML
-    private TextField InputUsername;
+    MenuBar myMenuBar;
+    @FXML
+private TextField InputUsername;
     @FXML
     private PasswordField InputPassword;
 
@@ -32,17 +31,10 @@ public class LoginController {
     @FXML
     private Label emptyInput;
 
-  //  @FXML
-  //  private ChoiceBox<String> userTypeChoices;
-
-  //  private String[] userTypes ={"Administrator","Gestore Bagagli", "Gestore Terreni","Gestore Voli"};
-
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    public LoginController() {
-    }
 
 
     @FXML
@@ -70,11 +62,9 @@ public class LoginController {
          WrongLogIn.setText("Wrong Username or Password");
      }
     }
-/*
-    public void initialize(URL arg0, ResourceBundle arg1){
-        userTypeChoices.getItems().addAll(userTypes);
 
-
-}
-*/
+    public void CloseWindow(ActionEvent event) {
+        Stage stage = (Stage) myMenuBar.getScene().getWindow();
+        stage.close();
+    }
 }

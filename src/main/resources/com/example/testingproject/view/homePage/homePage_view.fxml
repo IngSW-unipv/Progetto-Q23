@@ -10,11 +10,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@HomePageStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.HomePageController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="1024.0">
+      <MenuBar fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
         <menus>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="close" />
+              <MenuItem mnemonicParsing="false" onAction="#CloseWindow" text="Close" />
             </items>
           </Menu>
         </menus>
