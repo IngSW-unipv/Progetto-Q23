@@ -5,13 +5,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class LuggageArriveMainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LuggageArriveMainApplication.class.getResource("luggageManageView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LuggageArriveMainApplication.class.getResource("luggageArriveView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
         stage.setTitle("Luggage Arrive");
         stage.setScene(scene);
