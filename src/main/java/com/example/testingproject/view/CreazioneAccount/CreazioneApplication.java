@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
-
 /*
 public class CreazioneApplication extends Application {
     @Override
@@ -24,5 +23,4 @@ public class CreazioneApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
-}
-*/
+}*/
