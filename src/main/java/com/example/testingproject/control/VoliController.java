@@ -54,5 +54,13 @@ public class VoliController{
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    protected void openVoliDeparturesView(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(VoliArrivoApplication.class.getResource("VoliPartenze.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 1024, 512);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
