@@ -3,7 +3,7 @@ package com.example.testingproject.model.service;
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
 
-import java.lang.reflect.Array;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -42,6 +42,13 @@ public class AccountService {
 
     public void changePassword(Account account, String newPassword){
      account.setPassword(newPassword);
+    }
+
+    public ArrayList<Account> addAccount(Account account) throws SQLException {
+            accountDAO.createAccount(account);
+            return accountDAO.getAccounts();
+
+
     }
 
 
