@@ -4,7 +4,7 @@ public class Luggage{
     public int Volo,Peso;
     public String Stato;
 
-    public Luggage(int volo, int peso, String stato) {
+    public Luggage(int volo, int peso, String stato, int tempVolo) {
         Volo = volo;
         Peso = peso;
         Stato = stato;
