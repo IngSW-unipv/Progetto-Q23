@@ -1,5 +1,6 @@
 package com.example.testingproject.model;
 
+
 public class Account {
     private String username, password, userType,name,surname;
     private boolean isLoggedIn;
@@ -77,6 +78,7 @@ currentAccount = new Account(null, null,null,null, null);
         }
 return currentAccount;
     }
+
 
 
     public void logOut(Account account){
