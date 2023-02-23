@@ -61,13 +61,4 @@ public class LuggageController {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    protected void openLuggageFlyView(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(VoliMainApplication.class.getResource("VoliVis.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 1024, 512);
-        stage.setScene(scene);
-        stage.show();
-    }
 }
