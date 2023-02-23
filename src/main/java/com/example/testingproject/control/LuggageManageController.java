@@ -1,5 +1,6 @@
 package com.example.testingproject.control;
 
+import com.example.testingproject.model.Luggage;
 import com.example.testingproject.view.luggage.LuggageMainApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,9 +18,9 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class LuggageManageController {
-    public TableColumn idColumn;
-    public TableColumn stateColumn;
-    public TableColumn weightColumn;
+    public TableColumn <Luggage, Integer> idColumn;
+    public TableColumn <Luggage, String>stateColumn;
+    public TableColumn <Luggage, Integer> weightColumn;
     public TextField textField;
     @FXML
     private Button searchButton;
