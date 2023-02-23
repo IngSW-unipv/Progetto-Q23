@@ -13,7 +13,7 @@ module com.example.testingproject {
     exports com.example.testingproject.view.login;
 
     opens  com.example.testingproject.view.Land to javafx.fxml;
-    exports com.example.testingproject.view.Land;
+exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics;
 
     opens com.example.testingproject.view.LoadingPage to javafx.fxml;
     exports com.example.testingproject.view.LoadingPage;
