@@ -99,8 +99,8 @@ return currentAccount;
     }
 
 
-    public boolean checkPassword(Account account, String InputPassword){
-        if(account.password.equals(InputPassword)){
+    public boolean checkPassword(String InputPassword){
+        if(this!= null && this.password.equals(InputPassword)){
             return true;
         }else{
             return false;
