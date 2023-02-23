@@ -14,8 +14,9 @@ public class AccountDAO {
         Account tempAccount=new Account(null,null,null);
         try {
             //change tipo to type, change database table layout
-            String query = "SELECT id,username, password,tipo FROM users where username =" + username;
+            String query = "SELECT id,username, password,tipo FROM users where username =?" ;
             PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1,username);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             String tempUsername, tempPassword, tempType;

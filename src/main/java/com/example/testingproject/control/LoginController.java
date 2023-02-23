@@ -57,8 +57,6 @@ private TextField InputUsername;
     @FXML
     protected void onLogInButtonClick(ActionEvent event) throws IOException, SQLException {
 
-        Account  ac1 = AccountDAO.getAccount();
-        System.out.println(ar1.get(0).getUsername()+ " " + ar1.get(0).getPassword());
 
         if(InputUsername.getText().isEmpty() && InputPassword.getText().isEmpty()){
             WrongLogIn.setText("");
@@ -66,22 +64,19 @@ private TextField InputUsername;
         }
 
 
-     else if(InputUsername.getText().equals("admin1") && InputPassword.getText().equals("password")){
-            emptyInput.setText("");
-            WrongLogIn.setText("");
-            System.out.print(HomePage.class.getResource("homePage_view.fxml"));
-            root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root,1024, 512);
-            stage.setScene(scene);
-            stage.show();
-     }
-
-
      else{
-         emptyInput.setText("");
-         WrongLogIn.setText("Wrong Username or Password");
+            Account  ac1 = AccountDAO.getAccount(InputUsername.getText());
+            System.out.println(ac1.getPassword() + "" + InputPassword.getText());
+            if (ac1.getPassword().equals(InputPassword.getText())) {
+                System.out.print(HomePage.class.getResource("homePage_view.fxml"));
+                root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root, 1024, 512);
+                stage.setScene(scene);
+                stage.show();
+            }
      }
+
     }
 
     public void closeWindow(ActionEvent event) {
