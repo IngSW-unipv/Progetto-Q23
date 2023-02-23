@@ -2,6 +2,7 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
+import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.view.login.LoginPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import com.example.testingproject.model.Account;
 import com.example.testingproject.view.homePage.HomePage;
 
 import java.io.IOException;
@@ -39,21 +40,19 @@ private TextField InputUsername;
     @FXML
     private Label emptyInput;
 
-    @FXML
-    private ChoiceBox<String> userTypeChoices;
-
-    private String[] types = {"Adminstrator", "Gestore Bagagli", "Gestore Voli", "Gestore Terreni"};
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    private Account tempAccount;
 
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        userTypeChoices.getItems().addAll(types);
+    private AccountDAO accountDAO = new AccountDAO();
+    private AccountService accountService = new AccountService();
 
 
-    }
+
+
     @FXML
     protected void onLogInButtonClick(ActionEvent event) throws IOException, SQLException {
 
@@ -65,15 +64,21 @@ private TextField InputUsername;
 
 
      else{
-            Account  ac1 = AccountDAO.getAccount(InputUsername.getText());
-            System.out.println(ac1.getPassword() + "" + InputPassword.getText());
-            if (ac1.getPassword().equals(InputPassword.getText())) {
-                System.out.print(HomePage.class.getResource("homePage_view.fxml"));
+         ArrayList<Account> accounts = new ArrayList<Account>();
+         accounts = accountDAO.getAccounts();
+         tempAccount = accountService.getAccountByUsername(accounts,InputUsername.getText());
+
+            if (tempAccount.getPassword().equals(InputPassword.getText())) {
                 root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root, 1024, 512);
                 stage.setScene(scene);
                 stage.show();
+            }
+
+            else{
+                WrongLogIn.setText("Wrong Username or Password");
+                emptyInput.setText("");
             }
      }
 

@@ -21,7 +21,13 @@ public class Random {
         try {
             accounts = accountDAO.getAccounts();
             Account testingaccount = accountService.getAccountByUsername(accounts,"rick");
+            Account newaccount = new Account("newricky","password1","2","newRiccardo","newsurname");
             System.out.print(testingaccount.getName());
+            System.out.print("\nTesting inputting data as well");
+            accountDAO.createAccount(newaccount);
+            accounts = accountDAO.getAccounts();
+            System.out.print(accountService.getAccountByUsername(accounts,"newricky").getName());
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
