@@ -2,8 +2,6 @@ package com.example.testingproject.model.DAO;
 
 import com.example.testingproject.model.DatabaseConnection;
 import com.example.testingproject.model.Luggage;
-import com.example.testingproject.model.Voli;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
