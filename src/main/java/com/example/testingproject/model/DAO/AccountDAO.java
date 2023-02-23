@@ -15,7 +15,7 @@ public class AccountDAO {
         Connection conn = connection.getConnection();
         try{
             //change tipo to type, change database table layout
-            String query = "SELECT username,password,nome,cognome, 'Tipo' FROM AirportManager.users;";
+            String query = "SELECT username,password,nome,cognome, tipo FROM AirportManager.users;";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 

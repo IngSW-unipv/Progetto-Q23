@@ -14,7 +14,8 @@ public class HomePageController{
     public void initialize() {
 
         UserHolder holder = UserHolder.getInstance();
-        System.out.println(holder.getUser().getUsername());
+        System.out.println(holder.getUser().getUserType() + "  " +holder.getUser().getUsername() );
+
     }
     public void CloseWindow(ActionEvent event) {
         Stage stage = (Stage) myMenuBar.getScene().getWindow();
