@@ -65,10 +65,10 @@ private TextField InputUsername;
 
      else{
 
-            ArrayList<Account>  accounts = accountDAO.getAccounts();
-         tempAccount = accountService.getAccountByUsername(accounts,InputUsername.getText());
 
-            if (tempAccount.getPassword().equals(InputPassword.getText())) {
+           tempAccount = accountDAO.getAccountbyUsername(InputUsername.getText());
+
+            if (tempAccount!=null && tempAccount.getPassword().equals(InputPassword.getText())) {
                 root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root, 1024, 512);

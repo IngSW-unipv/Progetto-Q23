@@ -60,6 +60,34 @@ connection.closeConnection(conn);
 
     }
 
+    public Account getAccountbyUsername(String username){
+        Connection conn = connection.getConnection();
+        try {
+            String tempUsername,tempPassword,tempType,tempName,tempSurname;
+            String query = "SELECT username,password,nome,cognome, 'Tipo' FROM AirportManager.users WHERE username = '"+username+"';";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(!resultSet.isBeforeFirst()){
+                return null;
+            }else {
+                resultSet.next();
+
+                tempUsername = resultSet.getString(1);
+                tempPassword = resultSet.getString(2);
+                tempType = resultSet.getString(5);
+                tempName = resultSet.getString(3);
+                tempSurname = resultSet.getString(4);
+                Account tempAccount = new Account(tempUsername, tempPassword, tempType, tempName, tempSurname);
+                return tempAccount;
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
 
 
 
