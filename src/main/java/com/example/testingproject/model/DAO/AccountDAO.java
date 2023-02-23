@@ -50,7 +50,7 @@ connection.closeConnection(conn);
             String query = "INSERT INTO AirportManager.users (username,password,nome,cognome,‘Tipo’)  Values " +
                     "('"+account.getUsername()+ "','" +account.getPassword()+"','"+account.getName()+"','"+account.getSurname()+"', " +account.getUserType()+");";
             PreparedStatement preparedStatement =conn.prepareStatement(query);
-            preparedStatement.executeQuery();
+            preparedStatement.executeQuery(query);
             return true;
 
         } catch (SQLException e) {

@@ -64,8 +64,8 @@ private TextField InputUsername;
 
 
      else{
-         ArrayList<Account> accounts = new ArrayList<Account>();
-         accounts = accountDAO.getAccounts();
+
+            ArrayList<Account>  accounts = accountDAO.getAccounts();
          tempAccount = accountService.getAccountByUsername(accounts,InputUsername.getText());
 
             if (tempAccount.getPassword().equals(InputPassword.getText())) {

@@ -13,40 +13,29 @@ public class Random {
 
     public static void main(String[] args) throws SQLException {
         System.out.println("Testing class\n");
-        DatabaseConnection connection = new DatabaseConnection();
+
         AccountDAO accountDAO = new AccountDAO();
         AccountService accountService = new AccountService();
 
         ArrayList<Account> accounts = new ArrayList<Account>();
         try {
-            accounts = accountDAO.getAccounts();
-            Account testingaccount = accountService.getAccountByUsername(accounts,"rick");
-            Account newaccount = new Account("newricky","password1","2","newRiccardo","newsurname");
-            System.out.print(testingaccount.getName());
             System.out.print("\nTesting inputting data as well");
-            accountDAO.createAccount(newaccount);
-            accounts = accountDAO.getAccounts();
-            System.out.print(accountService.getAccountByUsername(accounts,"newricky").getName());
+            Account newaccount = new Account("newricky","password1","2","newRiccardo","newsurname");
+
+            accounts = accountService.addAccount(newaccount);
+
+
+
+
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        try{
-           Connection conn = connection.getConnection();
-            if(conn!=null) {
-                System.out.print("WE DID IT!");
-            }
-
-
-
-        }
-        catch(Exception e ){
-            System.out.println("ERROR");
             e.printStackTrace();
+
         }
+
+
+
         }
 
     }
