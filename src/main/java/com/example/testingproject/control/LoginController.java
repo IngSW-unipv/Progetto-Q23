@@ -2,6 +2,7 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
+import com.example.testingproject.model.UserHolder;
 import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.view.login.LoginPage;
 import javafx.event.ActionEvent;
@@ -66,9 +67,11 @@ private TextField InputUsername;
      else{
 
 
-           tempAccount = accountDAO.getAccountbyUsername(InputUsername.getText());
-            if (tempAccount.checkPassword(InputPassword.getText())==true) {
+         tempAccount = accountDAO.getAccountbyUsername(InputUsername.getText());
 
+            if (tempAccount.getPassword().equals(InputPassword.getText())) {
+                UserHolder holder = UserHolder.getInstance();
+                holder.setUser(tempAccount);
                 root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root, 1024, 512);
