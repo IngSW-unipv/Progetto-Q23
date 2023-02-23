@@ -14,9 +14,12 @@ public class DatabaseConnection {
 
     public Connection getConnection(){
 
+        System.out.println("Connecting database...");
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver loaded!");
             connection = DriverManager.getConnection(url,databaseUser,databasePassword);
+            System.out.println(connection);
         }catch(Exception exception){
             exception.printStackTrace();
         }
