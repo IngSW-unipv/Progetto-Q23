@@ -24,14 +24,14 @@ public class AccountService {
      account.setPassword(newPassword);
     }
 
-    public ArrayList<Account> addAccount(Account account) throws SQLException {
+    public boolean AddAccount(Account account) throws SQLException {
         try {
             accountDAO.createAccount(account);
-            return accountDAO.getAccounts();
+            return true;
         }
-        catch(SQLException e){
+        catch(Exception e){
             e.printStackTrace();
-            return null;
+            return false;
         }
 
     }

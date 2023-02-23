@@ -1,5 +1,6 @@
 package com.example.testingproject.model;
 
+
 public class Account {
     private String username, password, userType,name,surname;
     private boolean isLoggedIn;
@@ -79,6 +80,7 @@ return currentAccount;
     }
 
 
+
     public void logOut(Account account){
         account.setPassword(null);
         account.setUsername(null);
@@ -97,8 +99,8 @@ return currentAccount;
     }
 
 
-    public boolean checkPassword(Account account, String InputPassword){
-        if(account.password.equals(InputPassword)){
+    public boolean checkPassword(String InputPassword){
+        if(this!= null && this.password.equals(InputPassword)){
             return true;
         }else{
             return false;
