@@ -9,7 +9,7 @@ public class DatabaseConnection {
     public Connection connection;
    private String databaseUser = "root";
    private String databasePassword = "riccardo12caiulo";
-   private String url = "jdbc:mysql://34.68.181.102:3306/%s";
+   private String url = "jdbc:mysql://34.68.181.102:3306/AirportManager";
 
 
     public Connection getConnection(){

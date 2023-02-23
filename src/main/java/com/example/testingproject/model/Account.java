@@ -1,13 +1,15 @@
 package com.example.testingproject.model;
 
 public class Account {
-    private String username, password, userType;
+    private String username, password, userType,name,surname;
     private boolean isLoggedIn;
 
-    public Account(String username, String password, String userType) {
+    public Account(String username, String password, String userType, String name, String surname) {
         this.username = username;
         this.password = password;
         this.userType = userType;
+        this.name = name;
+        this.surname = surname;
     }
 
     public String getUserType() {
@@ -23,6 +25,14 @@ public class Account {
     }
     public boolean getLoggedIn(){
         return this.isLoggedIn;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getSurname(){
+        return this.surname;
     }
 
     public void setUsername(String newUsername){
@@ -45,6 +55,14 @@ public class Account {
        this.isLoggedIn = bool;
     }
 
+    public void setName(String newName){
+        this.name = newName;
+    }
+
+    public void setSurname(String newSurname){
+        this.surname = newSurname;
+    }
+
 
 
 
@@ -54,7 +72,7 @@ public class Account {
 
     public static Account getCurrentAccount() {
         if (currentAccount == null) {
-currentAccount = new Account(null, null,null);
+currentAccount = new Account(null, null,null,null, null);
 
         }
 return currentAccount;

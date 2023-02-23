@@ -15,17 +15,22 @@ public class AccountDAO {
         Connection conn = connection.getConnection();
         try{
             //change tipo to type, change database table layout
-            String query = "SELECT username,password, 'Tipo' FROM AirportManager.users;";
+            String query = "SELECT username,password,nome,cognome, 'Tipo' FROM AirportManager.users;";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            String tempUsername,tempPassword,tempType;
+            String tempUsername,tempPassword,tempType,tempName,tempSurname;
+            Integer bufferType;
 
             while(resultSet.next()){
                 tempUsername = resultSet.getString(1);
                 tempPassword = resultSet.getString(2);
-                tempType = resultSet.getString(3);
-                Account tempAccount = new Account(tempUsername,tempPassword,tempType);
+                tempType = resultSet.getString(5);
+               // bufferType =resultSet.getInt(5);
+               // tempType = bufferType.toString(); //convert Tipo to String from Integer
+                tempName = resultSet.getString(3);
+                tempSurname = resultSet.getString(4);
+                Account tempAccount = new Account(tempUsername,tempPassword,tempType,tempName,tempSurname);
                 accounts.add(tempAccount);
             }
 
@@ -42,7 +47,8 @@ connection.closeConnection(conn);
     public boolean createAccount(Account account){
         Connection conn = connection.getConnection();
         try{
-            String query = "INSERT INTO Utente (" + account.getUsername() + "," + account.getPassword() + "," + account.getUserType() + ")";
+            String query = "INSERT INTO AirportManager.users (username,password,nome,cognome,‘Tipo’)  Values " +
+                    "('"+account.getUsername()+ "','" +account.getPassword()+"','"+account.getName()+"','"+account.getSurname()+"', " +account.getUserType()+");";
             PreparedStatement preparedStatement =conn.prepareStatement(query);
             preparedStatement.executeQuery();
             return true;
