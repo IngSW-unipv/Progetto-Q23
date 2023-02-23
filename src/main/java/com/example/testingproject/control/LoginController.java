@@ -68,5 +68,6 @@ private TextField InputUsername;
     }
 
 
-
+    public void closeWindow(ActionEvent actionEvent) {
+    }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -22,7 +21,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="437.0" layoutY="296.0" mnemonicParsing="false" onAction="#onLogInButtonClick" prefHeight="26.0" prefWidth="150.0" text="Login" />
+      <Button alignment="CENTER" layoutX="437.0" layoutY="287.0" mnemonicParsing="false" onAction="#onLogInButtonClick" prefHeight="26.0" prefWidth="150.0" text="Login" />
       <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="402.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@rightone.png" />
@@ -33,20 +32,20 @@
             <Image url="@passwordIcon.png" />
          </image>
       </ImageView>
-      <Label fx:id="WrongLogIn" layoutX="399.0" layoutY="322.0" prefHeight="26.0" prefWidth="267.0" textFill="RED">
+      <Label fx:id="WrongLogIn" layoutX="402.0" layoutY="313.0" prefHeight="26.0" prefWidth="267.0" textFill="RED">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label fx:id="emptyInput" layoutX="419.0" layoutY="322.0" prefHeight="26.0" prefWidth="186.0" textFill="RED">
+      <Label fx:id="emptyInput" layoutX="419.0" layoutY="309.0" prefHeight="26.0" prefWidth="186.0" textFill="RED">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <MenuBar  fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
+      <MenuBar fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
         <menus>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" onAction="#closeWindow" />
+            <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close" />
             </items>
           </Menu>
         </menus>
