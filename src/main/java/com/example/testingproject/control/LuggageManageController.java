@@ -1,38 +1,42 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.Luggage;
-import com.example.testingproject.view.luggage.LuggageMainApplication;
+import com.example.testingproject.model.DAO.BagagliDAO;
+import com.example.testingproject.model.UserHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.Objects;
 
 public class LuggageManageController {
+    @FXML
+    MenuBar myMenuBar;
     public TableColumn <Luggage, Integer> idColumn;
     public TableColumn <Luggage, String>stateColumn;
     public TableColumn <Luggage, Integer> weightColumn;
     public TextField textField;
     @FXML
     private Button searchButton;
+    private Luggage tempLuggage;
+    private BagagliDAO luggageDAO = new BagagliDAO();
 
 
     @FXML
 
-    private void search(){
+    public void Search(ActionEvent event) {
+        tempLuggage = BagagliDAO.getLuggaggeById(textField.getText());
 
+        if (tempLuggage.getStato().equals(textField.getText())) {
+            UserHolder holder = UserHolder.getInstance();
+        }
     }
-
-    public void deleteText(MouseEvent mouseEvent) {
+    public void closeWindow(ActionEvent event) {
+        Stage stage = (Stage) myMenuBar.getScene().getWindow();
+        stage.close();
     }
 }
-

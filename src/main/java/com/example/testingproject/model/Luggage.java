@@ -1,13 +1,14 @@
 package com.example.testingproject.model;
 
 public class Luggage{
-    public int Volo,Peso;
+    public int Volo,Peso,Id;
     public String Stato;
 
-    public Luggage(int volo, int peso, String stato, int tempVolo) {
+    public Luggage(int id, int peso, String stato, int volo) {
         Volo = volo;
         Peso = peso;
         Stato = stato;
+        Id = id;
     }
 
     public int getPeso() {
@@ -28,6 +29,10 @@ public class Luggage{
 
     public int getVolo() {
         return Volo;
+    }
+
+    public int getId() {
+        return Id;
     }
 
     public void setVolo(int volo) {

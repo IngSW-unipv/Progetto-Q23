@@ -40,7 +40,7 @@ public class BagagliDAO {
         return luggages;
     }
 
-    public Luggage getLugaggeById(String id) {
+    public static Luggage getLuggaggeById(String id) {
         Connection conn = connection.getConnection();
 
         try {
@@ -58,7 +58,7 @@ public class BagagliDAO {
                 tempVolo = resultSet.getInt(4);
                 tempStato = resultSet.getString(3);
 
-                Luggage tempLuggages = new Luggage(tempId, tempPeso, tempStato, tempVolo);
+                Luggage tempLuggages = new Luggage(tempId,  tempPeso,tempStato, tempVolo);
                 return tempLuggages;
             }
 
