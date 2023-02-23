@@ -21,9 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
-    @FXML
-    MenuBar myMenuBar;
+public class LoginController {
+
     @FXML
 private TextField InputUsername;
     @FXML
@@ -35,21 +34,13 @@ private TextField InputUsername;
     @FXML
     private Label emptyInput;
 
-    @FXML
-    private ChoiceBox<String> userTypeChoices;
-
-    private String[] types = {"Adminstrator", "Gestore Bagagli", "Gestore Voli", "Gestore Terreni"};
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
 
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        userTypeChoices.getItems().addAll(types);
 
-
-    }
     @FXML
     protected void onLogInButtonClick(ActionEvent event) throws IOException {
 
