@@ -15,7 +15,7 @@ public class VoliDAO {
         Connection conn = connection.getConnection();
         try{
             //change tipo to type, change database table layout
-            String query = "SELECT * FROM voli";
+            String query = "SELECT A.*,NOMEAEREO FROM volo as A JOIN(SELECT id,modello AS NOMEAEREO FROM aereo )AS B ON B.id=A.id;";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
