@@ -1,5 +1,7 @@
 package com.example.testingproject.control;
 
+import com.example.testingproject.model.Account;
+import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.view.login.LoginPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,9 +21,11 @@ import com.example.testingproject.view.homePage.HomePage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController {
     @FXML
     MenuBar myMenuBar;
     @FXML
@@ -51,13 +55,16 @@ private TextField InputUsername;
 
     }
     @FXML
-    protected void onLogInButtonClick(ActionEvent event) throws IOException {
+    protected void onLogInButtonClick(ActionEvent event) throws IOException, SQLException {
 
+        Account  ac1 = AccountDAO.getAccount();
+        System.out.println(ar1.get(0).getUsername()+ " " + ar1.get(0).getPassword());
 
         if(InputUsername.getText().isEmpty() && InputPassword.getText().isEmpty()){
             WrongLogIn.setText("");
             emptyInput.setText("Please Input Log In Data");
         }
+
 
      else if(InputUsername.getText().equals("admin1") && InputPassword.getText().equals("password")){
             emptyInput.setText("");
@@ -70,12 +77,15 @@ private TextField InputUsername;
             stage.show();
      }
 
+
      else{
          emptyInput.setText("");
          WrongLogIn.setText("Wrong Username or Password");
      }
     }
 
-
-
+    public void closeWindow(ActionEvent event) {
+        Stage stage = (Stage) myMenuBar.getScene().getWindow();
+        stage.close();
+    }
 }

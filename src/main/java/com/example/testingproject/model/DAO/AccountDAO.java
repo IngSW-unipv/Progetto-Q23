@@ -7,23 +7,48 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class AccountDAO {
-    DatabaseConnection connection = new DatabaseConnection();
+    static DatabaseConnection connection = new DatabaseConnection();
 
+    public static Account getAccount(String username) throws SQLException {
+        Connection conn = connection.getConnection();
+        Account tempAccount=new Account(null,null,null);
+        try {
+            //change tipo to type, change database table layout
+            String query = "SELECT id,username, password,tipo FROM users where username =" + username;
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-    public ArrayList<Account> getAccounts() throws SQLException {
+            String tempUsername, tempPassword, tempType;
+
+            while (resultSet.next()) {
+                tempUsername = resultSet.getString("username");
+                tempPassword = resultSet.getString("password");
+                tempType = resultSet.getString(3);
+                tempAccount = new Account(tempUsername, tempPassword, tempType);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        connection.closeConnection(conn);
+        return tempAccount;
+    }
+
+    public static ArrayList<Account> getAccounts() throws SQLException {
         ArrayList<Account> accounts = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
             //change tipo to type, change database table layout
-            String query = "SELECT username, password, tipo FROM Utente";
+            String query = "SELECT id,username, password,tipo FROM users";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             String tempUsername,tempPassword,tempType;
 
             while(resultSet.next()){
-                tempUsername = resultSet.getString(1);
-                tempPassword = resultSet.getString(2);
+                tempUsername = resultSet.getString("username");
+                tempPassword = resultSet.getString("password");
                 tempType = resultSet.getString(3);
                 Account tempAccount = new Account(tempUsername,tempPassword,tempType);
                 accounts.add(tempAccount);
