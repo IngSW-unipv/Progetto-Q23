@@ -64,7 +64,7 @@ connection.closeConnection(conn);
         Connection conn = connection.getConnection();
         try {
             String tempUsername,tempPassword,tempType,tempName,tempSurname;
-            String query = "SELECT username,password,nome,cognome, 'Tipo' FROM AirportManager.users WHERE username = '"+username+"';";
+            String query = "SELECT username,password,nome,cognome, tipo FROM AirportManager.users WHERE username = '"+username+"';";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(!resultSet.isBeforeFirst()){
