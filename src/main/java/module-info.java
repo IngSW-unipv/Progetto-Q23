@@ -12,6 +12,8 @@ module com.example.testingproject {
     opens com.example.testingproject.view.login to javafx.fxml;
     exports com.example.testingproject.view.login;
 
+    opens  com.example.testingproject.view.Land to javafx.fxml;
+    exports com.example.testingproject.view.Land;
 
     opens com.example.testingproject.view.LoadingPage to javafx.fxml;
     exports com.example.testingproject.view.LoadingPage;
@@ -25,7 +27,7 @@ module com.example.testingproject {
     exports com.example.testingproject.view.Voli;
 
 
-    exports com.example.testingproject.view.luggage.manage to javafx.graphics;
+
 
 
 }
