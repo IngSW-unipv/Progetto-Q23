@@ -28,8 +28,8 @@ exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics;
     exports com.example.testingproject.view.Voli;
 
 
-    opens com.example.testingproject.view.Piste to javafx.fxml,javafx.graphics;
-    exports com.example.testingproject.view.Piste;
+    opens com.example.testingproject.view.piste to javafx.fxml,javafx.graphics;
+    exports com.example.testingproject.view.piste;
 
 
 

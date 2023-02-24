@@ -1,4 +1,4 @@
-package com.example.testingproject.view.Piste;
+package com.example.testingproject.view.piste;
 
 
 import javafx.application.Application;
@@ -23,3 +23,5 @@ public class PisteApplication extends Application {
         launch();
     }
 }
+
+
