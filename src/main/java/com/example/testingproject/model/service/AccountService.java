@@ -35,6 +35,14 @@ public class AccountService {
 
 
 
+    public void changeUserType(Account account, String newType){
+
+    }
+
+
+
+
+
 
     public boolean AddAccount(Account account) throws SQLException {
         try {
