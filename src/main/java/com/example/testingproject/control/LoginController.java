@@ -4,28 +4,23 @@ import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.model.UserHolder;
 import com.example.testingproject.model.service.AccountService;
-import com.example.testingproject.view.login.LoginPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import com.example.testingproject.model.Account;
 import com.example.testingproject.view.homePage.HomePage;
 
 import java.io.IOException;
-import java.net.URL;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+
 
 public class LoginController {
     @FXML
@@ -48,7 +43,6 @@ private TextField InputUsername;
 
     private Account tempAccount;
 
-    private AccountDAO accountDAO = new AccountDAO();
     private AccountService accountService = new AccountService();
 
 
@@ -67,9 +61,13 @@ private TextField InputUsername;
      else{
 
 
-         tempAccount = accountDAO.getAccountbyUsername(InputUsername.getText());
+            try {
+                tempAccount = accountService.findAccountByUsername(InputUsername.getText());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
-            if (tempAccount.getPassword().equals(InputPassword.getText())) {
+            if (accountService.checkPassword(tempAccount,InputPassword.getText())) {
                 UserHolder holder = UserHolder.getInstance();
                 holder.setUser(tempAccount);
                 root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));

@@ -12,9 +12,10 @@ public class AccountDAO {
 
     public ArrayList<Account> getAccounts() throws SQLException {
         ArrayList<Account> accounts = new ArrayList<>();
+
         Connection conn = connection.getConnection();
         try{
-            //change tipo to type, change database table layout
+
             String query = "SELECT username,password,nome,cognome, tipo FROM AirportManager.users;";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -26,8 +27,6 @@ public class AccountDAO {
                 tempUsername = resultSet.getString(1);
                 tempPassword = resultSet.getString(2);
                 tempType = resultSet.getString(5);
-               // bufferType =resultSet.getInt(5);
-               // tempType = bufferType.toString(); //convert Tipo to String from Integer
                 tempName = resultSet.getString(3);
                 tempSurname = resultSet.getString(4);
                 Account tempAccount = new Account(tempUsername,tempPassword,tempType,tempName,tempSurname);
@@ -37,6 +36,7 @@ public class AccountDAO {
         }
 
         catch (SQLException e) {
+            connection.closeConnection(conn);
             throw new RuntimeException(e);
         }
 
@@ -44,23 +44,27 @@ connection.closeConnection(conn);
         return accounts;
     }
 
-    public boolean createAccount(Account account){
+    public boolean createAccount(Account account) throws SQLException {
+
         Connection conn = connection.getConnection();
         try{
-            String query = "INSERT INTO AirportManager.users (username,password,nome,cognome,‘Tipo’)  Values " +
-                    "('"+account.getUsername()+ "','" +account.getPassword()+"','"+account.getName()+"','"+account.getSurname()+"', " +account.getUserType()+");";
+            String query = "INSERT INTO AirportManager.users (username,password,nome,cognome,tipo)  Values " +
+                    "('"+account.getUsername()+ "','" +account.getPassword()+"','"+account.getName()+"','"+account.getSurname()+"', '" +account.getUserType()+"');";
             PreparedStatement preparedStatement =conn.prepareStatement(query);
-            preparedStatement.executeQuery(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
             return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            connection.closeConnection(conn);
             return false;
         }
 
     }
 
-    public Account getAccountbyUsername(String username){
+    public Account getAccountbyUsername(String username) throws SQLException {
+
         Connection conn = connection.getConnection();
         try {
             String tempUsername,tempPassword,tempType,tempName,tempSurname;
@@ -78,17 +82,77 @@ connection.closeConnection(conn);
                 tempName = resultSet.getString(3);
                 tempSurname = resultSet.getString(4);
                 Account tempAccount = new Account(tempUsername, tempPassword, tempType, tempName, tempSurname);
+                connection.closeConnection(conn);
                 return tempAccount;
+
             }
 
         }catch (SQLException e){
             e.printStackTrace();
+            connection.closeConnection(conn);
             return null;
         }
+    }
+
+public boolean updateUsername(String currentUsername, String updateUsername) throws SQLException {
+
+    Connection conn = connection.getConnection();
+        try{
+            String query = "UPDATE AirportManager.users SET username = '" +updateUsername+"' WHERE (username = '"+ currentUsername+ "');";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        }catch(Exception exception){
+            exception.printStackTrace();
+            connection.closeConnection(conn);
+            return false;
+
+        }
+
+
+}
+
+    public boolean updatePassword(String currentUsername, String updatePassword) throws SQLException {
+
+        Connection conn = connection.getConnection();
+        try{
+            String query = "UPDATE AirportManager.users SET password = '" +updatePassword+"' WHERE (username = '"+currentUsername+"');";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        }catch(Exception exception){
+            exception.printStackTrace();
+            connection.closeConnection(conn);
+            return false;
+
+        }
+
 
     }
 
+    public boolean updateType(String currentUsername, String updateType) throws SQLException {
 
+        Connection conn = connection.getConnection();
+        try{
+            String query = "UPDATE AirportManager.users SET tipo = '"+updateType+"' WHERE (username = '"+currentUsername+"');";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        }catch(Exception exception){
+            exception.printStackTrace();
+            connection.closeConnection(conn);
+            return false;
+
+        }
+
+
+    }
 
 
 

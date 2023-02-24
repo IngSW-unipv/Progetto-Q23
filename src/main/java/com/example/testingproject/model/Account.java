@@ -56,18 +56,8 @@ public class Account {
        this.isLoggedIn = bool;
     }
 
-    public void setName(String newName){
-        this.name = newName;
-    }
 
-    public void setSurname(String newSurname){
-        this.surname = newSurname;
-    }
-
-
-
-
-
+/*
     //istanza singleton di current account, lazy implementation, istanza nuova con valori null
     private static Account currentAccount;
 
@@ -79,7 +69,7 @@ currentAccount = new Account(null, null,null,null, null);
 return currentAccount;
     }
 
-
+*/
 
     public void logOut(Account account){
         account.setPassword(null);
@@ -99,13 +89,7 @@ return currentAccount;
     }
 
 
-    public boolean checkPassword(String InputPassword){
-        if(this!= null && this.password.equals(InputPassword)){
-            return true;
-        }else{
-            return false;
-        }
-    }
+
 
 
 

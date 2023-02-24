@@ -15,14 +15,48 @@ public class AccountService {
 
 
 
-   public void changeUsername(Account account, String newUsername){
-        account.setUsername(newUsername);
+   public void changeUsername(Account account, String newUsername) throws SQLException {
+
+       try {
+           accountDAO.updateUsername(account.getUsername(),newUsername);
+           account.setUsername(newUsername);
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
+
 
    }
 
-    public void changePassword(Account account, String newPassword){
-     account.setPassword(newPassword);
+
+
+    public void changePassword(Account account, String newPassword) throws SQLException {
+        try {
+            accountDAO.updatePassword(account.getUsername(),newPassword);
+            account.setPassword(newPassword);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
     }
+
+
+
+    public void changeUserType(Account account, String newType){
+        try {
+            accountDAO.updateType(account.getUsername(),newType);
+            account.setUserType(newType);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+
+
+
 
     public boolean AddAccount(Account account) throws SQLException {
         try {
@@ -36,6 +70,25 @@ public class AccountService {
 
     }
 
+    public Account findAccountByUsername(String username) throws SQLException {
 
+        try {
+            return accountDAO.getAccountbyUsername(username);
+        } catch (SQLException e) {
+            return null;
+
+
+        }
+
+
+    }
+
+    public boolean checkPassword(Account account, String InputPassword){
+        if(account!= null && account.getPassword().equals(InputPassword)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
