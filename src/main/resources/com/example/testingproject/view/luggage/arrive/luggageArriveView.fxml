@@ -45,4 +45,13 @@
          </font>
       </Label>
    </children>
+    <MenuBar fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="Edit">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
 </AnchorPane>

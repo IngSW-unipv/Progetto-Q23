@@ -68,12 +68,13 @@ public class BagagliDAO {
         }
     }
     // metodo per l'inserimento di bagagli all'interno di database
-   /* public static Luggage addLuggaggeArrive(String firstAirport,String secondAirport, String tipo) {
+   /*public static Luggage addLuggaggeArrive(String firstAirport,String secondAirport, String tipo) {
         Connection conn = connection.getConnection();
         try {
             String tempStato;
             int tempId, tempPeso, tempVolo;
-            String query = "SELECT * FROM AirportManager.bagaglio WHERE id = '" + id + "';";
+            String query1 = "SELECT AirportManager.bagaglio ('peso','stato','volo') values ('" + tempPeso + "', '" + tempStato + "', '" + tempVolo + "';";
+            String query2 = "INSERT INTO AirportManager.bagaglio ('peso','stato','volo') values ('" + tempPeso + "', '" + tempStato + "', '" + tempVolo + "';";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
