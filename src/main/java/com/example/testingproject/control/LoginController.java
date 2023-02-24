@@ -43,7 +43,6 @@ private TextField InputUsername;
 
     private Account tempAccount;
 
-    private AccountDAO accountDAO = new AccountDAO();
     private AccountService accountService = new AccountService();
 
 
@@ -63,12 +62,12 @@ private TextField InputUsername;
 
 
             try {
-                tempAccount = accountDAO.getAccountbyUsername(InputUsername.getText());
+                tempAccount = accountService.findAccountByUsername(InputUsername.getText());
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
 
-            if (tempAccount.checkPassword(InputPassword.getText())==true) {
+            if (accountService.checkPassword(tempAccount,InputPassword.getText())) {
                 UserHolder holder = UserHolder.getInstance();
                 holder.setUser(tempAccount);
                 root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));

@@ -83,6 +83,12 @@ public class AccountService {
 
     }
 
-
+    public boolean checkPassword(Account account, String InputPassword){
+        if(account!= null && account.getPassword().equals(InputPassword)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

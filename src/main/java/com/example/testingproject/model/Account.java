@@ -89,13 +89,7 @@ return currentAccount;
     }
 
 
-    public boolean checkPassword(String InputPassword){
-        if(this!= null && this.password.equals(InputPassword)){
-            return true;
-        }else{
-            return false;
-        }
-    }
+
 
 
 
