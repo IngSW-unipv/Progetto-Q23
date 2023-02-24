@@ -118,7 +118,7 @@ public boolean updateUsername(String currentUsername, String updateUsername) thr
 
         Connection conn = connection.getConnection();
         try{
-            String query = "*UPDATE AirportManager.users SET password = '" +updatePassword+"' WHERE (username = '"+currentUsername+"');";
+            String query = "UPDATE AirportManager.users SET password = '" +updatePassword+"' WHERE (username = '"+currentUsername+"');";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.executeUpdate();
             connection.closeConnection(conn);

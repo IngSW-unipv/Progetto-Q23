@@ -1,6 +1,6 @@
 package com.example.testingproject.control;
 
-
+/*
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.UserHolder;
 import com.example.testingproject.model.Voli;
@@ -128,4 +128,4 @@ public class HomePageController{
         Stage stage = (Stage) myMenuBar.getScene().getWindow();
         stage.close();
     }
-}
+}*/
