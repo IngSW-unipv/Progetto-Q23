@@ -21,7 +21,6 @@ public class AccountDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             String tempUsername,tempPassword,tempType,tempName,tempSurname;
-            Integer bufferType;
 
             while(resultSet.next()){
                 tempUsername = resultSet.getString(1);
