@@ -16,7 +16,7 @@
       </MenuBar>
       <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
       
-      <ListView fx:id="terreniList" layoutX="34.0" layoutY="93.0" prefHeight="377.0" prefWidth="181.0" />
+      <ListView fx:id="terreniList" layoutX="34.0" layoutY="93.0" onMouseClicked="#handleMouseClick" prefHeight="377.0" prefWidth="181.0" />
       <Label layoutX="279.0" layoutY="38.0" prefHeight="31.0" prefWidth="607.0" text="Visualizza Gli Hangar all'interno dell' Aeroporto">
          <font>
             <Font name="Arial Rounded MT Bold" size="25.0" />
@@ -32,7 +32,7 @@
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="454.0" layoutY="150.0" prefHeight="48.0" prefWidth="137.0">
+      <Label fx:id="nposti" layoutX="454.0" layoutY="150.0" prefHeight="48.0" prefWidth="137.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -42,10 +42,11 @@
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="454.0" layoutY="193.0" prefHeight="48.0" prefWidth="137.0">
+      <Label fx:id="npostiliberi" layoutX="454.0" layoutY="193.0" prefHeight="48.0" prefWidth="137.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <ListView fx:id="terreniList1" layoutX="253.0" layoutY="276.0" prefHeight="193.0" prefWidth="742.0" />
    </children>
 </AnchorPane>

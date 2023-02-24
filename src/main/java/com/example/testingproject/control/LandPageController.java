@@ -10,8 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,6 +28,10 @@ public class LandPageController {
     private Parent root;
     @FXML
     ListView terreniList;
+    @FXML
+    Label nposti;
+    @FXML
+    Label npostiliberi;
     public ArrayList<Terreno> tr;
     public void initialize() throws SQLException {
     tr = TerreniDAO.getTerreni();
@@ -43,5 +49,15 @@ public class LandPageController {
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML public void handleMouseClick(MouseEvent arg0) {
+        Integer id =(Integer) terreniList.getSelectionModel().getSelectedItem();
+        for (int i=0;i< tr.size();i++){
+            if (tr.get(i).id == id){
+             nposti.setText(Integer.toString(tr.get(i).getNposti()));
+             npostiliberi.setText(Integer.toString(tr.get(i).getNpostiLiberi()));
+            }
+        }
+        //aggiungere sosta
     }
 }
