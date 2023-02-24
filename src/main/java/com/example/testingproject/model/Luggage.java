@@ -10,7 +10,6 @@ public class Luggage{
         Stato = stato;
         Id = id;
     }
-
     public int getPeso() {
         return Peso;
     }
@@ -35,7 +34,9 @@ public class Luggage{
         return Id;
     }
 
+
     public void setVolo(int volo) {
         Volo = volo;
     }
+
 }

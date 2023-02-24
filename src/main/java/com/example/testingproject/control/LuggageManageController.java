@@ -2,7 +2,6 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
-import com.example.testingproject.model.UserHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +9,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -28,15 +28,28 @@ public class LuggageManageController {
 
     @FXML
 
-    public void Search(ActionEvent event) {
-        tempLuggage = BagagliDAO.getLuggaggeById(textField.getText());
+    public void search(ActionEvent event) {
+        int id = 0;
+        String a = textField.getText().substring(7);
+        try{
+            id = Integer.parseInt(a);
+            System.out.println(id) ;
+        }
+        catch (NumberFormatException ex){
+            ex.printStackTrace();
+        }
 
-        if (tempLuggage.getStato().equals(textField.getText())) {
-            UserHolder holder = UserHolder.getInstance();
+        tempLuggage = BagagliDAO.getLuggaggeById(id);
+
+        if (tempLuggage.getId() == id) {
+            System.out.println(tempLuggage.getId());
         }
     }
     public void closeWindow(ActionEvent event) {
         Stage stage = (Stage) myMenuBar.getScene().getWindow();
         stage.close();
+    }
+
+    public void deleteText(MouseEvent mouseEvent) {
     }
 }

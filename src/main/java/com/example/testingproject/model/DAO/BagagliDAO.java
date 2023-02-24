@@ -40,13 +40,13 @@ public class BagagliDAO {
         return luggages;
     }
 
-    public static Luggage getLuggaggeById(String id) {
+    public static Luggage getLuggaggeById(int id) {
         Connection conn = connection.getConnection();
 
         try {
             String tempStato;
             int tempId, tempPeso, tempVolo;
-            String query = "SELECT * FROM AirportManager.bagagli WHERE username = '" + id + "';";
+            String query = "SELECT * FROM AirportManager.bagaglio WHERE id = '" + id + "';";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
