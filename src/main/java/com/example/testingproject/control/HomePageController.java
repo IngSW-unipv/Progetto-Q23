@@ -106,7 +106,7 @@ public class HomePageController{
             case "Terreno":
                 buttons = new ArrayList<>();
                 for (int row = 0; row < 1; row++) {
-                    for (int col = 0; col < 3; col++) {
+                    for (int col = 0; col < 2; col++) {
                         ToggleButton button = new ToggleButton();
                         if (col == 0) {
                             button.setText("Lista Terreni");
