@@ -23,8 +23,14 @@ exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics;
 
     opens com.example.testingproject.view.homePage to javafx.fxml;
     exports com.example.testingproject.view.homePage;
+
     opens com.example.testingproject.view.Voli to javafx.fxml;
     exports com.example.testingproject.view.Voli;
+
+
+    opens com.example.testingproject.view.piste to javafx.fxml,javafx.graphics;
+    exports com.example.testingproject.view.piste;
+
 
 
 
