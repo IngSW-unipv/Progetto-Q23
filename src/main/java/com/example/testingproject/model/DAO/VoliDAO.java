@@ -16,9 +16,9 @@ public class VoliDAO {
         try{
             //change tipo to type, change database table layout
             String query = "SELECT A.*,NOMEAEREO FROM volo as A JOIN(SELECT id,modello AS NOMEAEREO FROM aereo )AS B ON B.id=A.id;";
+
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             String tempGate,tempNomeAereo;
             int tempId,tempDurata,tempRitardo,tempAereo;
 
@@ -38,6 +38,7 @@ public class VoliDAO {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
 
         connection.closeConnection(conn);
         return voli;
