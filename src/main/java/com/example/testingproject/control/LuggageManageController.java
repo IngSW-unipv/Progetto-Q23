@@ -41,6 +41,7 @@ public class LuggageManageController {
 
         tempLuggage = BagagliDAO.getLuggaggeById(id);
 
+        assert tempLuggage != null;
         if (tempLuggage.getId() == id) {
             System.out.println(tempLuggage.getId());
             System.out.println(tempLuggage.getStato());

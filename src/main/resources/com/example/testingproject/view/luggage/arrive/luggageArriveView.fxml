@@ -30,8 +30,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button layoutX="38.0" layoutY="301.0" mnemonicParsing="false" text="AGGIUNGI" />
-      <Spinner fx:id="WightSpinner" layoutX="90.0" layoutY="244.0" prefHeight="12.0" prefWidth="60.0" max="30" min="0" initialValue="0" amountToStepBy="1">
+      <Button fx:id="addButton" layoutX="38.0" layoutY="301.0" mnemonicParsing="false" onAction="#addLuggage" style="-fx-background-color: #9ACD32;" text="AGGIUNGI">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Spinner fx:id="WightSpinner" amountToStepBy="1" initialValue="0" layoutX="90.0" layoutY="244.0" max="30" min="0" prefHeight="12.0" prefWidth="60.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
