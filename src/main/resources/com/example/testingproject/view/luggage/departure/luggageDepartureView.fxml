@@ -11,36 +11,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0"
+            prefWidth="1024.0"
             styleClass="back1" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/19"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.testingproject.control.LuggageDepartureController">>
+            fx:controller="com.example.testingproject.control.LuggageDepartureController">
 
-<children>
-    <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Es* MXP-VAL ">
+
+    <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0"
+               promptText="promptText" text="Es* MXP-VAL ">
         <font>
-            <Font name="System Italic" size="12.0" />
+            <Font name="System Italic" size="12.0"/>
         </font>
     </TextField>
-    <ListView fx:id="listView" layoutX="420.0" layoutY="174.0" prefHeight="278.0" prefWidth="577.0" />
+    <ListView fx:id="listView" layoutX="420.0" layoutY="174.0" prefHeight="278.0" prefWidth="577.0"/>
     <MenuBar prefHeight="25.0" prefWidth="1024.0">
         <Menu mnemonicParsing="false" text="Edit">
             <MenuItem mnemonicParsing="false" text="Close"/>
         </Menu>
     </MenuBar>
-    <Button fx:id="addButton" layoutX="38.0" layoutY="301.0" mnemonicParsing="false" onAction="#addLuggage" style="-fx-background-color: #9ACD32;" text="AGGIUNGI">
+    <Button fx:id="addButton" layoutX="38.0" layoutY="301.0" mnemonicParsing="false" onAction="#addLuggage"
+            style="-fx-background-color: #9ACD32;" text="AGGIUNGI">
         <font>
-            <Font name="System Bold" size="12.0" />
-        </font></Button>
-    <Spinner fx:id="WightSpinner" amountToStepBy="1" initialValue="0" layoutX="90.0" layoutY="244.0" max="30" min="0" prefHeight="12.0" prefWidth="60.0">
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Spinner fx:id="WightSpinner" amountToStepBy="1" initialValue="0" layoutX="90.0" layoutY="244.0" max="30" min="0"
+             prefHeight="12.0" prefWidth="60.0">
         <cursor>
-            <Cursor fx:constant="DEFAULT" />
+            <Cursor fx:constant="DEFAULT"/>
         </cursor>
     </Spinner>
     <Label layoutX="50.0" layoutY="248.0" text="PESO" textAlignment="CENTER">
         <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
-</children>
 </AnchorPane>
