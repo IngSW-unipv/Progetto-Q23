@@ -1,6 +1,8 @@
 package com.example.testingproject.control;
-
-import com.example.testingproject.view.homePage.HomePage;
+import com.example.testingproject.model.Account;
+import com.example.testingproject.model.Voli;
+import com.example.testingproject.model.service.AccountService;
+import com.example.testingproject.model.DAO.VoliDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,13 +14,15 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.stage.Stage;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
-import com.example.testingproject.view.homePage.HomePage;
+import javafx.stage.Stage;
 import com.example.testingproject.view.Voli.VoliArrivo.VoliArrivoApplication;
 import com.example.testingproject.view.Voli.VoliPartenze.VoliPartenzeApplication;
 
 public class VoliController{
+    ArrayList<Voli> voli_ = new ArrayList<>();
 
     @FXML
     private Button buttonVoliDepartures;
@@ -29,25 +33,14 @@ public class VoliController{
 
     private Stage stage;
     private Scene scene;
+    private Voli tempVoli;
+
+
     private Parent root;
-    @FXML
-    protected void openVoliDeparturesView() {Label.setText("Departure");}
-    @FXML
-    protected void openArrivalsVoliView() {Label.setText("Arrivals");}
 
-    @FXML
-    protected void openLuggageManageView() {Label.setText("Manage");
-      /* System.out.print(manage.class.getResource("manageView.fxml"));
-        root = FXMLLoader.load(manageMain.class.getResource("manageView.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,1024, 512);
-        stage.setScene(scene);
-        stage.show();
-*/
-    }
+    private VoliDAO VoliDAO = new VoliDAO();
+    private AccountService accountService = new AccountService();
 
-    @FXML
-    protected void openLuggageFlyView() {Label.setText("Fly");}
     @FXML
     protected void openArrivalsVoliView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(VoliArrivoApplication.class.getResource("VoliArrivo.fxml"));
@@ -57,12 +50,15 @@ public class VoliController{
         stage.show();
     }
     @FXML
-    protected void openVoliDeparturesView(ActionEvent event) throws IOException {
+    protected void openVoliDeparturesView(ActionEvent event) throws IOException, SQLException {
         root = FXMLLoader.load(VoliPartenzeApplication.class.getResource("VoliPartenze.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
+        //tempVoli = VoliDAO.getAccountbyUsername(InputUsername.getText());
+
+
     }
 
 }
