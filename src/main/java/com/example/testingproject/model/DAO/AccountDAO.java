@@ -114,11 +114,11 @@ public boolean updateUsername(String currentUsername, String updateUsername) thr
 
 }
 
-    public boolean updatePassword(String currentUsername, String updateUsername) throws SQLException {
+    public boolean updatePassword(String currentUsername, String updatePassword) throws SQLException {
 
         Connection conn = connection.getConnection();
         try{
-            String query = "UPDATE AirportManager.users SET username = '" +updateUsername+"' WHERE (username = '"+ currentUsername+ "');";
+            String query = "*UPDATE AirportManager.users SET password = '" +updatePassword+"' WHERE (username = '"+currentUsername+"');";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.executeUpdate();
             connection.closeConnection(conn);
@@ -134,11 +134,11 @@ public boolean updateUsername(String currentUsername, String updateUsername) thr
 
     }
 
-    public boolean updateType(String currentUsername, String updateUsername) throws SQLException {
+    public boolean updateType(String currentUsername, String updateType) throws SQLException {
 
         Connection conn = connection.getConnection();
         try{
-            String query = "UPDATE AirportManager.users SET username = '" +updateUsername+"' WHERE (username = '"+ currentUsername+ "');";
+            String query = "UPDATE AirportManager.users SET tipo = '"+updateType+"' WHERE (username = '"+currentUsername+"');";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.executeUpdate();
             connection.closeConnection(conn);

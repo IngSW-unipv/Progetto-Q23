@@ -17,12 +17,17 @@ public class Random {
         AccountDAO accountDAO = new AccountDAO();
         AccountService accountService = new AccountService();
         Account tempaccount = accountService.findAccountByUsername("ri");
-        System.out.print(tempaccount.getUserType());
 
+      //accountService.changeUsername(tempaccount,"chad");
+        //accountService.changeUserType(tempaccount,"YOAY");
+        //accountService.changePassword(tempaccount,"YEEEEE");
 
-      //  accountService.changeUsername(tempaccount,"chad");
         //Account newtempaccount = accountService.findAccountByUsername("chad");
-        //System.out.print(newtempaccount.getPassword());
+
+        //System.out.print(newtempaccount.getPassword() + "\n");
+        //System.out.print(newtempaccount.getUsername() + "\n");
+        System.out.print(tempaccount.getUserType() + "\n");
+
 
 
 

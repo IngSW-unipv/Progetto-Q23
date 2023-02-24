@@ -29,13 +29,27 @@ public class AccountService {
 
 
 
-    public void changePassword(Account account, String newPassword){
-     account.setPassword(newPassword);
+    public void changePassword(Account account, String newPassword) throws SQLException {
+        try {
+            accountDAO.updatePassword(account.getUsername(),newPassword);
+            account.setPassword(newPassword);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
     }
 
 
 
     public void changeUserType(Account account, String newType){
+        try {
+            accountDAO.updateType(account.getUsername(),newType);
+            account.setUserType(newType);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
