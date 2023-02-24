@@ -2,20 +2,20 @@ package com.example.testingproject.model;
 
 public class Pista {
     private String direction;
-    private int length, id;
+    private Integer length, id;
 
-    public Pista(int id, int length, String direction){
+    public Pista(Integer id, Integer length, String direction){
         this.id = id;
         this.length = length;
         this.direction = direction;
     }
 
 
-    public int getId(){
+    public Integer getId(){
         return this.id;
     }
 
-    public int getLength(){
+    public Integer getLength(){
         return this.length;
 
     }
