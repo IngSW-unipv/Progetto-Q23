@@ -7,6 +7,7 @@ import com.example.testingproject.model.Voli;
 import com.example.testingproject.view.Land.LandPage;
 import com.example.testingproject.view.Voli.VoliMainApplication;
 import com.example.testingproject.view.homePage.HomePage;
+import com.example.testingproject.view.luggage.LuggageMainApplication;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -67,6 +68,20 @@ public class HomePageController{
                         if (col == 1) {
                             button.setText("Bagagli");
                             button.setStyle("-fx-font-size:20");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(LuggageMainApplication.class.getResource("mainLuggageView.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }
+                            });
                         }
                         // configure button...
                         buttons.add(button);
