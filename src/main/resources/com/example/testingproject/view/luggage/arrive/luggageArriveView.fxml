@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.71" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.LuggageArriveController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.LuggageArriveController">
 
    <children>
-      <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Inserisici Codice Etichetta">
+      <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Es* MXP-VAL ">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <Button fx:id="searchButton" layoutX="38.0" layoutY="231.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="65.0" text="Cerca" />
-      <ListView fx:id="listView" layoutX="420.0" layoutY="174.0" opacity="0.68" prefHeight="278.0" prefWidth="577.0" />
+      <ListView fx:id="listView" layoutX="420.0" layoutY="174.0" prefHeight="278.0" prefWidth="577.0" />
       <MenuBar prefHeight="25.0" prefWidth="1024.0">
         <menus>
           <Menu mnemonicParsing="false" text="Edit">
@@ -28,5 +30,16 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Button layoutX="38.0" layoutY="301.0" mnemonicParsing="false" text="AGGIUNGI" />
+      <Spinner fx:id="WightSpinner" layoutX="90.0" layoutY="244.0" prefHeight="12.0" prefWidth="60.0" max="30" min="0" initialValue="0" amountToStepBy="1">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Spinner>
+      <Label layoutX="50.0" layoutY="248.0" text="PESO" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
