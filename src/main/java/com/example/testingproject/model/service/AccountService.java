@@ -15,14 +15,26 @@ public class AccountService {
 
 
 
-   public void changeUsername(Account account, String newUsername){
-        account.setUsername(newUsername);
+   public void changeUsername(Account account, String newUsername) throws SQLException {
+
+       try {
+           accountDAO.updateUsername(account.getUsername(),newUsername);
+           account.setUsername(newUsername);
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
+
 
    }
+
+
 
     public void changePassword(Account account, String newPassword){
      account.setPassword(newPassword);
     }
+
+
+
 
     public boolean AddAccount(Account account) throws SQLException {
         try {
@@ -33,6 +45,19 @@ public class AccountService {
             e.printStackTrace();
             return false;
         }
+
+    }
+
+    public Account findAccountByUsername(String username) throws SQLException {
+
+        try {
+            return accountDAO.getAccountbyUsername(username);
+        } catch (SQLException e) {
+            return null;
+
+
+        }
+
 
     }
 
