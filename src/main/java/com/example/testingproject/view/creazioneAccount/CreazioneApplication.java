@@ -1,4 +1,4 @@
-package com.example.testingproject.view.CreazioneAccount;
+package com.example.testingproject.view.creazioneAccount;
 
 
 import javafx.application.Application;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
-/*
+
 public class CreazioneApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -23,4 +23,4 @@ public class CreazioneApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
-}*/
+}

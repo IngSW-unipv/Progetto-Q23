@@ -31,6 +31,9 @@ exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics;
     opens com.example.testingproject.view.piste to javafx.fxml,javafx.graphics;
     exports com.example.testingproject.view.piste;
 
+    opens com.example.testingproject.view.creazioneAccount to javafx.fxml,javafx.graphics;
+    exports com.example.testingproject.view.creazioneAccount;
+
 
 
 
