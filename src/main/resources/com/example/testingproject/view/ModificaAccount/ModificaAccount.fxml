@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.ModificaAccountSceltaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@ModificaAccountStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.ModificaAccountSceltaController">
    <children>
       <Button fx:id="myButtonUsername" layoutX="98.0" layoutY="244.0" mnemonicParsing="false" text="Modifica Username" />
       <Button fx:id="myButtonPassword" layoutX="454.0" layoutY="244.0" mnemonicParsing="false" text="Modifica Password" />
