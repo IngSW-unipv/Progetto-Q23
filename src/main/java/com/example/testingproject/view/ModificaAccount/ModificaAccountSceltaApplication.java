@@ -11,9 +11,9 @@ package com.example.testingproject.view.ModificaAccount.;
 
 public class ModificaAccountSceltaApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {             //Errore da rivedere
-        FXMLLoader fxmlLoader = new FXMLLoader(com.example.testingproject.view.ModificaAccountSceltaApplication.class.getResource("ModificaAccount.fxml"));
-        System.out.print(com.example.testingproject.view.ModificaAccountSceltaApplication.class.getResource("ModificaAccount.fxml"));
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(com.example.testingproject.view.ModificaAccount.ModificaAccountSceltaApplication.class.getResource("ModificaAccount.fxml"));
+        System.out.print(com.example.testingproject.view.ModificaAccount.ModificaAccountSceltaApplication.class.getResource("ModificaAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Scelta della modifica");
         stage.setScene(scene);
