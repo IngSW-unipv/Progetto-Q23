@@ -128,7 +128,22 @@ public class HomePageController{
                         }
                         if (col == 1){
                             button.setText("Modifica");
-                            button.setStyle("-fx-font-size:20");}
+                            button.setStyle("-fx-font-size:20");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(LandPage.class.getResource("assign/landPage_assignview.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }
+                            });
+                        }
 
                         // configure button...
                         buttons.add(button);
