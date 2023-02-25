@@ -2,6 +2,7 @@ module com.example.testingproject {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires org.testng;
 
 
     opens com.example.testingproject to javafx.fxml;
@@ -33,6 +34,9 @@ exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics;
 
     opens com.example.testingproject.view.creazioneAccount to javafx.fxml,javafx.graphics;
     exports com.example.testingproject.view.creazioneAccount;
+
+    exports Test to org.testng;
+    opens Test to org.testng;
 
 
 
