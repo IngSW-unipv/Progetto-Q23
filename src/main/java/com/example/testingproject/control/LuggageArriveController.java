@@ -26,10 +26,10 @@ public class LuggageArriveController {
         int wight = WightSpinner.getValue();
 
         boolean verifica  = luggageDAO.verifyLuggaggeArrive(idVolo, firstAirport, secondAirport);
-       if (verifica == false) {
+       if (!verifica) {
            listView.getItems().add("NON ESISTE ALCUN VOLO ESISTENTE");
        } else {
-        luggageDAO.addLuggage(wight,Stato,idVolo);
+           luggageDAO.addLuggage(wight,Stato,idVolo);
            listView.getItems().add("BAGAGLIO AGGIUNTO CON SUCCESSO");
        }
     }

@@ -94,7 +94,7 @@ public class BagagliDAO {
                     tempPartenza = resultSet.getString(2);
                     tempArrivo = resultSet.getString(3);
 
-                    if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport))) {
+                    if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
                         continua = false;
                         return true;
                     }
