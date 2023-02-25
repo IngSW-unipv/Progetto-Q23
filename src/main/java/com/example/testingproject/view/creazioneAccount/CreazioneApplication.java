@@ -14,7 +14,7 @@ public class CreazioneApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CreazioneApplication.class.getResource("AdminCreazioneAccount.fxml"));
         System.out.print(CreazioneApplication.class.getResource("AdminCreazioneAccount.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
         stage.setTitle("Creazione Account");
         stage.setScene(scene);
         stage.show();
