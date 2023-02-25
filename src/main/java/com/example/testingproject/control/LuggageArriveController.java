@@ -27,7 +27,7 @@ public class LuggageArriveController {
 
         boolean verifica  = luggageDAO.verifyLuggaggeArrive(idVolo, firstAirport, secondAirport);
        if (!verifica) {
-           listView.getItems().add("NON ESISTE ALCUN VOLO ESISTENTE");
+           listView.getItems().add("NESSUN VOLO ESISTENTE");
        } else {
            luggageDAO.addLuggage(wight,Stato,idVolo);
            listView.getItems().add("BAGAGLIO AGGIUNTO CON SUCCESSO");
