@@ -20,15 +20,14 @@ public class LuggageArriveController {
     public void addLuggage(ActionEvent actionEvent) {
         String firstAirport = textField.getText().substring(0,3);
         String secondAirport = textField.getText().substring(4,7);
-        String arrivo = "ARRIVO";
 
         int wight = WightSpinner.getValue();
 
-      //  tempLuggage = BagagliDAO.addLuggaggeArrive(firstAirport, secondAirport, arrivo);
+      //  tempLuggage = BagagliDAO.addLuggaggeArrive(firstAirport, secondAirport);
 
-        System.out.println(firstAirport);
-        System.out.println(secondAirport);
-        System.out.println(wight);
+       // System.out.println(firstAirport);
+       // System.out.println(secondAirport);
+       // System.out.println(wight);
     }
 
     public void closeWindow(ActionEvent event) {

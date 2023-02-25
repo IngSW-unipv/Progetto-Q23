@@ -35,6 +35,7 @@ public class BagagliDAO {
         connection.closeConnection(conn);
         return luggages;
     }
+
     public static Luggage getLuggaggeById(int id) {
         Connection conn = connection.getConnection();
 
@@ -53,7 +54,7 @@ public class BagagliDAO {
                 tempVolo = resultSet.getInt(4);
                 tempStato = resultSet.getString(3);
 
-                Luggage tempLuggages = new Luggage(tempId,  tempPeso,tempStato, tempVolo);
+                Luggage tempLuggages = new Luggage(tempId, tempPeso, tempStato, tempVolo);
                 return tempLuggages;
             }
         } catch (SQLException e) {
@@ -61,6 +62,7 @@ public class BagagliDAO {
             return null;
         }
     }
+
     public void modifyStato(int id, String Stato) {
         Connection conn = connection.getConnection();
         try {
@@ -68,37 +70,28 @@ public class BagagliDAO {
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.executeUpdate();
             conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
         }
-        catch(Exception e)
-            {
-                System.err.println("Got an exception! ");
-                System.err.println(e.getMessage());
-            }
     }
 
-
-
     // metodo per l'inserimento di bagagli all'interno di database
-   /*public static Luggage addLuggaggeArrive(String firstAirport,String secondAirport, String tipo) {
+    public Luggage addLuggaggeArrive(String firstAirport, String secondAirport) {
         Connection conn = connection.getConnection();
         try {
-            String tempStato;
-            int tempId, tempPeso, tempVolo;
-            String query1 = "SELECT AirportManager.bagaglio ('peso','stato','volo') values ('" + tempPeso + "', '" + tempStato + "', '" + tempVolo + "';";
-            String query2 = "INSERT INTO AirportManager.bagaglio ('peso','stato','volo') values ('" + tempPeso + "', '" + tempStato + "', '" + tempVolo + "';";
+            int tempVolo;
+            String tempArrivo, tempPartenza;
+            String query = "SELECT partenza.volo,arrivo.aeroportop,partenza.aeroportoa FROM arrivo, partenza WHERE arrivo.volo = partenza.volo ";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
                 return null;
             } else {
                 resultSet.next();
-                tempId = resultSet.getInt(1);
-                tempPeso = resultSet.getInt(2);
-                tempVolo = resultSet.getInt(4);
-                tempStato = resultSet.getString(3);
-
-                Luggage tempLuggages = new Luggage(tempId,  tempPeso,tempStato, tempVolo);
-                return tempLuggages;
+                tempVolo = resultSet.getInt(1);
+                tempPartenza = resultSet.getString(2);
+                tempArrivo = resultSet.getString(3);
             }
 
         } catch (SQLException e) {
@@ -107,6 +100,5 @@ public class BagagliDAO {
         }
     }
 
-    */
 
 }
