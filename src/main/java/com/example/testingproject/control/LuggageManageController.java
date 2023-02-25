@@ -34,7 +34,7 @@ public class LuggageManageController {
         int id = 0;
         modifyButton.setVisible(false);
         modifyButtonInVolo.setVisible(false);
-        String a = textField.getText().substring(7);
+        String a = textField.getText().substring(8);
         try{
             id = Integer.parseInt(a);
             System.out.println(id) ;
