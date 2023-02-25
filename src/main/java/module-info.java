@@ -39,6 +39,12 @@ exports com.example.testingproject.view.Land to javafx.graphics;
     opens com.example.testingproject.view.creazioneAccount to javafx.fxml,javafx.graphics;
     exports com.example.testingproject.view.creazioneAccount;
 
+    opens com.example.testingproject.view.ModificaAccount to javafx.fxml,javafx.graphics;
+    exports com.example.testingproject.view.ModificaAccount;
+
+    opens com.example.testingproject.view.GestioneAccount to javafx.fxml,javafx.graphics;
+    exports com.example.testingproject.view.GestioneAccount;
+
     exports Test to org.testng;
     opens Test to org.testng;
 
