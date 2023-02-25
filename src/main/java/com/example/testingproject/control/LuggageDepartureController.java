@@ -12,7 +12,6 @@ public class LuggageDepartureController {
     public MenuBar myMenuBar;
 
     public void addLuggage(ActionEvent actionEvent) {
-
     }
 
     public void closeWindow(ActionEvent event) {
