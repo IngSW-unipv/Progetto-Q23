@@ -1,9 +1,6 @@
 package com.example.testingproject.model.DAO;
 
-import com.example.testingproject.model.Aereo;
-import com.example.testingproject.model.DatabaseConnection;
-import com.example.testingproject.model.Sosta;
-import com.example.testingproject.model.Hangar;
+import com.example.testingproject.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -101,6 +98,25 @@ public class TerreniDAO {
 
         connection.closeConnection(conn);
         return aerei;
+    }
+
+    public static boolean insertSosta(Sosta sosta) throws SQLException {
+
+        Connection conn = connection.getConnection();
+        try{
+            String query = "INSERT INTO AirportManager.sosta Values " +
+                    "('"+sosta.getHangar()+ "','" +sosta.getAereo()+"','"+sosta.getInizio()+"','"+sosta.getFine()+"');";
+            PreparedStatement preparedStatement =conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            connection.closeConnection(conn);
+            return false;
+        }
+
     }
 
 }
