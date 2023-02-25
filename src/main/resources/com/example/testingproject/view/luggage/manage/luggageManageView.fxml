@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.LuggageManageController">
 
-    <TextField fx:id="textField" layoutX="79.0" layoutY="174.0" onMouseClicked="#deleteText" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Inserisici Codice Etichetta">
+    <TextField fx:id="textField" layoutX="79.0" layoutY="174.0" onMouseClicked="#deleteText" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Inserisici Codice Etichetta: MXP-VAL-1">
         <font>
           <Font name="System Italic" size="12.0" />
         </font>
