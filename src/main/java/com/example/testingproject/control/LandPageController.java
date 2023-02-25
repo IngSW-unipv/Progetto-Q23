@@ -2,7 +2,8 @@ package com.example.testingproject.control;
 
 
 import com.example.testingproject.model.DAO.TerreniDAO;
-import com.example.testingproject.model.Terreno;
+import com.example.testingproject.model.Sosta;
+import com.example.testingproject.model.Hangar;
 import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,10 +30,13 @@ public class LandPageController {
     @FXML
     ListView terreniList;
     @FXML
+    ListView sosteList;
+    @FXML
     Label nposti;
     @FXML
     Label npostiliberi;
-    public ArrayList<Terreno> tr;
+    public ArrayList<Hangar> tr;
+    public int selected;
     public void initialize() throws SQLException {
     tr = TerreniDAO.getTerreni();
     for(int i = 0 ; i < tr.size(); i++){
@@ -50,14 +54,23 @@ public class LandPageController {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML public void handleMouseClick(MouseEvent arg0) {
+    @FXML public void handleMouseClick(MouseEvent arg0) throws SQLException {
         Integer id =(Integer) terreniList.getSelectionModel().getSelectedItem();
-        for (int i=0;i< tr.size();i++){
-            if (tr.get(i).id == id){
-             nposti.setText(Integer.toString(tr.get(i).getNposti()));
-             npostiliberi.setText(Integer.toString(tr.get(i).getNpostiLiberi()));
+        if (id == selected) {
+
+        }else {
+            selected = id;
+            sosteList.getItems().clear();
+            for (int i = 0; i < tr.size(); i++) {
+                if (tr.get(i).id == id) {
+                    nposti.setText(Integer.toString(tr.get(i).getNposti()));
+                    npostiliberi.setText(Integer.toString(tr.get(i).getNpostiLiberi()));
+                }
+            }
+            ArrayList<Sosta> soste = TerreniDAO.getSoste(id);
+            for (int j = 0; j < soste.size(); j++) {
+                sosteList.getItems().add("ID Aereo: " + soste.get(j).getAereo() + "     Inizio: " + soste.get(j).getInizio() + "    Fine: " + soste.get(j).getFine());
             }
         }
-        //aggiungere sosta
     }
 }

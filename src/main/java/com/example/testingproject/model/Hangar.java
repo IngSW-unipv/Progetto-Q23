@@ -1,11 +1,11 @@
 package com.example.testingproject.model;
 
-public class Terreno {
+public class Hangar {
     public int id;
     public int nposti;
     public int npostiLiberi;
 
-    public Terreno(int id, int nposti, int npostiLiberi) {
+    public Hangar(int id, int nposti, int npostiLiberi) {
         this.id = id;
         this.nposti = nposti;
         this.npostiLiberi = npostiLiberi;
