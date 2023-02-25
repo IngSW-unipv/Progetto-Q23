@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class PistaDAO {
     DatabaseConnection connection = new DatabaseConnection();
 
-    public ArrayList<Pista> getPiste() throws SQLException {
+    public ArrayList<Pista> findPiste() throws SQLException {
         ArrayList<Pista> piste = new ArrayList<Pista>();
         Connection conn = connection.getConnection();
 
@@ -56,7 +56,7 @@ public Pista findPistaByID(Integer Id) throws SQLException {
     Connection conn = connection.getConnection();
     String tempDirection;
     Integer tempId,tempLength;
-    String query = "SELECT id,direzione,lunghezza FROM AirportManager.pista;";
+    String query = "SELECT id,direzione,lunghezza FROM AirportManager.pista WHERE id = "+Id.toString()+";";
 
 
     try {
@@ -84,7 +84,7 @@ public Pista findPistaByID(Integer Id) throws SQLException {
 }
 
 
-public boolean addPista(Pista pista) throws SQLException {
+public boolean newPista(Pista pista) throws SQLException {
 
         Connection conn = connection.getConnection();
         try{
