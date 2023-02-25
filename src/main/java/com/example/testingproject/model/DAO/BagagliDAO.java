@@ -1,8 +1,6 @@
 package com.example.testingproject.model.DAO;
-
-import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DatabaseConnection;
-import com.example.testingproject.model.Luggage;
+import com.example.testingproject.model.Luggage;;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,15 +29,12 @@ public class BagagliDAO {
                 Luggage tempLugagges = new Luggage(tempId, tempPeso, tempStato, tempVolo);
                 luggages.add(tempLugagges);
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         connection.closeConnection(conn);
         return luggages;
     }
-
     public static Luggage getLuggaggeById(int id) {
         Connection conn = connection.getConnection();
 
@@ -61,12 +56,28 @@ public class BagagliDAO {
                 Luggage tempLuggages = new Luggage(tempId,  tempPeso,tempStato, tempVolo);
                 return tempLuggages;
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
+    public void modifyStato(int id, String Stato) {
+        Connection conn = connection.getConnection();
+        try {
+            String query = "UPDATE `AirportManager`.`bagaglio` SET `stato` = '" + Stato + "' WHERE (`id` = '" + id + "');";
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+            conn.close();
+        }
+        catch(Exception e)
+            {
+                System.err.println("Got an exception! ");
+                System.err.println(e.getMessage());
+            }
+    }
+
+
+
     // metodo per l'inserimento di bagagli all'interno di database
    /*public static Luggage addLuggaggeArrive(String firstAirport,String secondAirport, String tipo) {
         Connection conn = connection.getConnection();

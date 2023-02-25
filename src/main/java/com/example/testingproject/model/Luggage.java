@@ -38,5 +38,4 @@ public class Luggage{
     public void setVolo(int volo) {
         Volo = volo;
     }
-
 }
