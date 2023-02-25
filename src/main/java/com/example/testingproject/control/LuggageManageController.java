@@ -2,24 +2,11 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
-import com.example.testingproject.model.UserHolder;
-import com.example.testingproject.view.Land.LandPage;
-import com.example.testingproject.view.Voli.VoliMainApplication;
-import com.example.testingproject.view.luggage.LuggageMainApplication;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class LuggageManageController {
@@ -56,7 +43,7 @@ public class LuggageManageController {
             ex.printStackTrace();
         }
 
-        tempLuggage = BagagliDAO.getLuggaggeById(id);
+        tempLuggage = luggageDAO.getLuggaggeById(id);
         assert tempLuggage != null;
         if (tempLuggage.getId() == id) {
             ListView.getItems().add("CODICE VOLO: "+ tempLuggage.getVolo());
