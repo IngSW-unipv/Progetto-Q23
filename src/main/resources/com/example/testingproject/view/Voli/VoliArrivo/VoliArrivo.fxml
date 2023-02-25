@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.VoliArrivoController">
+<?import javafx.scene.control.Button?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.VoliPartenzaController">
 
     <children>
         <Label layoutX="395.0" layoutY="106.0" text="VOLI IN ARRIVO">
@@ -15,14 +18,16 @@
             </font>
         </Label>
         <Label fx:id="Label" layoutX="399.0" layoutY="322.0" prefHeight="26.0" prefWidth="267.0" textFill="RED" />
-      <MenuBar prefHeight="25.0" prefWidth="1024.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+        <MenuBar prefHeight="25.0" prefWidth="1024.0">
+            <menus>
+
+            </menus>
+        </MenuBar>
+        <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
+        <ScrollPane layoutX="58.0" layoutY="180.0" prefHeight="270.0" prefWidth="893.0">
+            <content>
+                <ListView fx:id="voliListView" prefHeight="266.0" prefWidth="590.0" />
+            </content>
+        </ScrollPane>
     </children>
 </Pane>

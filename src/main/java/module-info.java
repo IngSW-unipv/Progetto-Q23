@@ -3,6 +3,7 @@ module com.example.testingproject {
     requires javafx.fxml;
     requires java.sql;
     requires org.testng;
+    //requires org.testng;
 
 
     opens com.example.testingproject to javafx.fxml;
@@ -14,7 +15,10 @@ module com.example.testingproject {
     exports com.example.testingproject.view.login;
 
     opens  com.example.testingproject.view.Land to javafx.fxml;
-exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics;
+exports com.example.testingproject.view.Land to javafx.graphics;
+
+    opens  com.example.testingproject.view.Land.assign to javafx.fxml;
+
 
     opens com.example.testingproject.view.LoadingPage to javafx.fxml;
     exports com.example.testingproject.view.LoadingPage;
