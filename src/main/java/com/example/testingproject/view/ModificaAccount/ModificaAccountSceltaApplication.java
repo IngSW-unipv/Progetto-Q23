@@ -1,4 +1,4 @@
-package com.example.testingproject.view.ModificaAccount.;
+package com.example.testingproject.view.ModificaAccount;
 
 
         import javafx.application.Application;
