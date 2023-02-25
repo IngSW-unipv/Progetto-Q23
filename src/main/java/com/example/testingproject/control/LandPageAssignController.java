@@ -3,6 +3,7 @@ package com.example.testingproject.control;
 import com.example.testingproject.model.Aereo;
 import com.example.testingproject.model.DAO.TerreniDAO;
 import com.example.testingproject.model.Hangar;
+import com.example.testingproject.model.Sosta;
 import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +11,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,11 +28,18 @@ public class LandPageAssignController {
     ListView hangarList;
     @FXML
     ListView aereiList;
+    @FXML
+    DatePicker datePickerI;
+    @FXML
+    DatePicker datePickerF;
     private Stage stage;
     private Scene scene;
     private Parent root;
     public ArrayList<Hangar> hg;
     public ArrayList<Aereo> aerei;
+    public int selectedHangar;
+    public  int selectedAereo;
+    public  String selectedDateI,selectedDateF;
     public void initialize() throws SQLException {
       hg = TerreniDAO.getTerreni();
       for (int i =0; i< hg.size(); i++){
@@ -55,4 +65,25 @@ public class LandPageAssignController {
         stage.show();
     }
 
+    public void handleHangarList(MouseEvent mouseEvent) {
+        selectedHangar = (Integer) hangarList.getSelectionModel().getSelectedItem();
+    }
+
+    public void handleAereiList(MouseEvent mouseEvent) {
+        selectedAereo = (Integer) aereiList.getSelectionModel().getSelectedItem();
+    }
+
+    public void handleAssign(ActionEvent actionEvent) throws SQLException {
+        System.out.println(selectedAereo+"  "+selectedHangar);
+        Sosta sosta = new Sosta(selectedHangar,selectedAereo,selectedDateI,selectedDateF);
+        TerreniDAO.insertSosta(sosta);
+    }
+
+    public void setSelectedDateI(ActionEvent actionEvent) {
+        selectedDateI = String.valueOf(datePickerI.getValue());
+    }
+
+    public void setSelectedDateF(ActionEvent actionEvent) {
+        selectedDateF = String.valueOf(datePickerF.getValue());
+    }
 }

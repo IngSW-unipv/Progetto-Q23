@@ -31,8 +31,8 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ListView fx:id="hangarList" layoutX="31.0" layoutY="156.0" prefHeight="312.0" prefWidth="162.0" />
-      <ListView fx:id="aereiList" layoutX="235.0" layoutY="156.0" prefHeight="312.0" prefWidth="162.0" />
+      <ListView fx:id="hangarList" onMouseClicked="#handleHangarList"  layoutX="31.0" layoutY="156.0" prefHeight="312.0" prefWidth="162.0" />
+      <ListView fx:id="aereiList" onMouseClicked="#handleAereiList" layoutX="235.0" layoutY="156.0" prefHeight="312.0" prefWidth="162.0" />
       <Label layoutX="485.0" layoutY="164.0" prefHeight="22.0" prefWidth="146.0" text="Data/Ora Inizio:">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
@@ -43,9 +43,9 @@
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="781.0" layoutY="462.0" mnemonicParsing="false" text="Assegna" />
+      <Button fx:id="assignButton" onAction="#handleAssign" layoutX="781.0" layoutY="462.0" mnemonicParsing="false" text="Assegna" />
       <Button layoutX="863.0" layoutY="462.0" mnemonicParsing="false" text="Clear" />
-      <DatePicker layoutX="657.0" layoutY="164.0" />
-      <DatePicker layoutX="658.0" layoutY="216.0" />
+      <DatePicker fx:id="datePickerI" onAction="#setSelectedDateI" layoutX="657.0" layoutY="164.0" />
+      <DatePicker fx:id="datePickerF" onAction="#setSelectedDateF" layoutX="658.0" layoutY="216.0" />
    </children>
 </AnchorPane>
