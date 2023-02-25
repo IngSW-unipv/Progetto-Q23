@@ -77,7 +77,7 @@ public class BagagliDAO {
     }
 
     // metodo per l'inserimento di bagagli all'interno di database
-    public Luggage addLuggaggeArrive(String firstAirport, String secondAirport) {
+    public static int verifyLuggaggeArrive(String firstAirport, String secondAirport) {
         Connection conn = connection.getConnection();
         try {
             int tempVolo;
@@ -86,19 +86,20 @@ public class BagagliDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
-                return null;
             } else {
                 resultSet.next();
                 tempVolo = resultSet.getInt(1);
                 tempPartenza = resultSet.getString(2);
                 tempArrivo = resultSet.getString(3);
-            }
 
+                if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport))){
+                    return tempVolo;
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
         }
+         return 0;
     }
-
 
 }

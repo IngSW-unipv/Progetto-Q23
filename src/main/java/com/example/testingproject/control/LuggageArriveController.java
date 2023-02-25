@@ -3,6 +3,7 @@ package com.example.testingproject.control;
 import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.model.Luggage;
 import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -23,11 +24,9 @@ public class LuggageArriveController {
 
         int wight = WightSpinner.getValue();
 
-      //  tempLuggage = BagagliDAO.addLuggaggeArrive(firstAirport, secondAirport);
+        int verifica  = BagagliDAO.verifyLuggaggeArrive(firstAirport, secondAirport);
+       // if (verifica == 0) {ListView.getItems().add("NON ESISTE ALCUN VOLO ESISTENTE")
 
-       // System.out.println(firstAirport);
-       // System.out.println(secondAirport);
-       // System.out.println(wight);
     }
 
     public void closeWindow(ActionEvent event) {
