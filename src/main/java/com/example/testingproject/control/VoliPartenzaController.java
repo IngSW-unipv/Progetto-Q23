@@ -56,7 +56,11 @@ public class VoliPartenzaController {
         ArrayList<Voli> voli_ = new ArrayList<>();
         voli_ = VoliDAO.getVoli();
         for (int i = 0; i < voli_.size(); i++) {
-            voliListView.getItems().add(voli_.get(i).getNome_aereo() +"   "+ voli_.get(i).getGate() + "  "+ voli_.get(i).getAereo());
+            voliListView.getItems().add( voli_.get(i).getGate() + "  "+ voli_.get(i).getAereo()+" "+ voli_.get(i).getRitardo() +
+
+                    " "+ voli_.get(i).getAereo() + " " + voli_.get(i).getGate() + " " + + voli_.get(i).getPista() +
+                    " " +  voli_.get(i).getAeroportop() + " " +
+                    voli_.get(i).getDataora());
 
         }
 

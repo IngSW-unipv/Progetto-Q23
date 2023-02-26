@@ -5,13 +5,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@GestioneAccountStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.GestioneAccountController">
    <children>
-      <Button fx:id="myButtonModifica" layoutX="75.0" layoutY="172.0" mnemonicParsing="false" text="Modifica Account" />
-      <Button fx:id="myButtonCrea" layoutX="256.0" layoutY="172.0" mnemonicParsing="false" text="Crea Account" />
-      <Button fx:id="myButtonElimina" layoutX="421.0" layoutY="172.0" mnemonicParsing="false" text="Elimina Account" />
-      <Label fx:id="myLabel" layoutX="108.0" layoutY="62.0" text="Scegliere l'azione da svolgere con un Account">
+      <Button fx:id="myButtonModifica" layoutX="121.0" layoutY="244.0" mnemonicParsing="false" onAction="#ModificaAccountOnClick" text="Modifica Account" />
+      <Button fx:id="myButtonCrea" layoutX="468.0" layoutY="244.0" mnemonicParsing="false" onAction="#CreaAccountOnClick" text="Crea Account" />
+      <Button fx:id="myButtonElimina" layoutX="790.0" layoutY="244.0" mnemonicParsing="false" text="Elimina Account" />
+      <Label fx:id="myLabel" layoutX="320.0" layoutY="88.0" text="Scegliere l'azione da svolgere con un Account">
          <font>
             <Font size="19.0" />
          </font>

@@ -1,13 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxWidth="600.0" prefHeight="37.0" prefWidth="600.0" style="-fx-background-insets: 2;" styleClass="item" stylesheets="@itemStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.PisteItemController">
+   <children>
+      <ImageView fitHeight="25.0" fitWidth="42.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@runwayIcon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="49.0" layoutY="6.0" text="Pista:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="IdValue" layoutX="90.0" layoutY="7.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="42.0" layoutX="132.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@directionIcon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="166.0" layoutY="6.0" text="Direzione:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="directionValue" layoutX="240.0" layoutY="7.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="42.0" layoutX="284.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lenIcon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="317.0" layoutY="6.0" text="Lunghezza:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lengthValue" layoutX="403.0" layoutY="7.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="42.0" layoutX="449.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@windIcon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="479.0" layoutY="7.0" text="Vento:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="windValue" layoutX="529.0" layoutY="7.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

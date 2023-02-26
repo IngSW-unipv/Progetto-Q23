@@ -5,25 +5,32 @@ package com.example.testingproject.model;
 import java.lang.constant.Constable;
 
 public class Voli {
-    private String gate,nome_aereo;
-    private int id,durata,ritardo,aereo;
+    private String gate,aeroportop,dataora;
+    private int id,durata,ritardo,aereo,pista;
 
 
-    public Voli(String gate, String nome_aereo,int id,int durata,int ritardo,int aereo) {
+    public Voli(String gate, String aeroportop, String dataora, int id, int durata, int ritardo, int aereo, int pista) {
         this.gate = gate;
-        this.nome_aereo = nome_aereo;
-        this.id=id;
-        this.durata=durata;
-        this.ritardo=ritardo;
-        this.aereo=aereo;
+        this.aeroportop = aeroportop;
+        this.dataora = dataora;
+        this.id = id;
+        this.durata = durata;
+        this.ritardo = ritardo;
+        this.aereo = aereo;
+        this.pista = pista;
     }
+
 
     public String getGate() {
-        return this.gate;
+        return gate;
     }
 
-    public String getNome_aereo() {
-        return nome_aereo;
+    public String getAeroportop() {
+        return aeroportop;
+    }
+
+    public String getDataora() {
+        return dataora;
     }
 
     public int getId() {
@@ -40,6 +47,10 @@ public class Voli {
 
     public int getAereo() {
         return aereo;
+    }
+
+    public int getPista() {
+        return pista;
     }
 }
 
