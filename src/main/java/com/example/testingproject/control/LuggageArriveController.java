@@ -44,7 +44,7 @@ public class LuggageArriveController {
             ex.printStackTrace();
         }
         // verifica esistenza del volo
-        boolean verifica = luggageDAO.verifyLuggagge(idVolo, firstAirport, secondAirport);
+        boolean verifica = luggageDAO.verifyFly(idVolo, firstAirport, secondAirport);
         int wight = WightSpinner.getValue();
         if (wight == 0) {
             listView.getItems().add("PESO ERRATO: INSERISCI UN PESO CHE SIA ALMENO MAGGIORE DI 0");

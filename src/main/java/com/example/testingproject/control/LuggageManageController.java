@@ -45,62 +45,67 @@ public class LuggageManageController {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
         int lencodice = codice.length();
-        int lcod,line = 0;
-        char j ;
-        codice= codice.substring(8);
+        int lcod, line = 0;
+        char j;
+        codice = codice.substring(8);
         lcod = codice.length();
-        for(int i = 0; i < lcod; i++) {
+        for (int i = 0; i < lcod; i++) {
             j = codice.charAt(i);
-            if (j == '-'){
-                 line = i;
-                 break;
+            if (j == '-') {
+                line = i;
+                break;
             }
         }
         System.out.println(line);
         // prelevamento informazioni dall'etichetta
         int idVolo = 0;
         int idBagaglio = 0;
-        boolean verifica = false;
+        boolean verifica1 = false;
+        boolean verifica2 = false;
         String firstAirport = textField.getText().substring(0, 3);
         String secondAirport = textField.getText().substring(4, 7);
-        String volo =codice.substring(0,line);
-        String bagaglio = codice.substring(line+1,lcod);
+        String volo = codice.substring(0, line);
+        String bagaglio = codice.substring(line + 1, lcod);
 
-        System.out.println("id baglio: "+ bagaglio);
+        System.out.println("id baglio: " + bagaglio);
 
         modifyButton.setVisible(false);
         modifyButtonInVolo.setVisible(false);
         try {
             idVolo = Integer.parseInt(volo);
             idBagaglio = Integer.parseInt(bagaglio);
-            System.out.println("id volo: " +idVolo);
+            System.out.println("id volo: " + idVolo);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
         // verifica di presenza del volo specificato
-        verifica = luggageDAO.verifyLuggagge(idVolo, firstAirport, secondAirport);
-        if (!verifica) {
+        verifica1 = luggageDAO.verifyFly(idVolo, firstAirport, secondAirport);
+        // verifica presenza di bagaglio su quel determinato volo
+        verifica2 = luggageDAO.verifyLuggegeinFly(idBagaglio, idVolo);
+        if (!verifica1) {
             ListView.getItems().add("IL VOLO RICERCATO NON ESISTE");
         } else {
-            tempLuggage = luggageDAO.getLuggaggeById(idBagaglio);
-            assert tempLuggage != null;
-            // verifica esistenza bagaglio specificato
-            if (tempLuggage.getId() == idBagaglio) {
-                ListView.getItems().add("CODICE VOLO: " + tempLuggage.getVolo());
-                ListView.getItems().add("STATO: " + tempLuggage.getStato());
-                ListView.getItems().add("PESO: " + tempLuggage.getPeso());
-
-                if (Objects.equals(tempLuggage.getStato(), "SMARRITO")) {
-                    modifyButtonInVolo.setVisible(true);
-                } else if ((Objects.equals(tempLuggage.getStato(), "IN VOLO"))) {
-                    modifyButton.setVisible(true);
-                }
+            if (!verifica2) {
+                ListView.getItems().add("IL BAGAGLIO SELEZIONATO NON E' PRESENTE SU QUESTIO VOLO");
             } else {
-                ListView.getItems().add("BAGAGLIO NON ESISTENTE");
+                tempLuggage = luggageDAO.getLuggaggeById(idBagaglio);
+                assert tempLuggage != null;
+                if (tempLuggage.getId() == idBagaglio) {
+                    ListView.getItems().add("CODICE VOLO: " + tempLuggage.getVolo());
+                    ListView.getItems().add("STATO: " + tempLuggage.getStato());
+                    ListView.getItems().add("PESO: " + tempLuggage.getPeso());
+
+                    if (Objects.equals(tempLuggage.getStato(), "SMARRITO")) {
+                        modifyButtonInVolo.setVisible(true);
+                    } else if ((Objects.equals(tempLuggage.getStato(), "IN VOLO"))) {
+                        modifyButton.setVisible(true);
+                    }
+                } else {
+                    ListView.getItems().add("BAGAGLIO NON ESISTENTE");
+                }
             }
         }
     }
-
     public void deleteText(MouseEvent mouseEvent) {
     }
 

@@ -81,8 +81,8 @@ public class BagagliDAO {
         }
     }
 
-    // metodo per l'inserimento di bagagli all'interno di database
-    public boolean verifyLuggagge(int idVolo,String firstAirport, String secondAirport) {
+
+    public boolean verifyFly(int idVolo,String firstAirport, String secondAirport) {
         Connection conn = connection.getConnection();
         try {
             int tempVolo = 0;
@@ -168,5 +168,23 @@ public class BagagliDAO {
             e.printStackTrace();
         }
         return 0;
+    }
+    public boolean verifyLuggegeinFly(int idBagaglio, int idVolo) {
+        Connection conn = connection.getConnection();
+        try {
+            String tempArrivo, tempPartenza;
+            String query = "SELECT * FROM AirportManager.bagaglio where volo = '"+idVolo+"' and id = '"+idBagaglio+"';";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (!resultSet.isBeforeFirst()) {
+                return false;
+            } else {
+                resultSet.next();
+                return true;
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }
