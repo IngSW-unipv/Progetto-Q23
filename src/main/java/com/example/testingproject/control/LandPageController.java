@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
@@ -19,7 +20,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LandPageController {
     @FXML
@@ -54,7 +58,7 @@ public class LandPageController {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML public void handleMouseClick(MouseEvent arg0) throws SQLException {
+    @FXML public void handleMouseClick(MouseEvent arg0) throws SQLException, ParseException {
         Integer id =(Integer) terreniList.getSelectionModel().getSelectedItem();
         if (id == selected) {
 
@@ -69,7 +73,20 @@ public class LandPageController {
             }
             ArrayList<Sosta> soste = TerreniDAO.getSoste(id);
             for (int j = 0; j < soste.size(); j++) {
+
                 sosteList.getItems().add("ID Aereo: " + soste.get(j).getAereo() + "     Inizio: " + soste.get(j).getInizio() + "    Fine: " + soste.get(j).getFine());
+
+                Alert errorAlert = new Alert(Alert.AlertType.WARNING);
+                errorAlert.setTitle("Avviso");
+                String text = "Il contratto per l'Hangar n. "+ soste.get(j).getHangar() + ",occupato dall'aereo n. "+ soste.get(j).getAereo() + " è scaduto";
+                errorAlert.setHeaderText("Avviso di scadenza");
+                errorAlert.setContentText(text);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date date1 = sdf.parse(soste.get(j).getFine());
+                Date date2 = new Date(System.currentTimeMillis());
+                int result= date1.compareTo(date2);
+                if (result < 0)
+                errorAlert.showAndWait();
             }
         }
     }

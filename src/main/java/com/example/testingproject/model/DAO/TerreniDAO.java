@@ -152,7 +152,28 @@ public class TerreniDAO {
         }
 
     }
-    public static boolean updateHangar(int id) throws SQLException {
+    public static boolean increaseHangar(int id) throws SQLException {
+        Connection conn = connection.getConnection();
+        try{
+            String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi+1   WHERE (id = '"+id+ "');";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        }catch(Exception exception){
+            exception.printStackTrace();
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Errore di Inserimento");
+            errorAlert.setHeaderText("L'hangar è vuoto");
+            errorAlert.setContentText("L'hangar selezionato è al vuoto. Non puoi rimuovere una sosta inesistente");
+            errorAlert.showAndWait();
+            connection.closeConnection(conn);
+            return false;
+
+        }
+    }
+    public static boolean decreaseHangar(int id) throws SQLException {
         Connection conn = connection.getConnection();
         try{
             String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi-1   WHERE (id = '"+id+ "');";
@@ -173,5 +194,26 @@ public class TerreniDAO {
 
         }
     }
+    public static boolean removeSosta(Sosta sosta) throws SQLException {
+        Connection conn = connection.getConnection();
 
+        try{
+            String query = "Delete from AirportManager.sosta where hangar='"+sosta.getHangar()+ "' and aereo='"+sosta.getAereo()+"';";
+            PreparedStatement preparedStatement =conn.prepareStatement(query);
+            int resultSet = preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            if(resultSet == 1)return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Errore di Rimozione");
+            errorAlert.setHeaderText("Il Record selezionato non esiste");
+            errorAlert.setContentText("Stai provando ad eliminare un record che non esiste");
+            errorAlert.showAndWait();
+            connection.closeConnection(conn);
+            return false;
+        }
+         return false;
+    }
 }
