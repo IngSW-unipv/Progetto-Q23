@@ -2,6 +2,7 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
+import com.example.testingproject.model.VistaVoloBagaglio;
 import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LuggageManageController {
@@ -26,6 +29,7 @@ public class LuggageManageController {
     public TextField textField;
     public Button modifyButton;
     public Button modifyButtonInVolo;
+    public javafx.scene.control.ListView<String> ListView1;
 
     private String StringSmarrito = "SMARRITO";
     private String StringInVolo = "IN VOLO";
@@ -40,6 +44,14 @@ public class LuggageManageController {
     private Parent root;
 
 
+    public void initialize() throws SQLException {
+        ArrayList<VistaVoloBagaglio> voli = new ArrayList<>();
+        ListView1.getItems().add("VOLO"+"  "+ "PARTENZA"+"  "+ "PARTENZA");
+        voli = luggageDAO.getVistaArrivo();
+        for (VistaVoloBagaglio vistaVoloBagaglio : voli) {
+            ListView1.getItems().add(vistaVoloBagaglio.getIdVolo() + "             " + vistaVoloBagaglio.getAeroportoP() + "             " + vistaVoloBagaglio.getAeroportoA());
+        }
+    }
 
     public void search(ActionEvent event) {
         // addettamento stringa dinamica per ricerca
