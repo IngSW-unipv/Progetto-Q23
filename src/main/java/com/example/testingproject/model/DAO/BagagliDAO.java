@@ -119,31 +119,27 @@ public class BagagliDAO {
         }
     }
 
-/*
+    // verifica se volo è pertinente e se è possibile inserire un'altro bagaglio
     public boolean verifyPlaceonBord(int idVolo, int wight, String firstAirport, String secondAirport){
         Connection conn = connection.getConnection();
         try {
             int tempVolo = 0;
-            int tempIdaereo = 0;
             int tempCaricoMax= 0;
             String tempArrivo, tempPartenza;
-            String query = "select aereo, aeroportoa, aeroportop, volo, caricomax" +
-                    "FROM(select aereo, aeroportoa, aeroportop, volo" +
-                    "FROM (SELECT partenza.volo,arrivo.aeroportop,partenza.aeroportoa" +
-                    "FROM arrivo, partenza" +
-                    "WHERE arrivo.volo = partenza.volo) T join volo on T.volo = volo.id) T2 join aereo on (T2.aereo = aereo.id);";
+            String query = "select aereo, aeroportoa, aeroportop, volo, caricomax FROM(select aereo, aeroportoa, aeroportop, volo FROM (SELECT partenza.volo,arrivo.aeroportop,partenza.aeroportoa FROM arrivo, partenza WHERE arrivo.volo = partenza.volo) T join volo on T.volo = volo.id) T2 join aereo on (T2.aereo = aereo.id);";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
                 return false;
             } else while (resultSet.next()) {
-                tempIdaereo = resultSet.getInt(1);
                 tempArrivo = resultSet.getString(2);
                 tempPartenza = resultSet.getString(3);
                 tempVolo = resultSet.getInt(4);
                 tempCaricoMax = resultSet.getInt(5);
                 if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
-                    if((tempCaricoMax))
+                    if((tempCaricoMax >= wight)){
+                        return true;
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -154,31 +150,23 @@ public class BagagliDAO {
     public int sumWigth(int idVolo){
         Connection conn = connection.getConnection();
         try {
-            int tempVolo = 0;
-            int tempIdaereo = 0;
-            int tempCaricoMax= 0;
-            String tempArrivo, tempPartenza;
-            String query =  " SELECT sum(PESO),volo FROM (select volo,peso from bagaglio) as a join(select id from volo) as b on b.id=volo where volo = '"+ idVolo+"' ";
+            int tempPeso;
+            String query =  " SELECT sum(PESO), volo FROM (select volo,peso from bagaglio) as a join(select id from volo) as b on b.id=volo where volo ='"+idVolo+"'";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
-
-                return 0;
-            } else  (resultSet.next()) {
-                tempIdaereo = resultSet.getInt(1);
-                tempArrivo = resultSet.getString(2);
-                tempPartenza = resultSet.getString(3);
-                tempVolo = resultSet.getInt(4);
-                tempCaricoMax = resultSet.getInt(5);
-                if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
-                    if((tempCaricoMax))
-                }
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                errorAlert.setHeaderText("Input not valid");
+                errorAlert.setContentText("Il bagaglio non esiste");
+                errorAlert.showAndWait();
+            } else {
+                resultSet.next();
+                tempPeso = resultSet.getInt(1);
+                return tempPeso;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return 0;
     }
-
-*/
 }

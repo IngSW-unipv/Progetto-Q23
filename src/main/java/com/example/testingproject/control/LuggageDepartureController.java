@@ -44,19 +44,20 @@ public class LuggageDepartureController {
             ex.printStackTrace();
         }
 
-        // int sumWigth(int idVolo){}
-        // verifica esistenza del volo
-        boolean verifica = luggageDAO.verifyLuggagge(idVolo, firstAirport, secondAirport);
-        // verifica se posto in stiva
+        // ricava per il volo il peso attuale di tutti bagagli
+        int wigth = luggageDAO.sumWigth(idVolo);
+        int wigthLuggage = WightSpinner.getValue();
 
+        // verifica esistenza volo e posto sul aereo
+        boolean verifica = luggageDAO.verifyPlaceonBord(idVolo, wigth+wigthLuggage,firstAirport,secondAirport);
+        System.out.println(verifica);
 
-        int wight = WightSpinner.getValue();
-        if (wight == 0) {
+        if (wigthLuggage == 0) {
             listView.getItems().add("PESO ERRATO: INSERISCI UN PESO CHE SIA ALMENO MAGGIORE DI 0");
         } else if (!verifica) {
-            listView.getItems().add("NESSUN VOLO ESISTENTE");
+            listView.getItems().add("NON E' STATO POSSIBILE INSERIRE IL BAGAGLIO");
         } else {
-            luggageDAO.addLuggage(wight, Stato, idVolo);
+            luggageDAO.addLuggage(wigthLuggage, Stato, idVolo);
             listView.getItems().add("BAGAGLIO AGGIUNTO CON SUCCESSO");
         }
     }
