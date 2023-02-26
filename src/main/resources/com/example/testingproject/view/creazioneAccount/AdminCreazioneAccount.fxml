@@ -6,12 +6,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.CreazioneAccountController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@AdminCreazioneAccountStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.CreazioneAccountController">
    <children>
-      <Button layoutX="274.0" layoutY="312.0" mnemonicParsing="false" text="Conferma Scelta" />
-      <ChoiceBox fx:id="myChoiceBox" layoutX="225.0" layoutY="149.0" prefWidth="150.0" />
-      <Label fx:id="myLabel" alignment="CENTER" layoutX="43.0" layoutY="59.0" prefHeight="46.0" prefWidth="515.0" text="Selezionare quale mansione svolgerà il nuovo utente">
+      <Button layoutX="462.0" layoutY="365.0" mnemonicParsing="false" text="Conferma Scelta" />
+      <ChoiceBox fx:id="myChoiceBox" layoutX="438.0" layoutY="186.0" prefWidth="150.0" />
+      <Label fx:id="myLabel" alignment="CENTER" layoutX="255.0" layoutY="61.0" prefHeight="46.0" prefWidth="515.0" text="Selezionare quale mansione svolgerà il nuovo utente">
          <font>
             <Font size="22.0" />
          </font></Label>
