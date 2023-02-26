@@ -44,7 +44,7 @@
          </font>
       </Label>
       <Button fx:id="assignButton" onAction="#handleAssign" layoutX="781.0" layoutY="462.0" mnemonicParsing="false" text="Assegna" />
-      <Button layoutX="863.0" layoutY="462.0" mnemonicParsing="false" text="Clear" />
+      <Button fx:id="removeButton" onAction="#handleRemove" layoutX="863.0" layoutY="462.0" mnemonicParsing="false" text="Remove" />
       <DatePicker fx:id="datePickerI" onAction="#setSelectedDateI" layoutX="657.0" layoutY="164.0" />
       <DatePicker fx:id="datePickerF" onAction="#setSelectedDateF" layoutX="658.0" layoutY="216.0" />
    </children>

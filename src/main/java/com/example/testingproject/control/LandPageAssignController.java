@@ -11,9 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -32,6 +30,10 @@ public class LandPageAssignController {
     DatePicker datePickerI;
     @FXML
     DatePicker datePickerF;
+    @FXML
+    Button assignButton;
+    @FXML
+    Button removeButton;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -72,11 +74,47 @@ public class LandPageAssignController {
     public void handleAereiList(MouseEvent mouseEvent) {
         selectedAereo = (Integer) aereiList.getSelectionModel().getSelectedItem();
     }
+    public void handleRemove(ActionEvent actionEvent) throws  SQLException{
+        Sosta sosta = new Sosta(selectedHangar,selectedAereo,selectedDateI,selectedDateF);
+        Hangar hgt = TerreniDAO.getTerrenoByID(sosta.getHangar());
+        boolean inserimento=false;
+        if (hgt.getNpostiLiberi()<hgt.getNposti()){
+            inserimento = TerreniDAO.removeSosta(sosta);
+            System.out.println(inserimento);
+        }
+        if(inserimento){
+            TerreniDAO.increaseHangar(sosta.getHangar());
+        }
+        else{
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Errore di Inserimento");
+            errorAlert.setHeaderText("La sosta selezionata non puo essere cancellata");
+            errorAlert.setContentText("La sosta selezionata non esiste");
+            errorAlert.showAndWait();
+        }
 
+    }
     public void handleAssign(ActionEvent actionEvent) throws SQLException {
         System.out.println(selectedAereo+"  "+selectedHangar);
         Sosta sosta = new Sosta(selectedHangar,selectedAereo,selectedDateI,selectedDateF);
-        TerreniDAO.insertSosta(sosta);
+        Hangar hgt = TerreniDAO.getTerrenoByID(sosta.getHangar());
+        boolean inserimento=false;
+        if (hgt.getNpostiLiberi()>0){
+            inserimento = TerreniDAO.insertSosta(sosta);
+        }
+        if(inserimento){
+            boolean update = TerreniDAO.decreaseHangar(sosta.getHangar());
+        }
+        else{
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Errore di Inserimento");
+            errorAlert.setHeaderText("L'hangar è al completo");
+            errorAlert.setContentText("L'hangar selezionato è al completo. Seleziona un altro Hangar");
+            errorAlert.showAndWait();
+        }
+
+
+
     }
 
     public void setSelectedDateI(ActionEvent actionEvent) {
