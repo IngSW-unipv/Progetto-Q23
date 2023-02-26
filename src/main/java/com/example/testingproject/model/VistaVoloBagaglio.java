@@ -16,23 +16,12 @@ public class VistaVoloBagaglio {
         return idVolo;
     }
 
-    public void setIdVolo(int idVolo) {
-        this.idVolo = idVolo;
-    }
-
     public String getAeroportoP() {
         return aeroportoP;
-    }
-
-    public void setAeroportoP(String aeroportop) {
-        this.aeroportoP = aeroportop;
     }
 
     public String getAeroportoA() {
         return aeroportoA;
     }
 
-    public void setAeroportoA(String aeroportoA) {
-        this.aeroportoA = aeroportoA;
-    }
 }
