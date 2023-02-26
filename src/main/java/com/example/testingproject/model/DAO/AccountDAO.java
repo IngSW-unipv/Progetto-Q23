@@ -96,6 +96,8 @@ connection.closeConnection(conn);
 public boolean updateUsername(String currentUsername, String updateUsername) throws SQLException {
 
     Connection conn = connection.getConnection();
+
+
         try{
             String query = "UPDATE AirportManager.users SET username = '" +updateUsername+"' WHERE (username = '"+ currentUsername+ "');";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
