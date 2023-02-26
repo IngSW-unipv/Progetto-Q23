@@ -43,8 +43,13 @@ public class LuggageDepartureController {
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
+
+        // int sumWigth(int idVolo){}
         // verifica esistenza del volo
         boolean verifica = luggageDAO.verifyLuggagge(idVolo, firstAirport, secondAirport);
+        // verifica se posto in stiva
+
+
         int wight = WightSpinner.getValue();
         if (wight == 0) {
             listView.getItems().add("PESO ERRATO: INSERISCI UN PESO CHE SIA ALMENO MAGGIORE DI 0");

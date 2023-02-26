@@ -100,10 +100,6 @@ public class LuggageManageController {
             }
         }
     }
-    public void closeWindow(ActionEvent event) {
-        Stage stage = (Stage) myMenuBar.getScene().getWindow();
-        stage.close();
-    }
 
     public void deleteText(MouseEvent mouseEvent) {
     }
