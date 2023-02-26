@@ -2,10 +2,17 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.model.Luggage;
+import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LuggageArriveController {
     public Spinner<Integer> WightSpinner;
@@ -17,6 +24,9 @@ public class LuggageArriveController {
     private javafx.scene.control.ListView<String> listView;
     private Luggage tempLuggage;
     private BagagliDAO luggageDAO = new BagagliDAO();
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     public void addLuggage(ActionEvent actionEvent) {
         int lengthcod = 0;
         int idVolo = 0;
@@ -49,5 +59,12 @@ public class LuggageArriveController {
     public void closeWindow(ActionEvent event) {
         Stage stage = (Stage) myMenuBar.getScene().getWindow();
         stage.close();
+    }
+    public void goToHome(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 1024, 512);
+        stage.setScene(scene);
+        stage.show();
     }
 }

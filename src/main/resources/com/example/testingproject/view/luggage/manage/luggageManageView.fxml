@@ -22,10 +22,10 @@
     <MenuBar fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
         <Menu mnemonicParsing="false" text="Edit">
             <items>
-                <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close" />
             </items>
         </Menu>
     </MenuBar>
+    <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
     <Label fx:id="WrongID" layoutX="402.0" layoutY="313.0" prefHeight="26.0" prefWidth="267.0" textFill="RED">
         <font>
             <Font size="17.0" />

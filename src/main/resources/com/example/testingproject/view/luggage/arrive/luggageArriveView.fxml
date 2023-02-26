@@ -54,4 +54,5 @@
             </items>
         </Menu>
     </MenuBar>
+    <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
 </AnchorPane>

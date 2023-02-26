@@ -5,11 +5,15 @@ import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.Objects;
 
 public class LuggageManageController {
@@ -34,6 +38,7 @@ public class LuggageManageController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
 
 
     public void search(ActionEvent event) {
@@ -113,11 +118,11 @@ public class LuggageManageController {
         ListView.getItems().add("STATO BAGAGAGLIO CAMBIATO CORRETTAMENTE");
     }
 
-   /* public void goToHome(ActionEvent actionEvent) throws IOException {
-            root = FXMLLoader.load(Objects.requireNonNull(HomePage.class.getResource("homePage_view.fxml")));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, 1024, 512);
-            stage.setScene(scene);
-            stage.show();
-       }*/
+    public void goToHome(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 1024, 512);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

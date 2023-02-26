@@ -28,4 +28,5 @@
          </Menu>
       </menus>
    </MenuBar>
+   <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
 </Pane>
