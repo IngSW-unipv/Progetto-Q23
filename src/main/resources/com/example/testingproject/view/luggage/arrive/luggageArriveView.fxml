@@ -17,7 +17,7 @@
             fx:controller="com.example.testingproject.control.LuggageArriveController">
 
    <children>
-      <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Es* MXP-VAL-1 ">
+      <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Es* MXP-VAL-1">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
