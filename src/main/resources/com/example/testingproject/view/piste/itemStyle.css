@@ -1,5 +1,18 @@
 
 .item{
+-fx-border-radius: 7px;
+-fx-padding-top: 5px;
+  -fx-padding-right: 5px;
+-fx-overflow:hidden;
+  -fx-border-width: 2px;
+  -fx-border-style: solid;
+  -fx-border-color: black;
+
+
+
+
+-fx-background-color: rgba(128, 128, 128, 0.70);
+
 
 }
 
