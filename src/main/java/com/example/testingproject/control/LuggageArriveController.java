@@ -1,7 +1,6 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.DAO.BagagliDAO;
-import com.example.testingproject.model.Luggage;
 import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,10 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LuggageArriveController {
     public Spinner<Integer> WightSpinner;
@@ -22,13 +25,13 @@ public class LuggageArriveController {
     public MenuBar myMenuBar;
     @FXML
     private javafx.scene.control.ListView<String> listView;
-    private Luggage tempLuggage;
-    private BagagliDAO luggageDAO = new BagagliDAO();
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    public void addLuggage(ActionEvent actionEvent) {
-        int lengthcod = 0;
+    private final BagagliDAO luggageDAO = new BagagliDAO();
+
+    public LuggageArriveController() {
+    }
+
+    public void addLuggage() {
+        int lengthcod;
         int idVolo = 0;
         String codices = textField.getText();
         String Stato = "IN VOLO";
@@ -56,14 +59,14 @@ public class LuggageArriveController {
         }
     }
 
-    public void closeWindow(ActionEvent event) {
+    public void closeWindow() {
         Stage stage = (Stage) myMenuBar.getScene().getWindow();
         stage.close();
     }
     public void goToHome(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 1024, 512);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(HomePage.class.getResource("homePage_view.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
     }
