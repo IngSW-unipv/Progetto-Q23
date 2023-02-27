@@ -54,13 +54,13 @@ public class VoliPartenzaController {
     public void initialize() throws SQLException {
 
         ArrayList<Voli> voli_ = new ArrayList<>();
-        voli_ = VoliDAO.getVoli();
+        voli_ = VoliDAO.getVoliPartenza();
         for (int i = 0; i < voli_.size(); i++) {
-            voliListView.getItems().add( voli_.get(i).getGate() + "  "+ voli_.get(i).getAereo()+" "+ voli_.get(i).getRitardo() +
+            voliListView.getItems().add( voli_.get(i).getGate() + "  "+ voli_.get(i).getAeroportop()+" "+ voli_.get(i).getDataora() +
 
-                    " "+ voli_.get(i).getAereo() + " " + voli_.get(i).getGate() + " " + + voli_.get(i).getPista() +
-                    " " +  voli_.get(i).getAeroportop() + " " +
-                    voli_.get(i).getDataora());
+                    " "+ voli_.get(i).getId() + " " + voli_.get(i).getDurata() + " " + + voli_.get(i).getRitardo() +
+                    " " +  voli_.get(i).getAereo() + " " +
+                    voli_.get(i).getPista());
 
         }
 

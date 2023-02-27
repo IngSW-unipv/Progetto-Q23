@@ -1,7 +1,7 @@
 package com.example.testingproject.model;
 
-public class Luggage{
-    public int Volo,Peso,Id;
+public class Luggage {
+    public int Volo, Peso, Id;
     public String Stato;
 
     public Luggage(int id, int peso, String stato, int volo) {
@@ -10,6 +10,7 @@ public class Luggage{
         Stato = stato;
         Id = id;
     }
+
     public int getPeso() {
         return Peso;
     }

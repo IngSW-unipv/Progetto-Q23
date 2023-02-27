@@ -1,6 +1,9 @@
 package com.example.testingproject.model.DAO;
 import com.example.testingproject.model.DatabaseConnection;
-import com.example.testingproject.model.Luggage;;
+import com.example.testingproject.model.Luggage;
+import com.example.testingproject.model.VistaVoloBagaglio;
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,6 +49,10 @@ public class BagagliDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                errorAlert.setHeaderText("Input not valid");
+                errorAlert.setContentText("Il bagaglio non esiste");
+                errorAlert.showAndWait();
                 return null;
             } else {
                 resultSet.next();
@@ -54,8 +61,7 @@ public class BagagliDAO {
                 tempVolo = resultSet.getInt(4);
                 tempStato = resultSet.getString(3);
 
-                Luggage tempLuggages = new Luggage(tempId, tempPeso, tempStato, tempVolo);
-                return tempLuggages;
+                return new Luggage(tempId, tempPeso, tempStato, tempVolo);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,10 +82,9 @@ public class BagagliDAO {
         }
     }
 
-    // metodo per l'inserimento di bagagli all'interno di database
-    public boolean verifyLuggaggeArrive(int idVolo,String firstAirport, String secondAirport) {
+
+    public boolean verifyFly(int idVolo, String firstAirport, String secondAirport) {
         Connection conn = connection.getConnection();
-        boolean continua = true;
         try {
             int tempVolo;
             String tempArrivo, tempPartenza;
@@ -87,15 +92,53 @@ public class BagagliDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
+                return false;
+            } else while (resultSet.next()) {
+                tempVolo = resultSet.getInt(1);
+                tempPartenza = resultSet.getString(2);
+                tempArrivo = resultSet.getString(3);
+                if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
-            } else {
-                while(resultSet.next() && (continua == true)) {
-                    tempVolo = resultSet.getInt(1);
-                    tempPartenza = resultSet.getString(2);
-                    tempArrivo = resultSet.getString(3);
+    public void addLuggage(int peso, String stato, int volo) {
+        Connection conn = connection.getConnection();
+        try {
+            String query = "INSERT INTO bagaglio(peso,stato,volo) values('" + peso + "', '" + stato + "', '" + volo + "')";
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception!");
+            System.err.println(e.getMessage());
+        }
+    }
 
-                    if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
-                        continua = false;
+    // verifica se volo è pertinente e se è possibile inserire un'altro bagaglio
+    public boolean verifyPlaceonBord(int idVolo, int wight, String firstAirport, String secondAirport) {
+        Connection conn = connection.getConnection();
+        try {
+            int tempVolo;
+            int tempCaricoMax;
+            String tempArrivo, tempPartenza;
+            String query = "select aereo, aeroportoa, aeroportop, volo, caricomax FROM(select aereo, aeroportoa, aeroportop, volo FROM (SELECT partenza.volo,arrivo.aeroportop,partenza.aeroportoa FROM arrivo, partenza WHERE arrivo.volo = partenza.volo) T join volo on T.volo = volo.id) T2 join aereo on (T2.aereo = aereo.id);";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (!resultSet.isBeforeFirst()) {
+                return false;
+            } else while (resultSet.next()) {
+                tempArrivo = resultSet.getString(2);
+                tempPartenza = resultSet.getString(3);
+                tempVolo = resultSet.getInt(4);
+                tempCaricoMax = resultSet.getInt(5);
+                if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
+                    if ((tempCaricoMax >= wight)) {
                         return true;
                     }
                 }
@@ -106,17 +149,69 @@ public class BagagliDAO {
         return false;
     }
 
-    public void addLuggage( int peso, String stato, int volo) {
+    public int sumWigth(int idVolo) {
         Connection conn = connection.getConnection();
         try {
-            String query = "INSERT INTO bagaglio(peso,stato,volo) values('"+peso+"', '"+stato+"', '"+volo+"')";
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.executeUpdate();
-            conn.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception!");
-            System.err.println(e.getMessage());
+            int tempPeso;
+            String query = " SELECT sum(PESO), volo FROM (select volo,peso from bagaglio) as a join(select id from volo) as b on b.id=volo where volo ='" + idVolo + "'";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (!resultSet.isBeforeFirst()) {
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                errorAlert.setHeaderText("Input not valid");
+                errorAlert.setContentText("Il bagaglio non esiste");
+                errorAlert.showAndWait();
+            } else {
+                resultSet.next();
+                tempPeso = resultSet.getInt(1);
+                return tempPeso;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return 0;
     }
 
+    public boolean verifyLuggegeinFly(int idBagaglio, int idVolo) {
+        Connection conn = connection.getConnection();
+        try {
+            String query = "SELECT * FROM AirportManager.bagaglio where volo = '" + idVolo + "' and id = '" + idBagaglio + "';";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (!resultSet.isBeforeFirst()) {
+                return false;
+            } else {
+                resultSet.next();
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public ArrayList<VistaVoloBagaglio> getVistaArrivo() {
+        ArrayList<VistaVoloBagaglio> vista = new ArrayList<>();
+        Connection conn = connection.getConnection();
+        try {
+            String query = "SELECT partenza.volo,arrivo.aeroportop,partenza.aeroportoa FROM arrivo, partenza WHERE arrivo.volo = partenza.volo";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            int tempId;
+            String tempAeroportoP, tempAeroportoA;
+
+            while (resultSet.next()) {
+                tempId = resultSet.getInt(1);
+                tempAeroportoP = resultSet.getString(2);
+                tempAeroportoA = resultSet.getString(3);
+                VistaVoloBagaglio tempVolo = new VistaVoloBagaglio(tempId, tempAeroportoP, tempAeroportoA);
+                vista.add(tempVolo);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vista;
+    }
 }

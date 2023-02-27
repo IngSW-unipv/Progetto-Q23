@@ -12,6 +12,7 @@
     <children>
         <Button fx:id="buttonVoliDepartures" layoutX="116.0" layoutY="371.0" mnemonicParsing="false" onAction="#openVoliDeparturesView" prefHeight="62.0" prefWidth="128.0" text="VOLI IN PARTENZA" />
         <Button fx:id="buttonVoliArrivals" layoutX="310.0" layoutY="371.0" mnemonicParsing="false" onAction="#openArrivalsVoliView" prefHeight="62.0" prefWidth="128.0" text="VOLI IN ARRIVO" />
+        <Button fx:id="buttonAddVoli" layoutX="510.0" layoutY="371.0" mnemonicParsing="false" onAction="#openAddVoli" prefHeight="62.0" prefWidth="128.0" text="AGGIUNGI VOLI" />
         <Label fx:id="Label" layoutX="399.0" layoutY="322.0" prefHeight="26.0" prefWidth="267.0" textFill="RED" />
       <MenuBar prefHeight="25.0" prefWidth="1024.0">
         <menus>

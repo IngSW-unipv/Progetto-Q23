@@ -19,17 +19,12 @@
 
 
     <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0"
-               promptText="promptText" text="Es* MXP-VAL ">
+               promptText="promptText" text="Es* MXP-VAL-1">
         <font>
             <Font name="System Italic" size="12.0"/>
         </font>
     </TextField>
     <ListView fx:id="listView" layoutX="420.0" layoutY="174.0" prefHeight="278.0" prefWidth="577.0"/>
-    <MenuBar prefHeight="25.0" prefWidth="1024.0">
-        <Menu mnemonicParsing="false" text="Edit">
-            <MenuItem mnemonicParsing="false" text="Close"/>
-        </Menu>
-    </MenuBar>
     <Button fx:id="addButton" layoutX="38.0" layoutY="301.0" mnemonicParsing="false" onAction="#addLuggage"
             style="-fx-background-color: #9ACD32;" text="AGGIUNGI">
         <font>
@@ -47,4 +42,9 @@
             <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
+    <MenuBar fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
+        <Menu mnemonicParsing="false" text="Edit">
+        </Menu>
+    </MenuBar>
+    <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
 </AnchorPane>
