@@ -31,4 +31,4 @@ La sezione “voli” ha come scopo quello di fornire un riepilogo dei voli in p
 
 TERRENI
 
-Per quanto riguarda la sezione terreni il software permette di gestire il relativo database permettendo agli utenti di eseguire una serie di azioni , ovvero:  aggiungere/rimuovere, assegnare e consultare i terreni , effettuare una proposta di acquisto e monitorare le scadenze del contratto . ll sistema si occupa anche di inviare notifiche in prossimità della scadenza del contratto.
+Per quanto riguarda la sezione terreni il software permette di gestire il relativo database permettendo agli utenti di eseguire una serie di azioni , ovvero: assegnare/rimuovere l'uso di un determinato terreno(Hangar) ad un determinato veivolo, consultare la lista terreni e le varie associazioni sull'uso dei posti e monitorare le scadenze delle assegnazioni . ll sistema si occupa anche di inviare notifiche in prossimità delle scadenze.
