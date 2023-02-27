@@ -3,6 +3,7 @@ import com.example.testingproject.model.Account;
 import com.example.testingproject.model.Voli;
 import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.model.DAO.VoliDAO;
+import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,6 +45,13 @@ public class VoliController{
 
     private VoliDAO VoliDAO = new VoliDAO();
     private AccountService accountService = new AccountService();
+    public void goToHome(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 1024, 512);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     protected void openArrivalsVoliView(ActionEvent event) throws IOException {
