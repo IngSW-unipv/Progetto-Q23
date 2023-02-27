@@ -83,21 +83,21 @@ Open Issues - Cosa accade se non viene specificato lo stato o alcuni campi?
 Requisito Terreni:
 ```markdown
 
-Scope -  Assegnazione di un terreno 
+Scope -  Assegnazione di un Hangar 
 Level - (da specificare)
 Primary Actor - Personale addetto alla gestione dei terreni  
-Preconditions – Il Terreno deve esistere e  non deve essere già assegnato
+Preconditions – Il Terreno deve esistere e non deve essere già assegnato
 Main Success Scenario - il terreno viene assegnato al nuovo affittuario
 Extensions/Alternative Scenarios – Special Requirements -  il terreno è gia stato assegnato
 Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
 Open Issues - 
 
-Scope - Consultazione terreni
+Scope - Consultazione Hangar e relative associazioni
 Level - (da specificare)
-Primary Actor - Gli utenti abilitati alla visualizzazione di questa schermata, ovvero le compagnie aeree e chiunque altro si sia registrato al sito e  voglia consultare i terreni disponibili
-Preconditions -  Devono esistere terreni all'interno del db
-Main Success Scenario - Stampa delle informazioni riguardanti i terreni
+Primary Actor - Personale addetto alla gestione dei terreni
+Preconditions -  Devono esistere Hangar all'interno del db
+Main Success Scenario - Stampa delle informazioni riguardanti i terreni e relative associazioni ad aerei esistenti nel db
 Extensions/Alternative Scenarios – non sono presenti terreni all'interno del db
 Special Requirements - 
 Technology and Data Variation  List - (Da specificare)
