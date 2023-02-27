@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 
 <?import javafx.scene.control.Button?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.VoliPartenzaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@voliPartenzeStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.VoliPartenzaController">
 
     <children>
         <Label layoutX="395.0" layoutY="106.0" text="VOLI IN PARTENZA">

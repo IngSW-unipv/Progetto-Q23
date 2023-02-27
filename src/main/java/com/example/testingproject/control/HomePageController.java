@@ -8,6 +8,7 @@ import com.example.testingproject.view.Land.LandPage;
 import com.example.testingproject.view.Voli.VoliMainApplication;
 import com.example.testingproject.view.homePage.HomePage;
 import com.example.testingproject.view.luggage.LuggageMainApplication;
+import com.example.testingproject.view.piste.PisteApplication;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,7 +35,7 @@ public class HomePageController{
     private Stage stage;
     private Scene scene;
     private Parent root;
-    public void initialize() {
+    public void initialize() throws IOException {
 
         UserHolder holder = UserHolder.getInstance();
         System.out.println(holder.getUser().getUserType() + "  " + holder.getUser().getUsername());
@@ -90,16 +91,53 @@ public class HomePageController{
                 }
                 break;
             case "Voli":
-                System.out.println("sei un GESTORE Terreni");
                 buttons = new ArrayList<>();
-                for (int row = 0; row < 2; row++) {
-                    for (int col = 0; col < 1; col++) {
+                for (int row = 0; row < 1; row++) {
+                    for (int col = 0; col < 2; col++) {
                         ToggleButton button = new ToggleButton();
-                        // configure button...
+                        if (col == 0) {
+                            button.setText("Voli");
+                            button.setStyle("-fx-font-size:20");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(VoliMainApplication.class.getResource("VoliVis.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setTitle("Voli");
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }
+                            });
+                        }
+                        if (col == 1) {
+                            button.setText("Piste");
+                            button.setStyle("-fx-font-size:20");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(PisteApplication.class.getResource("piste-view.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setTitle("Piste");
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }
+                            });
+                        }
                         buttons.add(button);
                         grid.add(button, col, row);
                     }
                 }
+
 
                 break;
 
