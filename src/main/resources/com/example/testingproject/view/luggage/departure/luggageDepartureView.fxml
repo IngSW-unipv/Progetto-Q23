@@ -44,6 +44,7 @@
     </Label>
     <MenuBar fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
         <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close"/>
         </Menu>
     </MenuBar>
     <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />

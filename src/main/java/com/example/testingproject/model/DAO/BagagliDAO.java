@@ -214,4 +214,21 @@ public class BagagliDAO {
         }
         return vista;
     }
+
+    public boolean removeLuggage(int idBagaglio) {
+        Connection conn = connection.getConnection();
+        try {
+            String query = "DELETE FROM `AirportManager`.`bagaglio` WHERE (`id` = '"+idBagaglio+"');";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+
+
+
 }

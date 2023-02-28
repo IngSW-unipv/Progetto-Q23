@@ -68,4 +68,8 @@ public class LuggageDepartureController {
         stage.setScene(scene);
         stage.show();
     }
+    public void closeWindow() {
+        Stage stage = (Stage) myMenuBar.getScene().getWindow();
+        stage.close();
+    }
 }

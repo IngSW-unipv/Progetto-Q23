@@ -28,8 +28,6 @@ public class LuggageController {
     private Button buttonLuggageArrivals;
     @FXML
     private Button buttonLuggageManage;
-    @FXML
-    private Label Label;
 
     private Stage stage;
     private Scene scene;

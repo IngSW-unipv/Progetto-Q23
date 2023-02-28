@@ -13,15 +13,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class LuggageManageController {
-    @FXML
-    public Label WrongID;
 
     public MenuBar myMenuBar;
 
@@ -30,9 +27,6 @@ public class LuggageManageController {
     public Button modifyButton;
     public Button modifyButtonInVolo;
     public javafx.scene.control.ListView<String> ListView1;
-
-    private String StringSmarrito = "SMARRITO";
-    private String StringInVolo = "IN VOLO";
     @FXML
     private Button searchButton;
     @FXML
@@ -46,7 +40,7 @@ public class LuggageManageController {
 
     public void initialize() throws SQLException {
         ArrayList<VistaVoloBagaglio> voli = new ArrayList<>();
-        ListView1.getItems().add("VOLO"+"  "+ "PARTENZA"+"  "+ "PARTENZA");
+        ListView1.getItems().add("VOLO"+"  "+ "PARTENZA"+"  "+ "ARRIVO");
         voli = luggageDAO.getVistaArrivo();
         for (VistaVoloBagaglio vistaVoloBagaglio : voli) {
             ListView1.getItems().add(vistaVoloBagaglio.getIdVolo() + "             " + vistaVoloBagaglio.getAeroportoP() + "             " + vistaVoloBagaglio.getAeroportoA());
@@ -122,11 +116,13 @@ public class LuggageManageController {
     }
 
     public void modify(ActionEvent actionEvent){
-        luggageDAO.modifyStato(tempLuggage.getId(), StringSmarrito);
+        String Smarrito = "SMARRITO";
+        luggageDAO.modifyStato(tempLuggage.getId(), Smarrito);
         ListView.getItems().add("STATO BAGAGAGLIO CAMBIATO CORRETTAMENTE");
     }
 
     public void modifyINVOLO(ActionEvent actionEvent) {
+        String StringInVolo = "IN VOLO";
         luggageDAO.modifyStato(tempLuggage.getId(), StringInVolo);
         ListView.getItems().add("STATO BAGAGAGLIO CAMBIATO CORRETTAMENTE");
     }

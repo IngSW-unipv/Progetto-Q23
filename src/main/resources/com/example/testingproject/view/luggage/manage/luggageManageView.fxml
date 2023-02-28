@@ -25,10 +25,6 @@
         </Menu>
     </MenuBar>
     <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
-    <Label fx:id="WrongID" layoutX="402.0" layoutY="313.0" prefHeight="26.0" prefWidth="267.0" textFill="RED">
-        <font>
-            <Font size="17.0" />
-        </font></Label>
     <ScrollPane layoutX="445.0" layoutY="191.0" prefHeight="270.0" prefWidth="498.0">
         <ListView fx:id="ListView" prefHeight="266.0" prefWidth="549.0" />
     </ScrollPane>

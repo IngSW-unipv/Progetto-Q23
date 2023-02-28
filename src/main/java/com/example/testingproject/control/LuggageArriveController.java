@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,7 +17,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class LuggageArriveController {
-    public Spinner<Integer> WightSpinner;
     public Button addButton;
     @FXML
     private TextField textField;
@@ -27,37 +25,56 @@ public class LuggageArriveController {
     private javafx.scene.control.ListView<String> listView;
     private final BagagliDAO luggageDAO = new BagagliDAO();
 
-    public LuggageArriveController() {
-    }
-
     public void addLuggage() {
-        int lengthcod;
+        // addettamento stringa dinamica per ricerca
+        String codice = textField.getText();
+        int lcod, line = 0;
+        char j;
+        codice = codice.substring(8);
+        lcod = codice.length();
+        for (int i = 0; i < lcod; i++) {
+            j = codice.charAt(i);
+            if (j == '-') {
+                line = i;
+                break;
+            }
+        }
+        System.out.println(line);
+        // prelevamento informazioni dall'etichetta
         int idVolo = 0;
-        String codices = textField.getText();
-        String Stato = "IN VOLO";
+        int idBagaglio = 0;
+        boolean verifica1;
+        boolean verifica2;
+
         String firstAirport = textField.getText().substring(0, 3);
         String secondAirport = textField.getText().substring(4, 7);
-        lengthcod = codices.length();
-        System.out.println("lunghezza codice: " + lengthcod);
-        String volo = textField.getText().substring(8, lengthcod);
+        String volo = codice.substring(0, line);
+        String bagaglio = codice.substring(line + 1, lcod);
+
+        System.out.println("id baglio: " + bagaglio);
+
         try {
             idVolo = Integer.parseInt(volo);
+            idBagaglio = Integer.parseInt(bagaglio);
             System.out.println("id volo: " + idVolo);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
         // verifica esistenza del volo
-        boolean verifica = luggageDAO.verifyFly(idVolo, firstAirport, secondAirport);
-        int wight = WightSpinner.getValue();
-        if (wight == 0) {
-            listView.getItems().add("PESO ERRATO: INSERISCI UN PESO CHE SIA ALMENO MAGGIORE DI 0");
-        } else if (!verifica) {
-            listView.getItems().add("NESSUN VOLO ESISTENTE");
-        } else {
-            luggageDAO.addLuggage(wight, Stato, idVolo);
-            listView.getItems().add("BAGAGLIO AGGIUNTO CON SUCCESSO");
+        verifica1 = luggageDAO.verifyFly(idVolo, firstAirport, secondAirport);
+        verifica2 = luggageDAO.verifyLuggegeinFly(idBagaglio, idVolo);
+
+        if (!verifica1) {
+            listView.getItems().add("IL VOLO RICERCATO NON ESISTE");
+        } else if (!verifica2) {
+                listView.getItems().add("IL BAGAGLIO SELEZIONATO NON E' PRESENTE SU QUESTO VOLO");
+            } else {
+                boolean verifica3 = luggageDAO.removeLuggage(idBagaglio);
+                if (!verifica3){listView.getItems().add("IL NON E' STATO RIMOSSO");}
+                else {listView.getItems().add("IL BAGAGLIO E' ARRIVATO A DESTINAZIONE");}
         }
     }
+
 
     public void closeWindow() {
         Stage stage = (Stage) myMenuBar.getScene().getWindow();

@@ -17,7 +17,7 @@
             fx:controller="com.example.testingproject.control.LuggageArriveController">
 
    <children>
-      <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Es* MXP-VAL-1">
+      <TextField fx:id="textField" layoutX="38.0" layoutY="174.0" prefHeight="45.0" prefWidth="276.0" promptText="promptText" text="Es* MXP-VAL-1-1">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
@@ -32,20 +32,10 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="addButton" layoutX="38.0" layoutY="301.0" mnemonicParsing="false" onAction="#addLuggage" style="-fx-background-color: #9ACD32;" text="AGGIUNGI">
+      <Button fx:id="addButton" layoutX="38.0" layoutY="301.0" mnemonicParsing="false" onAction="#addLuggage" style="-fx-background-color: #9ACD32;" text="BAGAGLIO ARRIVATO">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Spinner fx:id="WightSpinner" amountToStepBy="1" initialValue="0" layoutX="90.0" layoutY="244.0" max="30" min="0" prefHeight="12.0" prefWidth="60.0">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Spinner>
-      <Label layoutX="50.0" layoutY="248.0" text="PESO" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
    </children>
     <MenuBar fx:id="myMenuBar" prefHeight="25.0" prefWidth="1024.0">
         <Menu mnemonicParsing="false" text="Edit">
