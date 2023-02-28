@@ -120,6 +120,26 @@ public class VoliDAO {
         }
     }
 
+    public static void getVoliwithGate(Integer gateID) throws SQLException {
+        ArrayList<Voli> voli = new ArrayList<Voli>();
+        Connection conn = connection.getConnection();
+
+try {
+    String query = "SELECT id,direzione,lunghezza FROM AirportManager.pista;";
+    PreparedStatement preparedStatement = conn.prepareStatement(query);
+    ResultSet resultSet = preparedStatement.executeQuery();
+
+
+
+}
+catch (SQLException e){
+    e.printStackTrace();
+}
+
+
+
+    }
+
 
 
 
