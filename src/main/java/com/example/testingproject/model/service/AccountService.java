@@ -83,6 +83,13 @@ public class AccountService {
 
     }
 
+    public boolean deleteAccount(Account account){
+     boolean outcome = accountDAO.deleteAccount(account);
+       return outcome;
+
+
+    }
+
     public boolean checkPassword(Account account, String InputPassword){
         if(account!= null && account.getPassword().equals(InputPassword)){
             return true;

@@ -155,7 +155,23 @@ public boolean updateUsername(String currentUsername, String updateUsername) thr
 
     }
 
+    public boolean deleteAccount(Account account){
+        Connection conn = connection.getConnection();
 
+        try {
+            String query = "DELETE FROM AirportManager.users WHERE username ='"+account.getUsername()+"';";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        }
+        catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+        }
+
+    }
 
 
 }
