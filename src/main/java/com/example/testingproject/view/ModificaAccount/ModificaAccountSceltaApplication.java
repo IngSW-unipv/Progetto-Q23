@@ -1,6 +1,7 @@
 package com.example.testingproject.view.ModificaAccount;
 
 
+        import com.example.testingproject.view.GestioneAccount.GestioneAccountApplication;
         import javafx.application.Application;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
@@ -12,8 +13,8 @@ package com.example.testingproject.view.ModificaAccount;
 public class ModificaAccountSceltaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(com.example.testingproject.view.ModificaAccount.ModificaAccountSceltaApplication.class.getResource("ModificaAccount.fxml"));
-        System.out.print(com.example.testingproject.view.ModificaAccount.ModificaAccountSceltaApplication.class.getResource("ModificaAccount.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GestioneAccountApplication.class.getResource("GestioneAccount.fxml"));
+
         Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
         stage.setTitle("Scelta della modifica");
         stage.setScene(scene);
