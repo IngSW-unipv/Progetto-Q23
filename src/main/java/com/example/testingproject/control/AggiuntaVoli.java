@@ -79,7 +79,7 @@ public class AggiuntaVoli {
 
 
         VoliDAO.inserisciVoli(idVolo,durataapp,ritardoapp,aereo,gate);
-        VoliDAO.inserisciPartenza(pistaapp,dataora,aeroportop);
+        VoliDAO.inserisciPartenza(idVolo,pistaapp,dataora,aeroportop);
         System.out.println("ok!");
 
     }
@@ -101,7 +101,7 @@ public class AggiuntaVoli {
 
 
         VoliDAO.inserisciVoli(idVolo,durataapp,ritardoapp,aereo,gate);
-        VoliDAO.inserisciArrivo(pistaapp,dataora,aeroportop);
+        VoliDAO.inserisciArrivo(idVolo,pistaapp,dataora,aeroportop);
         System.out.println("ok!");
 
     }

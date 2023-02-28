@@ -95,10 +95,10 @@ public class VoliDAO {
             System.err.println(e.getMessage());
         }
     }
-    public static void inserisciPartenza(  int pista,String dataora,String aeroportop) {
+    public static void inserisciPartenza(  int idVolo,int pista,String dataora,String aeroportop) {
         Connection conn = connection.getConnection();
         try {
-            String query = "INSERT INTO partenza(aeroportoa,dataora,pista) values('"+aeroportop+"', '"+dataora+"', '"+pista+"')";
+            String query = "INSERT INTO partenza(volo,aeroportoa,dataora,pista) values('"+idVolo+"''"+aeroportop+"', '"+dataora+"', '"+pista+"')";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.executeUpdate();
             conn.close();
@@ -107,10 +107,10 @@ public class VoliDAO {
             System.err.println(e.getMessage());
         }
     }
-    public static void inserisciArrivo(  int pista,String dataora,String aeroportop) {
+    public static void inserisciArrivo( int idVolo, int pista,String dataora,String aeroportop) {
         Connection conn = connection.getConnection();
         try {
-            String query = "INSERT INTO arrivo(aeroportop,dataora,pista) values('"+aeroportop+"', '"+dataora+"', '"+pista+"')";
+            String query = "INSERT INTO arrivo(volo,aeroportop,dataora,pista) values('"+idVolo+"','"+aeroportop+"', '"+dataora+"', '"+pista+"')";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.executeUpdate();
             conn.close();
