@@ -29,48 +29,39 @@ public class DeletionAccountController {
     @FXML
     private Label accountNotFound;
 
-    @FXML
-    private Label accountDeleted;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
 
-    public void DeleteAccount(ActionEvent event) throws SQLException {
+    public void DeleteAccount(ActionEvent event) throws SQLException, IOException {
         String username = usernameInput.getText();
         AccountService accountService = new AccountService();
-        try {
+
             Account tempAccount = accountService.findAccountByUsername(username);
-            if(tempAccount==null){
+            if (tempAccount == null) {
                 accountNotFound.setText("Account non esiste!");
-                accountDeleted.setText("");
 
-            }else{
+
+            } else {
                 accountService.deleteAccount(tempAccount);
-                accountDeleted.setText("Account Rimosso!");
-                accountNotFound.setText("");
-                TimeUnit.SECONDS.sleep(2);
-
-
-
-                root = FXMLLoader.load(GestioneAccountApplication.class.getResource("GestioneAccount.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root, 1024, 512);
-                stage.setTitle("Gestione Account");
-                stage.setScene(scene);
-                stage.show();
+                goToHome(event);
 
 
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+
         }
 
 
+    public void goToHome(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 1024, 512);
+        stage.setScene(scene);
+        stage.show();
     }
-}
+
+    }
+

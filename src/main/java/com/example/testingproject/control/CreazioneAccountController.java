@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.service.AccountService;
@@ -18,6 +19,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CreazioneAccountController implements Initializable{
@@ -30,6 +33,13 @@ public class CreazioneAccountController implements Initializable{
    TextField usernameField;
    @FXML
    TextField passwordField;
+
+   @FXML
+   Label alertMessageGreen;
+
+   @FXML
+   Label alertMessageRed;
+
 
     @FXML
     private ChoiceBox<String> myChoiceBox;
@@ -56,12 +66,30 @@ public class CreazioneAccountController implements Initializable{
         selectedRole = myRuolo;
     }
 
-    public void creazioneAccount(ActionEvent actionEvent) throws SQLException {
+    public void creazioneAccount(ActionEvent actionEvent) throws SQLException, IOException {
         Account tempAccount = new Account(usernameField.getText(),passwordField.getText(),selectedRole,nomeField.getText(),cognomeField.getText());
         try {
-            accountService.AddAccount(tempAccount);
+            boolean output = accountService.AddAccount(tempAccount);
+
+           if(output){
+               goToHome(actionEvent);
+
+
+
+           }else if(!output){
+               alertMessageRed.setText("Errore creazione account!");
+
+
+           } else{
+               alertMessageRed.setText("Errore creazione account!");
+
+           }
+
+
+
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            alertMessageRed.setText("Errore creazione account!");
         }
 
     }

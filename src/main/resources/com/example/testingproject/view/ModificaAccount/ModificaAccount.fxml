@@ -2,17 +2,65 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@ModificaAccountStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.ModificaAccountSceltaController">
    <children>
-      <Button fx:id="myButtonUsername" layoutX="98.0" layoutY="244.0" mnemonicParsing="false" text="Modifica Username" />
-      <Button fx:id="myButtonPassword" layoutX="454.0" layoutY="244.0" mnemonicParsing="false" text="Modifica Password" />
-      <Button fx:id="myButtonTipo" layoutX="782.0" layoutY="244.0" mnemonicParsing="false" text="Modifica Tipo(mansione)" />
-      <Label fx:id="myLabel" layoutX="357.0" layoutY="69.0" text="Scegliere cosa si vuole modificare">
+      <Label fx:id="myLabel" layoutX="431.0" layoutY="68.0" text="Modifica Account">
          <font>
             <Font size="21.0" />
+         </font>
+      </Label>
+      <MenuBar prefHeight="25.0" prefWidth="1024.0">
+        <menus>
+          <Menu mnemonicParsing="false">
+            <items>
+               <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
+      <Label layoutX="69.0" layoutY="204.0" text="Seleziona Account:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputUsername" layoutX="231.0" layoutY="205.0" promptText="Username" />
+      <Label layoutX="594.0" layoutY="231.0" text="Password:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="272.0" text="Mansione:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="594.0" layoutY="191.0" text="Username:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="394.0" layoutY="205.0" mnemonicParsing="false" onAction="#findAccount" text="Trova Account" />
+      <Label fx:id="alarmText" layoutX="227.0" layoutY="231.0" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="newUsername" layoutX="691.0" layoutY="193.0" />
+      <TextField fx:id="newType" layoutX="691.0" layoutY="273.0" />
+      <Button layoutX="590.0" layoutY="313.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="25.0" prefWidth="251.0" text="Aggiorna Account" />
+      <PasswordField fx:id="newPassword" layoutX="691.0" layoutY="232.0" />
+      <Label fx:id="sucessText" layoutX="634.0" layoutY="348.0" textFill="#00a410">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>
