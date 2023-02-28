@@ -95,6 +95,37 @@ public class VoliDAO {
             System.err.println(e.getMessage());
         }
     }
+    public static void inserisciPartenza(  int idVolo,int pista,String dataora,String aeroportop) {
+        Connection conn = connection.getConnection();
+        try {
+            String query = "INSERT INTO partenza(volo,aeroportoa,dataora,pista) values('"+idVolo+"''"+aeroportop+"', '"+dataora+"', '"+pista+"')";
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception!");
+            System.err.println(e.getMessage());
+        }
+    }
+    public static void inserisciArrivo( int idVolo, int pista,String dataora,String aeroportop) {
+        Connection conn = connection.getConnection();
+        try {
+            String query = "INSERT INTO arrivo(volo,aeroportop,dataora,pista) values('"+idVolo+"','"+aeroportop+"', '"+dataora+"', '"+pista+"')";
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.executeUpdate();
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception!");
+            System.err.println(e.getMessage());
+        }
+    }
+
+    /*
+    public ArrayList<Voli> getVoliwithPista(int pista){
+
+
+    }
+*/
 
 
 

@@ -46,20 +46,22 @@ connection.closeConnection(conn);
     public boolean createAccount(Account account) throws SQLException {
 
         Connection conn = connection.getConnection();
+        boolean output;
         try{
             String query = "INSERT INTO AirportManager.users (username,password,nome,cognome,tipo)  Values " +
                     "('"+account.getUsername()+ "','" +account.getPassword()+"','"+account.getName()+"','"+account.getSurname()+"', '" +account.getUserType()+"');";
             PreparedStatement preparedStatement =conn.prepareStatement(query);
             preparedStatement.executeUpdate();
             connection.closeConnection(conn);
-            return true;
+           output = true;
 
         } catch (SQLException e) {
             e.printStackTrace();
             connection.closeConnection(conn);
-            return false;
+            output = false;
         }
 
+return output;
     }
 
     public Account getAccountbyUsername(String username) throws SQLException {
@@ -155,7 +157,23 @@ public boolean updateUsername(String currentUsername, String updateUsername) thr
 
     }
 
+    public boolean deleteAccount(Account account){
+        Connection conn = connection.getConnection();
 
+        try {
+            String query = "DELETE FROM AirportManager.users WHERE username ='"+account.getUsername()+"';";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        }
+        catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+        }
+
+    }
 
 
 }

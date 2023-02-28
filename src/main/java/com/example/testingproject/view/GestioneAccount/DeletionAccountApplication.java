@@ -1,4 +1,4 @@
-package com.example.testingproject.view.homePage;
+package com.example.testingproject.view.GestioneAccount;
 
 
 import javafx.application.Application;
@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePage extends Application {
+public class DeletionAccountApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomePage.class.getResource("homePage_view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DeletionAccountApplication.class.getResource("DeletionAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
-        stage.setTitle("Home Page");
+        stage.setTitle("Gestione Account");
         stage.setScene(scene);
         stage.show();
     }
@@ -22,3 +22,6 @@ public class HomePage extends Application {
         launch();
     }
 }
+
+
+

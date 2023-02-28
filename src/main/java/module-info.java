@@ -48,7 +48,12 @@ exports com.example.testingproject.view.Land to javafx.graphics;
     exports Test to org.testng;
     opens Test to org.testng;
 
-
+opens com.example.testingproject.view.Voli.AggiuntaVoli;
+opens com.example.testingproject.view.Voli.VoliArrivo;
+opens com.example.testingproject.view.Voli.VoliPartenze;
+exports com.example.testingproject.view.Voli.AggiuntaVoli to javafx.graphics,javafx.fxml;
+    exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics,javafx.fxml;
+    exports com.example.testingproject.view.Voli.VoliPartenze to javafx.graphics,javafx.fxml;
 
 
 

@@ -3,16 +3,54 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="1024.0" styleClass="back1" stylesheets="@AdminCreazioneAccountStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.CreazioneAccountController">
    <children>
-      <Button layoutX="462.0" layoutY="365.0" mnemonicParsing="false" text="Conferma Scelta" />
-      <ChoiceBox fx:id="myChoiceBox" layoutX="438.0" layoutY="186.0" prefWidth="150.0" />
-      <Label fx:id="myLabel" alignment="CENTER" layoutX="255.0" layoutY="61.0" prefHeight="46.0" prefWidth="515.0" text="Selezionare quale mansione svolgerà il nuovo utente">
+      <Label fx:id="alertMessageRed" layoutX="392.0" layoutY="393.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text=" " textFill="RED">
          <font>
-            <Font size="22.0" />
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <MenuBar prefHeight="25.0" prefWidth="1024.0">
+         <menus>
+
+         </menus>
+      </MenuBar>
+      <Button mnemonicParsing="false" onAction="#goToHome" text="Home" />
+      <Button layoutX="460.0" layoutY="449.0" mnemonicParsing="false" onAction="#creazioneAccount" text="Conferma Scelta" />
+      <ChoiceBox fx:id="myChoiceBox" layoutX="438.0" layoutY="366.0" prefWidth="150.0" />
+      <Label fx:id="myLabel" alignment="CENTER" layoutX="254.0" layoutY="31.0" prefHeight="46.0" prefWidth="515.0" text="Inserisci i dati per la creazione dell'Account">
+         <font>
+            <Font name="System Bold" size="22.0" />
          </font></Label>
+      <TextField fx:id="nomeField" layoutX="437.0" layoutY="117.0" />
+      <TextField fx:id="cognomeField" layoutX="437.0" layoutY="177.0" />
+      <Text layoutX="299.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="88.93499755859375">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="299.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cognome:" wrappingWidth="118.077880859375">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="299.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="118.077880859375">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="299.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="118.077880859375">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TextField fx:id="usernameField" layoutX="437.0" layoutY="255.0" />
+      <TextField fx:id="passwordField" layoutX="437.0" layoutY="304.0" />
    </children>
 </Pane>
