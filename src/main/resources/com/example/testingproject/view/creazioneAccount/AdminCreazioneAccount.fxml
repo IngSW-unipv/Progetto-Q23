@@ -16,11 +16,6 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="alertMessageGreen" layoutX="426.0" layoutY="393.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text=" " textFill="#1eff00">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
       <MenuBar prefHeight="25.0" prefWidth="1024.0">
          <menus>
 

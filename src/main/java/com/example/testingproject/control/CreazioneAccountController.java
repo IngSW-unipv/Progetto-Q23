@@ -34,8 +34,7 @@ public class CreazioneAccountController implements Initializable{
    @FXML
    TextField passwordField;
 
-   @FXML
-   Label alertMessageGreen;
+
 
    @FXML
    Label alertMessageRed;
@@ -67,29 +66,29 @@ public class CreazioneAccountController implements Initializable{
     }
 
     public void creazioneAccount(ActionEvent actionEvent) throws SQLException, IOException {
-        Account tempAccount = new Account(usernameField.getText(),passwordField.getText(),selectedRole,nomeField.getText(),cognomeField.getText());
-        try {
-            boolean output = accountService.AddAccount(tempAccount);
 
-           if(output){
-               goToHome(actionEvent);
+        if(!(usernameField.getText().isEmpty() || passwordField.getText().isEmpty())) {
+            Account tempAccount = new Account(usernameField.getText(),passwordField.getText(),selectedRole,nomeField.getText(),cognomeField.getText());
+            try {
+                boolean output = accountService.AddAccount(tempAccount);
 
-
-
-           }else if(!output){
-               alertMessageRed.setText("Errore creazione account!");
+                if (output) {
+                    goToHome(actionEvent);
 
 
-           } else{
-               alertMessageRed.setText("Errore creazione account!");
+                } else {
+                    alertMessageRed.setText("Errore creazione account!");
 
-           }
+                }
 
 
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            alertMessageRed.setText("Errore creazione account!");
+            } catch (SQLException e) {
+                e.printStackTrace();
+                alertMessageRed.setText("Errore creazione account!");
+            }
+        }
+        else {
+            alertMessageRed.setText("Username o Password nulli!");
         }
 
     }
