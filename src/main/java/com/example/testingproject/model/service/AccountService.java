@@ -59,15 +59,16 @@ public class AccountService {
 
 
     public boolean AddAccount(Account account) throws SQLException {
+       boolean output;
         try {
-            accountDAO.createAccount(account);
-            return true;
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            return false;
-        }
+            output = accountDAO.createAccount(account);
 
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            output = false;
+        }
+return output;
     }
 
     public Account findAccountByUsername(String username) throws SQLException {

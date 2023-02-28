@@ -15,11 +15,8 @@ import java.util.ArrayList;
 public class Random {
 
     public static void main(String[] args) throws SQLException {
-        Wind wind = new Wind();
-        System.out.println("Testing class\n");
-for(int i =0;i<10;i++){
-    System.out.print("\n"+  wind.getDirection());
-}
+
+
 
 
 
