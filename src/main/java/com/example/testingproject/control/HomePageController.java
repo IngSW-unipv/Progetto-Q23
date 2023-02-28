@@ -5,7 +5,9 @@ import com.example.testingproject.model.Account;
 import com.example.testingproject.model.UserHolder;
 import com.example.testingproject.model.Voli;
 import com.example.testingproject.view.Land.LandPage;
+import com.example.testingproject.view.ModificaAccount.ModificaAccountSceltaApplication;
 import com.example.testingproject.view.Voli.VoliMainApplication;
+import com.example.testingproject.view.creazioneAccount.CreazioneApplication;
 import com.example.testingproject.view.homePage.HomePage;
 import com.example.testingproject.view.luggage.LuggageMainApplication;
 import com.example.testingproject.view.piste.PisteApplication;
@@ -41,7 +43,52 @@ public class HomePageController{
         System.out.println(holder.getUser().getUserType() + "  " + holder.getUser().getUsername());
         switch (holder.getUser().getUserType()) {
             case "Admin":
+                buttons = new ArrayList<>();
+                for (int row = 0; row < 1; row++) {
+                    for (int col = 0; col < 2; col++) {
+                        ToggleButton button = new ToggleButton();
+                        if (col == 0) {
+                            button.setText("Crea Account");
+                            button.setStyle("-fx-font-size:20");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(CreazioneApplication.class.getResource("AdminCreazioneAccount.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }
+                            });
+                        }
+                        if (col == 1){
+                            button.setText("Modifica Account");
+                            button.setStyle("-fx-font-size:20");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(ModificaAccountSceltaApplication.class.getResource("GestioneAccount.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }
+                            });
+                        }
 
+                        // configure button...
+                        buttons.add(button);
+                        grid.add(button, col, row);
+                    }
+                }
                 break;
             case "Bagagli":
                 buttons = new ArrayList<>();
