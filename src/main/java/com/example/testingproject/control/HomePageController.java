@@ -4,6 +4,7 @@ package com.example.testingproject.control;
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.UserHolder;
 import com.example.testingproject.model.Voli;
+import com.example.testingproject.view.GestioneAccount.GestioneAccountApplication;
 import com.example.testingproject.view.Land.LandPage;
 import com.example.testingproject.view.ModificaAccount.ModificaAccountSceltaApplication;
 import com.example.testingproject.view.Voli.VoliMainApplication;
@@ -44,41 +45,86 @@ public class HomePageController{
         switch (holder.getUser().getUserType()) {
             case "Admin":
                 buttons = new ArrayList<>();
-                for (int row = 0; row < 1; row++) {
+                for (int row = 0; row < 2; row++) {
                     for (int col = 0; col < 2; col++) {
                         ToggleButton button = new ToggleButton();
-                        if (col == 0) {
-                            button.setText("Crea Account");
+                        if (col == 0 && row ==0) {
+                            button.setText("Account");
                             button.setStyle("-fx-font-size:20");
+
                             button.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
                                     try {
-                                        root = FXMLLoader.load(CreazioneApplication.class.getResource("AdminCreazioneAccount.fxml"));
+                                        root = FXMLLoader.load(GestioneAccountApplication.class.getResource("GestioneAccount.fxml"));
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
                                     stage.setScene(scene);
+                                    stage.setTitle("Account");
                                     stage.show();
                                 }
                             });
                         }
-                        if (col == 1){
-                            button.setText("Modifica Account");
+                        if (col == 1 && row == 0){
+                            button.setText("Voli");
                             button.setStyle("-fx-font-size:20");
+
                             button.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
                                     try {
-                                        root = FXMLLoader.load(ModificaAccountSceltaApplication.class.getResource("GestioneAccount.fxml"));
+                                        root = FXMLLoader.load(VoliMainApplication.class.getResource("VoliVis.fxml"));
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
                                     stage.setScene(scene);
+                                    stage.setTitle("Voli Page");
+                                    stage.show();
+                                }
+                            });
+                        }
+                        if (col == 0 && row ==1){
+                            button.setText("Bagagli");
+                            button.setStyle("-fx-font-size:20");
+
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(LuggageMainApplication.class.getResource("mainLuggageView.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setScene(scene);
+                                    stage.setTitle("Bagagli Page");
+                                    stage.show();
+                                }
+                            });
+                        }
+
+                        if (col == 1 && row ==1){
+                            button.setText("Terreno");
+                            button.setStyle("-fx-font-size:20");
+
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(LandPage.class.getResource("landPage_view.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setScene(scene);
+                                    stage.setTitle("Terreno Page");
                                     stage.show();
                                 }
                             });
@@ -109,6 +155,7 @@ public class HomePageController{
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
                                     stage.setScene(scene);
+                                    stage.setTitle("Voli Page");
                                     stage.show();
                                 }
                             });
@@ -127,6 +174,7 @@ public class HomePageController{
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
                                     stage.setScene(scene);
+                                    stage.setTitle("Bagagli Page");
                                     stage.show();
                                 }
                             });
@@ -155,7 +203,7 @@ public class HomePageController{
                                     }
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
-                                    stage.setTitle("Voli");
+                                    stage.setTitle("Voli Page");
                                     stage.setScene(scene);
                                     stage.show();
                                 }
@@ -174,7 +222,7 @@ public class HomePageController{
                                     }
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
-                                    stage.setTitle("Piste");
+                                    stage.setTitle("Piste Page");
                                     stage.setScene(scene);
                                     stage.show();
                                 }
@@ -207,6 +255,7 @@ public class HomePageController{
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
                                     stage.setScene(scene);
+                                    stage.setTitle("Terreno Page");
                                     stage.show();
                                 }
                             });
@@ -225,6 +274,7 @@ public class HomePageController{
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
                                     stage.setScene(scene);
+                                    stage.setTitle("Modifica");
                                     stage.show();
                                 }
                             });
