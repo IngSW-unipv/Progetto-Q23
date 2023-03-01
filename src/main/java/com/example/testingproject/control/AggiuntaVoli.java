@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class AggiuntaVoli {
@@ -58,7 +59,7 @@ public class AggiuntaVoli {
         stage.show();
     }
 
-    public void inserisciVoliPart(ActionEvent actionEvent) {
+    public void inserisciVoliPart(ActionEvent actionEvent) throws SQLException {
         String gate = gateh.getText();
         String aeroportop = aeroportoph.getText();
         String dataora = dataorah.getText();
@@ -80,26 +81,36 @@ public class AggiuntaVoli {
         System.out.println("ok!");
 
     }
-    public void inserisciVoliArrivo(ActionEvent insertButtonArrivo) {
-        String gate = gateh.getText();
-        String aeroportop = aeroportoph.getText();
-        String dataora = dataorah.getText();
-        String idvolo = idvoloh.getText();
-        String durata = duratah.getText();
-        String ritardo = ritardoh.getText();
-        String pista = pistah.getText();
-        String idaereo = idaereoh.getText();
-        int  idVolo = Integer.parseInt(idvolo);
-        int  durataapp = Integer.parseInt(durata);
-        int  ritardoapp = Integer.parseInt(ritardo);
-        int  aereo = Integer.parseInt(idaereo);
-        int  pistaapp = Integer.parseInt(pista);
+    public void inserisciVoliArrivo(ActionEvent insertButtonArrivo) throws SQLException {
+       try {
+           String gate = gateh.getText();
+           String aeroportop = aeroportoph.getText();
+           String dataora = dataorah.getText();
+           String idvolo = idvoloh.getText();
+           String durata = duratah.getText();
+           String ritardo = ritardoh.getText();
+           String pista = pistah.getText();
+           String idaereo = idaereoh.getText();
+           int idVolo = Integer.parseInt(idvolo);
+           int durataapp = Integer.parseInt(durata);
+           int ritardoapp = Integer.parseInt(ritardo);
+           int aereo = Integer.parseInt(idaereo);
+           int pistaapp = Integer.parseInt(pista);
 
 
+           boolean inserisci = VoliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
+           System.out.println(inserisci);
+           VoliDAO.inserisciArrivo(idVolo, pistaapp, dataora, aeroportop);
+           System.out.println("ok!");
+       }catch(NumberFormatException e){
+           System.out.println("Errore");
+           Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+           errorAlert.setTitle("Errore di Inserimento");
+           errorAlert.setHeaderText("Record già esistente");
+           errorAlert.setContentText("La sosta inserita esiste già in tabella");
+           errorAlert.showAndWait();
 
-        VoliDAO.inserisciVoli(idVolo,durataapp,ritardoapp,aereo,gate);
-        VoliDAO.inserisciArrivo(idVolo,pistaapp,dataora,aeroportop);
-        System.out.println("ok!");
+        }
 
     }
 
