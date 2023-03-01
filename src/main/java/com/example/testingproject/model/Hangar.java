@@ -1,9 +1,9 @@
 package com.example.testingproject.model;
 
 public class Hangar {
-    public int id;
-    public int nposti;
-    public int npostiLiberi;
+    private int id;
+    private int nposti;
+    private int npostiLiberi;
 
     public Hangar(int id, int nposti, int npostiLiberi) {
         this.id = id;

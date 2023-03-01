@@ -1,13 +1,14 @@
 package com.example.testingproject.model.DAO;
 
 import com.example.testingproject.model.Account;
+import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DatabaseConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class AccountDAO {
-    DatabaseConnection connection = new DatabaseConnection();
+    static DatabaseConnection connection = ConnectionHolder.getInstance();
 
 
     public ArrayList<Account> getAccounts() throws SQLException {

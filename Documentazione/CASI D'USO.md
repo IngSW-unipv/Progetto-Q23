@@ -37,46 +37,35 @@ Open Issues - Se il volo non viene accettato, ci potrebbe essere la possibilità
 ```
 Requisito Bagagli: 
 ```markdown
-Aggiunta bagaglio per Arrivo .
+Rimozione bagalio per volo in Arrivo .
 Aggiunta bagaglio per Partenze.
 Ricerca ed amministrazione bagagli. 
 
 
-Scope - Aggiunta Bagaglio volo in Arrivo
-Level - (da specificare)
-Primary Actor - Personale addetto allo smistamento bagagli sulla lista 
-Preconditions – Il volto risulta concluso e atterrato e parcheggiato ad un Gate
-Success Guarantee – Il volo deve presentare almeno un bagaglio stivato
-Main Success Scenario - Il bagaglio viene aggiunto alla lista bagagli presenti in aeroporto.
-Extensions/Alternative Scenarios –
-Special Requirements - 
-Technology and Data Variation  List - (Da  specificare)
-Frequency of Occurrence – Al momento dell’atterraggio di un volo. 
-Open Issues - Cosa accade se non siamo in grado di identificare l’etichetta del bagaglio. 
+Scope - Rimozione Bagaglio per volo in Arrivo
+Primary Actor - Personale addetto all’arrivo dunque il personale di terra che smista i bagagli e li posiziona sui rulli trasportatori.
+Preconditions - Condizione necessaria affinché sia possibile svolgere l’operazione è che l’utente abbia effettuato il login, e sia un utente gestore bagagli.
+Success Guarantee - Il volo sul quale dobbiamo effettuare l’operazione esiste, il bagaglio esiste e l’etichetta viene inserita nella maniera opportuna.
+Main Success Scenario - Il bagaglio rimosso dalla lista bagagli e la sua etichetta non risulta più all'interno del database.
+Frequency of Occurrence - Ogni qualvolta un aereo atterra e viene effettuata l’operazione di smistaggio.
 
 Scope - Aggiunta Bagaglio volo in Partenza
-Level - (da specificare)
-Primary Actor - Personale addetto alle Partenze 
-Preconditions - Imbarco di un Volo
-Success Guarantee - L’aereo sul quale dobbiamo imbarcare il bagaglio ha spazio in stiva
-Main Success Scenario - Il bagaglio viene aggiunto alla lista bagagli e viene stampata la relativa etichetta. 
-Extensions/Alternative Scenarios - Stiva ha concluso il posto relativo ai bagagli
-Special Requirements - 
-Technology and Data Variation List - (Da specificare)
-Frequency of Occurrence - Check-in del volo.
-Open Issues - Cosa accade se non siamo in grado di spedire il bagaglio con l’aereo corretto?
+Primary Actor - Personale addetto alle Partenze
+Preconditions - Condizione necessaria affinché sia possibile svolgere l’operazione è che l’utente abbia effettuato il login, e sia un utente gestore bagagli.
+Success Guarantee - L’aereo sul quale dobbiamo imbarcare il bagaglio ha spazio in stiva.
+Main Success Scenario - Il bagaglio viene aggiunto alla lista bagagli e viene stampato un messaggio di esito positivo.
+Extensions/Alternative Scenarios - La stiva per quel volo ha concluso il posto relativo ai bagagli. Il peso inserito risulta avere un peso uguale a zero. Il volo sul quale vogliamo effettuare un’aggiunta di un bagaglio non è esistente.
+Frequency of Occurrence - Ogni volta che abbiamo un volo in partenza.
+Open Issues - Cosa accade se non siamo in grado di spedire il bagaglio con l’aereo corretto a seguito di un problema di carico eccessivo?
 
-Scope -Ricerca di un Bagaglio 
-Level - (da specificare)
-Primary Actor - Personale addetto alle partenze e agli arrivi  
-Preconditions – Il bavaglio deve esistere e deve essere stato inserito correttamente
-Success Guarantee -La ricerca restituisce delle informazioni sul bagaglio 
-Main Success Scenario -Stampa delle informazioni, etichetta volo al quale è assegnato è stato del bagaglio
-Extensions/Alternative Scenarios – Il bagaglio non esiste 
-Special Requirements - 
-Technology and Data Variation  List - (Da specificare)
-Frequency of Occurrence – Quando necessario 
-Open Issues - Cosa accade se non viene specificato lo stato o alcuni campi?
+
+Scope - Ricerca ed Amministrazione per Bagaglio
+Primary Actor - Utente gestore di bagagli, viene utilizzato per reperire tutte le informazione relativa ad un determinato bagaglio ed eventualmente effettuare delle modifiche su di essi.  
+Preconditions - Condizione necessaria affinché sia possibile svolgere l’operazione è che l’utente abbia effettuato il login, e sia un utente gestore bagagli.
+Success Guarantee - Il bagaglio deve esistere.
+Main Success Scenario - Il bagaglio viene visualizzato correttamente e le operazioni di modifica vengono accettate.  
+Extensions/Alternative Scenarios - Lista di scenari alternativi dove qualcos’altro succede
+Frequency of Occurrence - La frequenza è relativa all’utilizzatore.
 
 ```
 

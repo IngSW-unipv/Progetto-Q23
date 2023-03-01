@@ -1,6 +1,7 @@
 package com.example.testingproject.model.DAO;
 
 import com.example.testingproject.model.Account;
+import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DatabaseConnection;
 import com.example.testingproject.model.Pista;
 
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PistaDAO {
-    DatabaseConnection connection = new DatabaseConnection();
+    static DatabaseConnection connection = ConnectionHolder.getInstance();
 
     public ArrayList<Pista> findPiste() throws SQLException {
         ArrayList<Pista> piste = new ArrayList<Pista>();

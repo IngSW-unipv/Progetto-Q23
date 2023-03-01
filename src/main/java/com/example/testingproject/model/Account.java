@@ -2,7 +2,11 @@ package com.example.testingproject.model;
 
 
 public class Account {
-    private String username, password, userType,name,surname;
+    private String username;
+    private String password;
+    private String userType;
+    private final String name;
+    private final String surname;
     private boolean isLoggedIn;
 
     public Account(String username, String password, String userType, String name, String surname) {

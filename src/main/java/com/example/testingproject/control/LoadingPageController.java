@@ -1,6 +1,8 @@
 package com.example.testingproject.control;
 
-import com.example.testingproject.view.login.LoginPage;
+import com.example.testingproject.model.ConnectionHolder;
+import com.example.testingproject.model.DatabaseConnection;
+import com.example.testingproject.view.login.LoginPageApplication;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 
@@ -16,14 +18,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
 public class LoadingPageController implements Initializable {
 
-    private Stage stage = this.stage;
+    private final Stage stage = this.stage;
 
     @FXML
     private ProgressBar myProgressBar;
@@ -34,6 +35,9 @@ public class LoadingPageController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+         DatabaseConnection connection = ConnectionHolder.getInstance();
+         System.out.println(connection+ " Connessione");
+
 
         myProgressBar.setStyle("-fx-accent: #00FF00;");
         Task<Void> task = new Task<Void>() {
@@ -65,7 +69,7 @@ public class LoadingPageController implements Initializable {
         task.setOnSucceeded(e -> {
 
 
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginPage.class.getResource("login_view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginPageApplication.class.getResource("login_view.fxml"));
             Scene scene = null;
             try {
 

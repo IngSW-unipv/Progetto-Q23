@@ -1,42 +1,25 @@
 package com.example.testingproject.model;
 
 public class Luggage {
-    public int Volo, Peso, Id;
-    public String Stato;
+    public int volo, peso, id;
+    public String stato;
 
-    public Luggage(int id, int peso, String stato, int volo) {
-        Volo = volo;
-        Peso = peso;
-        Stato = stato;
-        Id = id;
+    public Luggage(int Id, int Peso, String Stato, int Volo) {
+        volo = Volo;
+        peso = Peso;
+        stato = Stato;
+        id = Id;
     }
-
     public int getPeso() {
-        return Peso;
+        return peso;
     }
-
-    public void setPeso(int peso) {
-        Peso = peso;
-    }
-
     public String getStato() {
-        return Stato;
+        return stato;
     }
-
-    public void setStato(String stato) {
-        Stato = stato;
-    }
-
     public int getVolo() {
-        return Volo;
+        return volo;
     }
-
     public int getId() {
-        return Id;
-    }
-
-
-    public void setVolo(int volo) {
-        Volo = volo;
+        return id;
     }
 }
