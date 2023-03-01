@@ -39,7 +39,7 @@ public class BagagliDAO {
         return luggages;
     }
 
-    public Luggage getLuggaggeById(int id) {
+    public Luggage getLuggaggeById(int id) throws SQLException {
         Connection conn = connection.getConnection();
 
         try {
@@ -53,6 +53,7 @@ public class BagagliDAO {
                 errorAlert.setHeaderText("Input not valid");
                 errorAlert.setContentText("Il bagaglio non esiste");
                 errorAlert.showAndWait();
+                connection.closeConnection(conn);
                 return null;
             } else {
                 resultSet.next();
@@ -60,16 +61,17 @@ public class BagagliDAO {
                 tempPeso = resultSet.getInt(2);
                 tempVolo = resultSet.getInt(4);
                 tempStato = resultSet.getString(3);
-
+                connection.closeConnection(conn);
                 return new Luggage(tempId, tempPeso, tempStato, tempVolo);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            connection.closeConnection(conn);
             return null;
         }
     }
 
-    public void modifyStato(int id, String Stato) {
+    public void modifyStato(int id, String Stato) throws SQLException{
         Connection conn = connection.getConnection();
         try {
             String query = "UPDATE `AirportManager`.`bagaglio` SET `stato` = '" + Stato + "' WHERE (`id` = '" + id + "');";
@@ -79,11 +81,12 @@ public class BagagliDAO {
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
+            connection.closeConnection(conn);
         }
     }
 
 
-    public boolean verifyFly(int idVolo, String firstAirport, String secondAirport) {
+    public boolean verifyFly(int idVolo, String firstAirport, String secondAirport) throws SQLException{
         Connection conn = connection.getConnection();
         try {
             int tempVolo;
@@ -92,22 +95,25 @@ public class BagagliDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
+                connection.closeConnection(conn);
                 return false;
             } else while (resultSet.next()) {
                 tempVolo = resultSet.getInt(1);
                 tempPartenza = resultSet.getString(2);
                 tempArrivo = resultSet.getString(3);
                 if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
+                    connection.closeConnection(conn);
                     return true;
                 }
             }
         } catch (SQLException e) {
+            connection.closeConnection(conn);
             e.printStackTrace();
         }
         return false;
     }
 
-    public void addLuggage(int peso, String stato, int volo) {
+    public void addLuggage(int peso, String stato, int volo) throws SQLException{
         Connection conn = connection.getConnection();
         try {
             String query = "INSERT INTO bagaglio(peso,stato,volo) values('" + peso + "', '" + stato + "', '" + volo + "')";
@@ -117,11 +123,12 @@ public class BagagliDAO {
         } catch (Exception e) {
             System.err.println("Got an exception!");
             System.err.println(e.getMessage());
+            connection.closeConnection(conn);
         }
     }
 
     // verifica se volo è pertinente e se è possibile inserire un'altro bagaglio
-    public boolean verifyPlaceonBord(int idVolo, int wight, String firstAirport, String secondAirport) {
+    public boolean verifyPlaceonBord(int idVolo, int wight, String firstAirport, String secondAirport) throws SQLException {
         Connection conn = connection.getConnection();
         try {
             int tempVolo;
@@ -131,6 +138,7 @@ public class BagagliDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
+                connection.closeConnection(conn);
                 return false;
             } else while (resultSet.next()) {
                 tempArrivo = resultSet.getString(2);
@@ -139,17 +147,20 @@ public class BagagliDAO {
                 tempCaricoMax = resultSet.getInt(5);
                 if ((tempPartenza.equals(firstAirport)) && (tempArrivo.equals(secondAirport)) && (tempVolo == idVolo)) {
                     if ((tempCaricoMax >= wight)) {
+                        connection.closeConnection(conn);
                         return true;
                     }
                 }
             }
         } catch (SQLException e) {
+            connection.closeConnection(conn);
             e.printStackTrace();
         }
+        connection.closeConnection(conn);
         return false;
     }
 
-    public int sumWigth(int idVolo) {
+    public int sumWigth(int idVolo) throws SQLException {
         Connection conn = connection.getConnection();
         try {
             int tempPeso;
@@ -164,33 +175,39 @@ public class BagagliDAO {
             } else {
                 resultSet.next();
                 tempPeso = resultSet.getInt(1);
+                connection.closeConnection(conn);
                 return tempPeso;
             }
         } catch (SQLException e) {
+            connection.closeConnection(conn);
             e.printStackTrace();
         }
+        connection.closeConnection(conn);
         return 0;
     }
 
-    public boolean verifyLuggegeinFly(int idBagaglio, int idVolo) {
+    public boolean verifyLuggegeinFly(int idBagaglio, int idVolo) throws SQLException {
         Connection conn = connection.getConnection();
         try {
             String query = "SELECT * FROM AirportManager.bagaglio where volo = '" + idVolo + "' and id = '" + idBagaglio + "';";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.isBeforeFirst()) {
+                connection.closeConnection(conn);
                 return false;
             } else {
                 resultSet.next();
+                connection.closeConnection(conn);
                 return true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        connection.closeConnection(conn);
         return false;
     }
 
-    public ArrayList<VistaVoloBagaglio> getVistaArrivo() {
+    public ArrayList<VistaVoloBagaglio> getVistaArrivo() throws SQLException {
         ArrayList<VistaVoloBagaglio> vista = new ArrayList<>();
         Connection conn = connection.getConnection();
         try {
@@ -211,11 +228,13 @@ public class BagagliDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            connection.closeConnection(conn);
         }
+        connection.closeConnection(conn);
         return vista;
     }
 
-    public boolean removeLuggage(int idBagaglio) {
+    public boolean removeLuggage(int idBagaglio) throws SQLException {
         Connection conn = connection.getConnection();
         try {
             String query = "DELETE FROM `AirportManager`.`bagaglio` WHERE (`id` = '"+idBagaglio+"');";
@@ -223,12 +242,10 @@ public class BagagliDAO {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            connection.closeConnection(conn);
             return false;
         }
+        connection.closeConnection(conn);
         return true;
     }
-
-
-
-
 }

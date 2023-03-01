@@ -2,6 +2,7 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.model.Luggage;
+import com.example.testingproject.model.VistaVoloBagaglio;
 import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,15 +11,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class LuggageDepartureController {
     public Spinner<Integer> WightSpinner;
     public Button addButton;
     public TextField textField;
     public MenuBar myMenuBar;
+    public ListView<String> ListView1;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -27,7 +33,16 @@ public class LuggageDepartureController {
     private javafx.scene.control.ListView<String> listView;
     private Luggage tempLuggage;
     private BagagliDAO luggageDAO = new BagagliDAO();
-    public void addLuggage(ActionEvent actionEvent) {
+
+    public void initialize() throws SQLException {
+        ArrayList<VistaVoloBagaglio> voli = new ArrayList<>();
+        ListView1.getItems().add("VOLO"+"  "+ "PARTENZA"+"  "+ "ARRIVO");
+        voli = luggageDAO.getVistaArrivo();
+        for (VistaVoloBagaglio vistaVoloBagaglio : voli) {
+            ListView1.getItems().add(vistaVoloBagaglio.getIdVolo() + "             " + vistaVoloBagaglio.getAeroportoP() + "             " + vistaVoloBagaglio.getAeroportoA());
+        }
+    }
+    public void addLuggage(ActionEvent actionEvent) throws SQLException {
         int lengthcod = 0;
         int idVolo = 0;
         String codices = textField.getText();
@@ -62,7 +77,7 @@ public class LuggageDepartureController {
         }
     }
     public void goToHome(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(HomePage.class.getResource("homePage_view.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
@@ -71,5 +86,10 @@ public class LuggageDepartureController {
     public void closeWindow() {
         Stage stage = (Stage) myMenuBar.getScene().getWindow();
         stage.close();
+    }
+
+    public void clear(MouseEvent mouseEvent) {
+        int selectedId = listView.getSelectionModel().getSelectedIndex();
+        listView.getItems().remove(selectedId);
     }
 }

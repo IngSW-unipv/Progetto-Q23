@@ -4,6 +4,9 @@ import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.model.VistaVoloBagaglio;
 import com.example.testingproject.view.homePage.HomePage;
+import javafx.beans.Observable;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +31,8 @@ public class LuggageManageController {
     public Button modifyButtonInVolo;
     public javafx.scene.control.ListView<String> ListView1;
     @FXML
+    public Button clearButton;
+    @FXML
     private Button searchButton;
     @FXML
     private Luggage tempLuggage;
@@ -47,7 +52,8 @@ public class LuggageManageController {
         }
     }
 
-    public void search(ActionEvent event) {
+
+    public void search(ActionEvent event) throws SQLException {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
         int lencodice = codice.length();
@@ -112,26 +118,28 @@ public class LuggageManageController {
             }
         }
     }
-    public void deleteText(MouseEvent mouseEvent) {
-    }
-
-    public void modify(ActionEvent actionEvent){
+    public void modify(ActionEvent actionEvent) throws SQLException {
         String Smarrito = "SMARRITO";
         luggageDAO.modifyStato(tempLuggage.getId(), Smarrito);
         ListView.getItems().add("STATO BAGAGAGLIO CAMBIATO CORRETTAMENTE");
     }
 
-    public void modifyINVOLO(ActionEvent actionEvent) {
+    public void modifyINVOLO(ActionEvent actionEvent) throws SQLException {
         String StringInVolo = "IN VOLO";
         luggageDAO.modifyStato(tempLuggage.getId(), StringInVolo);
         ListView.getItems().add("STATO BAGAGAGLIO CAMBIATO CORRETTAMENTE");
     }
 
     public void goToHome(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(HomePage.class.getResource("homePage_view.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
     }
+    public void clear(MouseEvent mouseEvent) {
+        int selectedId = ListView.getSelectionModel().getSelectedIndex();
+        ListView.getItems().remove(selectedId);
+    }
+
 }

@@ -11,13 +11,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class LuggageArriveController {
     public Button addButton;
+    public Button clearButton;
     @FXML
     private TextField textField;
     public MenuBar myMenuBar;
@@ -25,7 +28,7 @@ public class LuggageArriveController {
     private javafx.scene.control.ListView<String> listView;
     private final BagagliDAO luggageDAO = new BagagliDAO();
 
-    public void addLuggage() {
+    public void addLuggage() throws SQLException {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
         int lcod, line = 0;
@@ -86,5 +89,9 @@ public class LuggageArriveController {
         Scene scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
+    }
+    public void clear(MouseEvent mouseEvent) {
+        int selectedId = listView.getSelectionModel().getSelectedIndex();
+        listView.getItems().remove(selectedId);
     }
 }
