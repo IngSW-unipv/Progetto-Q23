@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class TerreniDAO {
     static DatabaseConnection connection = new DatabaseConnection();
 
-    public static Hangar getTerrenoByID(int id) throws SQLException {
+    public static Hangar getTerrenoByID(int id)  {
         Hangar terreno;
         Connection conn = connection.getConnection();
         try{
@@ -40,7 +40,7 @@ public class TerreniDAO {
         connection.closeConnection(conn);
         return terreno;
     }
-    public static ArrayList<Hangar> getTerreni() throws SQLException {
+    public static ArrayList<Hangar> getTerreni() {
         ArrayList<Hangar> terreni = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
@@ -49,7 +49,7 @@ public class TerreniDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            Integer tempId,tempNposti,tempPostiLiberi;
+            int tempId,tempNposti,tempPostiLiberi;
 
             while(resultSet.next()){
                 tempId = resultSet.getInt(1);
@@ -68,7 +68,7 @@ public class TerreniDAO {
         connection.closeConnection(conn);
         return terreni;
     }
-    public static ArrayList<Sosta> getSoste(int id) throws SQLException {
+    public static ArrayList<Sosta> getSoste(int id)  {
         ArrayList<Sosta> soste = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
@@ -78,7 +78,7 @@ public class TerreniDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            Integer tempHangar,tempAereo;
+            int tempHangar,tempAereo;
             String  tempInizio,tempFine;
 
 
@@ -100,7 +100,7 @@ public class TerreniDAO {
         connection.closeConnection(conn);
         return soste;
     }
-    public static ArrayList<Aereo> getAerei() throws SQLException {
+    public static ArrayList<Aereo> getAerei()  {
         ArrayList<Aereo> aerei = new ArrayList<>();
         Connection conn = connection.getConnection();
         try {
@@ -128,7 +128,7 @@ public class TerreniDAO {
         return aerei;
     }
 
-    public static boolean insertSosta(Sosta sosta) throws SQLException {
+    public static boolean insertSosta(Sosta sosta)  {
 
         Connection conn = connection.getConnection();
 
@@ -152,7 +152,7 @@ public class TerreniDAO {
         }
 
     }
-    public static boolean increaseHangar(int id) throws SQLException {
+    public static boolean increaseHangar(int id)  {
         Connection conn = connection.getConnection();
         try{
             String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi+1   WHERE (id = '"+id+ "');";
@@ -161,7 +161,7 @@ public class TerreniDAO {
             connection.closeConnection(conn);
             return true;
 
-        }catch(Exception exception){
+        }catch(SQLException exception){
             exception.printStackTrace();
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setTitle("Errore di Inserimento");
@@ -173,7 +173,7 @@ public class TerreniDAO {
 
         }
     }
-    public static boolean decreaseHangar(int id) throws SQLException {
+    public static boolean decreaseHangar(int id) {
         Connection conn = connection.getConnection();
         try{
             String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi-1   WHERE (id = '"+id+ "');";
@@ -182,7 +182,7 @@ public class TerreniDAO {
             connection.closeConnection(conn);
             return true;
 
-        }catch(Exception exception){
+        }catch(SQLException exception){
             exception.printStackTrace();
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setTitle("Errore di Inserimento");
@@ -194,7 +194,7 @@ public class TerreniDAO {
 
         }
     }
-    public static boolean removeSosta(Sosta sosta) throws SQLException {
+    public static boolean removeSosta(Sosta sosta)  {
         Connection conn = connection.getConnection();
 
         try{

@@ -30,8 +30,8 @@ public class VoliArrivoController {
     private Parent root;
 
 
-    private VoliDAO VoliDAO = new VoliDAO();
-    private AccountService accountService = new AccountService();
+    private final VoliDAO VoliDAO = new VoliDAO();
+    private final AccountService accountService = new AccountService();
     public void goToHome(ActionEvent event) throws IOException {
         root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -43,7 +43,7 @@ public class VoliArrivoController {
     public void initialize() throws SQLException {
 
         ArrayList<Voli> voli_ = new ArrayList<>();
-        voli_ = VoliDAO.getVoliArrivo();
+        voli_ = com.example.testingproject.model.DAO.VoliDAO.getVoliArrivo();
         for (int i = 0; i < voli_.size(); i++) {
             voliListView.getItems().add(voli_.get(i).getGate() + "       "+ voli_.get(i).getAeroportop()+"                  "+ voli_.get(i).getDataora() +
 

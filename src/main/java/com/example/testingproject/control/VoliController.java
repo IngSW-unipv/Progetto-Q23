@@ -30,7 +30,7 @@ public class VoliController{
 
     private Parent root;
 
-    private VoliDAO VoliDAO = new VoliDAO();
+    private final VoliDAO VoliDAO = new VoliDAO();
 
     public void goToHome(ActionEvent event) throws IOException {
         root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));

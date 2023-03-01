@@ -37,7 +37,7 @@ public class LuggageManageController {
     @FXML
     private Luggage tempLuggage;
     @FXML
-    private BagagliDAO luggageDAO = new BagagliDAO();
+    private final BagagliDAO luggageDAO = new BagagliDAO();
     private Stage stage;
     private Scene scene;
     private Parent root;

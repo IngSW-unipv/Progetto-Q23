@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PistaService {
-    private PistaDAO pistaDAO = new PistaDAO();
+    private final PistaDAO pistaDAO = new PistaDAO();
 
     public ArrayList<Pista> getPiste() throws SQLException {
         ArrayList<Pista> piste = new ArrayList<Pista>();

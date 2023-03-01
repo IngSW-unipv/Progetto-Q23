@@ -3,6 +3,7 @@ module com.example.testingproject {
     requires javafx.fxml;
     requires java.sql;
     requires org.testng;
+    requires mysql.connector.j;
     //requires org.testng;
 
 

@@ -1,7 +1,6 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.Account;
-import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.model.UserHolder;
 import com.example.testingproject.model.service.AccountService;
 import javafx.event.ActionEvent;
@@ -15,7 +14,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import com.example.testingproject.view.homePage.HomePage;
+import com.example.testingproject.view.homePage.HomePageApplication;
 
 import java.io.IOException;
 
@@ -43,7 +42,7 @@ private TextField InputUsername;
 
     private Account tempAccount;
 
-    private AccountService accountService = new AccountService();
+    private final AccountService accountService = new AccountService();
 
 
 
@@ -70,7 +69,7 @@ private TextField InputUsername;
             if (accountService.checkPassword(tempAccount,InputPassword.getText())) {
                 UserHolder holder = UserHolder.getInstance();
                 holder.setUser(tempAccount);
-                root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+                root = FXMLLoader.load(HomePageApplication.class.getResource("homePage_view.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root, 1024, 512);
                 stage.setTitle("Home Page");

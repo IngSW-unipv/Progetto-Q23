@@ -4,7 +4,7 @@ package com.example.testingproject.control;
 import com.example.testingproject.model.DAO.TerreniDAO;
 import com.example.testingproject.model.Sosta;
 import com.example.testingproject.model.Hangar;
-import com.example.testingproject.view.homePage.HomePage;
+import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +41,7 @@ public class LandPageController {
     Label npostiliberi;
     public ArrayList<Hangar> tr;
     public int selected;
-    public void initialize() throws SQLException {
+    public void initialize()  {
     tr = TerreniDAO.getTerreni();
     for(int i = 0 ; i < tr.size(); i++){
         terreniList.getItems().add(tr.get(i).id);
@@ -52,13 +52,13 @@ public class LandPageController {
         stage.close();
     }
     public void goToHome(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        root = FXMLLoader.load(HomePageApplication.class.getResource("homePage_view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML public void handleMouseClick(MouseEvent arg0) throws SQLException, ParseException {
+    @FXML public void handleMouseClick(MouseEvent arg0) throws ParseException {
         Integer id =(Integer) terreniList.getSelectionModel().getSelectedItem();
         if (id == selected) {
 

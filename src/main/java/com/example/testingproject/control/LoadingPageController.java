@@ -1,6 +1,6 @@
 package com.example.testingproject.control;
 
-import com.example.testingproject.view.login.LoginPage;
+import com.example.testingproject.view.login.LoginPageApplication;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 
@@ -16,14 +16,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
 public class LoadingPageController implements Initializable {
 
-    private Stage stage = this.stage;
+    private final Stage stage = this.stage;
 
     @FXML
     private ProgressBar myProgressBar;
@@ -65,7 +64,7 @@ public class LoadingPageController implements Initializable {
         task.setOnSucceeded(e -> {
 
 
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginPage.class.getResource("login_view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginPageApplication.class.getResource("login_view.fxml"));
             Scene scene = null;
             try {
 

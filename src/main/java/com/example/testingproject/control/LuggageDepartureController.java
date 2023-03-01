@@ -32,7 +32,7 @@ public class LuggageDepartureController {
     @FXML
     private javafx.scene.control.ListView<String> listView;
     private Luggage tempLuggage;
-    private BagagliDAO luggageDAO = new BagagliDAO();
+    private final BagagliDAO luggageDAO = new BagagliDAO();
 
     public void initialize() throws SQLException {
         ArrayList<VistaVoloBagaglio> voli = new ArrayList<>();

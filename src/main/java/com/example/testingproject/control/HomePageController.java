@@ -1,15 +1,10 @@
 package com.example.testingproject.control;
 
 
-import com.example.testingproject.model.Account;
 import com.example.testingproject.model.UserHolder;
-import com.example.testingproject.model.Voli;
 import com.example.testingproject.view.GestioneAccount.GestioneAccountApplication;
-import com.example.testingproject.view.Land.LandPage;
-import com.example.testingproject.view.ModificaAccount.ModificaAccountSceltaApplication;
+import com.example.testingproject.view.Land.LandPageApplication;
 import com.example.testingproject.view.Voli.VoliMainApplication;
-import com.example.testingproject.view.creazioneAccount.CreazioneApplication;
-import com.example.testingproject.view.homePage.HomePage;
 import com.example.testingproject.view.luggage.LuggageMainApplication;
 import com.example.testingproject.view.piste.PisteApplication;
 import javafx.event.ActionEvent;
@@ -117,7 +112,7 @@ public class HomePageController{
                                 @Override
                                 public void handle(ActionEvent event) {
                                     try {
-                                        root = FXMLLoader.load(LandPage.class.getResource("landPage_view.fxml"));
+                                        root = FXMLLoader.load(LandPageApplication.class.getResource("landPage_view.fxml"));
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }
@@ -248,7 +243,7 @@ public class HomePageController{
                                 @Override
                                 public void handle(ActionEvent event) {
                                     try {
-                                        root = FXMLLoader.load(LandPage.class.getResource("landPage_view.fxml"));
+                                        root = FXMLLoader.load(LandPageApplication.class.getResource("landPage_view.fxml"));
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }
@@ -267,7 +262,7 @@ public class HomePageController{
                                 @Override
                                 public void handle(ActionEvent event) {
                                     try {
-                                        root = FXMLLoader.load(LandPage.class.getResource("assign/landPage_assignview.fxml"));
+                                        root = FXMLLoader.load(LandPageApplication.class.getResource("assign/landPage_assignview.fxml"));
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }
