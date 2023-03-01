@@ -1,4 +1,5 @@
 package com.example.testingproject.model.DAO;
+import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DatabaseConnection;
 import com.example.testingproject.model.Voli;
 import javafx.scene.control.Alert;
@@ -7,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class VoliDAO {
-    static DatabaseConnection connection = new DatabaseConnection();
+    static DatabaseConnection connection = ConnectionHolder.getInstance();
 
     public static ArrayList<Voli> getVoliPartenza() throws SQLException {
         ArrayList<Voli> voli = new ArrayList<>();

@@ -1,5 +1,7 @@
 package com.example.testingproject.control;
 
+import com.example.testingproject.model.ConnectionHolder;
+import com.example.testingproject.model.DatabaseConnection;
 import com.example.testingproject.view.login.LoginPageApplication;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -33,6 +35,9 @@ public class LoadingPageController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+         DatabaseConnection connection = ConnectionHolder.getInstance();
+         System.out.println(connection+ " Connessione");
+
 
         myProgressBar.setStyle("-fx-accent: #00FF00;");
         Task<Void> task = new Task<Void>() {

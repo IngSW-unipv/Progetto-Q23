@@ -1,6 +1,7 @@
 package com.example.testingproject.control;
 
 
+import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DAO.TerreniDAO;
 import com.example.testingproject.model.Sosta;
 import com.example.testingproject.model.Hangar;
@@ -41,10 +42,11 @@ public class LandPageController {
     Label npostiliberi;
     public ArrayList<Hangar> tr;
     public int selected;
+
     public void initialize()  {
     tr = TerreniDAO.getTerreni();
     for(int i = 0 ; i < tr.size(); i++){
-        terreniList.getItems().add(tr.get(i).id);
+        terreniList.getItems().add(tr.get(i).getId());
        }
     }
     public void CloseWindow(ActionEvent event) {
@@ -66,7 +68,7 @@ public class LandPageController {
             selected = id;
             sosteList.getItems().clear();
             for (int i = 0; i < tr.size(); i++) {
-                if (tr.get(i).id == id) {
+                if (tr.get(i).getId() == id) {
                     nposti.setText(Integer.toString(tr.get(i).getNposti()));
                     npostiliberi.setText(Integer.toString(tr.get(i).getNpostiLiberi()));
                 }

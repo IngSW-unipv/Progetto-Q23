@@ -36,7 +36,6 @@ public class HomePageController{
     public void initialize() throws IOException {
 
         UserHolder holder = UserHolder.getInstance();
-        System.out.println(holder.getUser().getUserType() + "  " + holder.getUser().getUsername());
         switch (holder.getUser().getUserType()) {
             case "Admin":
                 buttons = new ArrayList<>();

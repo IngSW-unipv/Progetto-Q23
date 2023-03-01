@@ -1,6 +1,7 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.Aereo;
+import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DAO.TerreniDAO;
 import com.example.testingproject.model.Hangar;
 import com.example.testingproject.model.Sosta;
@@ -42,10 +43,11 @@ public class LandPageAssignController {
     public int selectedHangar;
     public  int selectedAereo;
     public  String selectedDateI,selectedDateF;
+
     public void initialize() throws SQLException {
       hg = TerreniDAO.getTerreni();
       for (int i =0; i< hg.size(); i++){
-          hangarList.getItems().add(hg.get(i).id);
+          hangarList.getItems().add(hg.get(i).getId());
       }
     aerei = TerreniDAO.getAerei();
 

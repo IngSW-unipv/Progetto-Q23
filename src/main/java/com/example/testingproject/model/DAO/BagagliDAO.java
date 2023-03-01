@@ -1,4 +1,5 @@
 package com.example.testingproject.model.DAO;
+import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DatabaseConnection;
 import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.VistaVoloBagaglio;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BagagliDAO {
-    static DatabaseConnection connection = new DatabaseConnection();
+    static DatabaseConnection connection = ConnectionHolder.getInstance();
 
     public static ArrayList<Luggage> getLuggage() throws SQLException {
         ArrayList<Luggage> luggages = new ArrayList<>();

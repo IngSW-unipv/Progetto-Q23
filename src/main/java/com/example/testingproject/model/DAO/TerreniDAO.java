@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TerreniDAO {
-    static DatabaseConnection connection = new DatabaseConnection();
+     static DatabaseConnection connection = ConnectionHolder.getInstance();
 
     public static Hangar getTerrenoByID(int id)  {
         Hangar terreno;
@@ -37,7 +37,6 @@ public class TerreniDAO {
             throw new RuntimeException(e);
         }
 
-        connection.closeConnection(conn);
         return terreno;
     }
     public static ArrayList<Hangar> getTerreni() {
@@ -65,10 +64,10 @@ public class TerreniDAO {
             throw new RuntimeException(e);
         }
 
-        connection.closeConnection(conn);
+
         return terreni;
     }
-    public static ArrayList<Sosta> getSoste(int id)  {
+    public  static ArrayList<Sosta> getSoste(int id)  {
         ArrayList<Sosta> soste = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
@@ -97,7 +96,7 @@ public class TerreniDAO {
             throw new RuntimeException(e);
         }
 
-        connection.closeConnection(conn);
+
         return soste;
     }
     public static ArrayList<Aereo> getAerei()  {
@@ -124,7 +123,7 @@ public class TerreniDAO {
             throw new RuntimeException(e);
         }
 
-        connection.closeConnection(conn);
+
         return aerei;
     }
 
@@ -137,7 +136,7 @@ public class TerreniDAO {
                     "('"+sosta.getHangar()+ "','" +sosta.getAereo()+"','"+sosta.getInizio()+"','"+sosta.getFine()+"');";
             PreparedStatement preparedStatement =conn.prepareStatement(query);
             preparedStatement.executeUpdate();
-            connection.closeConnection(conn);
+
             return true;
 
         } catch (SQLException e) {
@@ -147,7 +146,7 @@ public class TerreniDAO {
             errorAlert.setHeaderText("Record già esistente");
             errorAlert.setContentText("La sosta inserita esiste già in tabella");
             errorAlert.showAndWait();
-            connection.closeConnection(conn);
+
             return false;
         }
 
@@ -158,7 +157,7 @@ public class TerreniDAO {
             String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi+1   WHERE (id = '"+id+ "');";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.executeUpdate();
-            connection.closeConnection(conn);
+
             return true;
 
         }catch(SQLException exception){
@@ -168,7 +167,7 @@ public class TerreniDAO {
             errorAlert.setHeaderText("L'hangar è vuoto");
             errorAlert.setContentText("L'hangar selezionato è al vuoto. Non puoi rimuovere una sosta inesistente");
             errorAlert.showAndWait();
-            connection.closeConnection(conn);
+
             return false;
 
         }
@@ -179,7 +178,7 @@ public class TerreniDAO {
             String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi-1   WHERE (id = '"+id+ "');";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.executeUpdate();
-            connection.closeConnection(conn);
+
             return true;
 
         }catch(SQLException exception){
@@ -189,7 +188,7 @@ public class TerreniDAO {
             errorAlert.setHeaderText("L'hangar è al completo");
             errorAlert.setContentText("L'hangar selezionato è al completo. Seleziona un altro Hangar");
             errorAlert.showAndWait();
-            connection.closeConnection(conn);
+
             return false;
 
         }
@@ -201,7 +200,7 @@ public class TerreniDAO {
             String query = "Delete from AirportManager.sosta where hangar='"+sosta.getHangar()+ "' and aereo='"+sosta.getAereo()+"';";
             PreparedStatement preparedStatement =conn.prepareStatement(query);
             int resultSet = preparedStatement.executeUpdate();
-            connection.closeConnection(conn);
+
             if(resultSet == 1)return true;
 
         } catch (SQLException e) {
@@ -211,7 +210,7 @@ public class TerreniDAO {
             errorAlert.setHeaderText("Il Record selezionato non esiste");
             errorAlert.setContentText("Stai provando ad eliminare un record che non esiste");
             errorAlert.showAndWait();
-            connection.closeConnection(conn);
+
             return false;
         }
          return false;
