@@ -8,11 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LandPage extends Application {
+public class LandPageApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LandPage.class.getResource("landPage_view.fxml"));
-        System.out.print(LandPage.class.getResource("landPage_view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LandPageApplication.class.getResource("landPage_view.fxml"));
+        System.out.print(LandPageApplication.class.getResource("landPage_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 512);
         stage.setTitle("LandPage");
         stage.setScene(scene);

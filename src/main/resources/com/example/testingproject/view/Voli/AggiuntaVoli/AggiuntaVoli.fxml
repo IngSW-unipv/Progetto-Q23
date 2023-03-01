@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="back1" stylesheets="@voliPageStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.AggiuntaVoli">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="back1" stylesheets="@voliPageStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testingproject.control.AggiuntaVoliController">
    <children>
       <MenuBar layoutY="2.0">
          <menus>

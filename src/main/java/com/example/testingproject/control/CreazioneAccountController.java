@@ -4,11 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.service.AccountService;
-import com.example.testingproject.view.homePage.HomePage;
+import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,8 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Region;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CreazioneAccountController implements Initializable{
@@ -46,7 +43,7 @@ public class CreazioneAccountController implements Initializable{
     private Scene scene;
     private Parent root;
 
-    private String[] ruolo = {"Terreni","Bagagli","Piste","Admin"};
+    private final String[] ruolo = {"Terreni","Bagagli","Piste","Admin"};
     public String selectedRole;
 
     AccountService accountService = new AccountService();
@@ -94,8 +91,8 @@ public class CreazioneAccountController implements Initializable{
     }
 
     public void goToHome(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(HomePageApplication.class.getResource("homePage_view.fxml"));
+        stage = (Stage) ((Node) actionEvent                                                          .getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();

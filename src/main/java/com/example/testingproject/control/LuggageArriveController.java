@@ -1,7 +1,7 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.DAO.BagagliDAO;
-import com.example.testingproject.view.homePage.HomePage;
+import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,7 +84,7 @@ public class LuggageArriveController {
         stage.close();
     }
     public void goToHome(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(HomePage.class.getResource("homePage_view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(HomePageApplication.class.getResource("homePage_view.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 1024, 512);
         stage.setScene(scene);

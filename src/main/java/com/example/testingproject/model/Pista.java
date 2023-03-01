@@ -1,8 +1,9 @@
 package com.example.testingproject.model;
 
 public class Pista {
-    private String direction;
-    private Integer length, id;
+    private final String direction;
+    private final Integer length;
+    private final Integer id;
 
     public Pista(Integer id, Integer length, String direction){
         this.id = id;
