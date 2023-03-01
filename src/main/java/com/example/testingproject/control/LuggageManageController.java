@@ -4,9 +4,6 @@ import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.model.VistaVoloBagaglio;
 import com.example.testingproject.view.homePage.HomePageApplication;
-import javafx.beans.Observable;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,7 +95,7 @@ public class LuggageManageController {
             ListView.getItems().add("IL VOLO RICERCATO NON ESISTE");
         } else {
             if (!verifica2) {
-                ListView.getItems().add("IL BAGAGLIO SELEZIONATO NON E' PRESENTE SU QUESTIO VOLO");
+                ListView.getItems().add("IL BAGAGLIO SELEZIONATO NON E' PRESENTE SU QUESTO VOLO");
             } else {
                 tempLuggage = luggageDAO.getLuggaggeById(idBagaglio);
                 assert tempLuggage != null;
