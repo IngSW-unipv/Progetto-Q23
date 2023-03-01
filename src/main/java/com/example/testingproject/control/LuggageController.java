@@ -28,11 +28,13 @@ public class LuggageController {
     private Button buttonLuggageArrivals;
     @FXML
     private Button buttonLuggageManage;
+    @FXML
+    public MenuBar myMenuBar;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    public MenuBar myMenuBar;
+
 
     @FXML
     protected void openLuggageDeparturesView(ActionEvent event) throws IOException {
@@ -61,7 +63,7 @@ public class LuggageController {
         stage.show();
     }
     public void goToHome(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(HomePage.class.getResource("homePage_view.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
