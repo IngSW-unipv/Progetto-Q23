@@ -4,9 +4,6 @@ import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.model.VistaVoloBagaglio;
 import com.example.testingproject.view.homePage.HomePageApplication;
-import javafx.beans.Observable;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,14 +30,9 @@ public class LuggageManageController {
     @FXML
     public Button clearButton;
     @FXML
-    private Button searchButton;
-    @FXML
     private Luggage tempLuggage;
     @FXML
     private final BagagliDAO luggageDAO = new BagagliDAO();
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
 
     public void initialize() throws SQLException {
@@ -56,7 +48,6 @@ public class LuggageManageController {
     public void search(ActionEvent event) throws SQLException {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
-        int lencodice = codice.length();
         int lcod, line = 0;
         char j;
         codice = codice.substring(8);
@@ -98,10 +89,9 @@ public class LuggageManageController {
             ListView.getItems().add("IL VOLO RICERCATO NON ESISTE");
         } else {
             if (!verifica2) {
-                ListView.getItems().add("IL BAGAGLIO SELEZIONATO NON E' PRESENTE SU QUESTIO VOLO");
+                ListView.getItems().add("IL BAGAGLIO SELEZIONATO NON E' PRESENTE SU QUESTO VOLO");
             } else {
                 tempLuggage = luggageDAO.getLuggaggeById(idBagaglio);
-                assert tempLuggage != null;
                 if (tempLuggage.getId() == idBagaglio) {
                     ListView.getItems().add("CODICE VOLO: " + tempLuggage.getVolo());
                     ListView.getItems().add("STATO: " + tempLuggage.getStato());
@@ -118,22 +108,22 @@ public class LuggageManageController {
             }
         }
     }
-    public void modify(ActionEvent actionEvent) throws SQLException {
+    public void modify() throws SQLException {
         String Smarrito = "SMARRITO";
         luggageDAO.modifyStato(tempLuggage.getId(), Smarrito);
         ListView.getItems().add("STATO BAGAGAGLIO CAMBIATO CORRETTAMENTE");
     }
 
-    public void modifyINVOLO(ActionEvent actionEvent) throws SQLException {
+    public void modifyINVOLO() throws SQLException {
         String StringInVolo = "IN VOLO";
         luggageDAO.modifyStato(tempLuggage.getId(), StringInVolo);
         ListView.getItems().add("STATO BAGAGAGLIO CAMBIATO CORRETTAMENTE");
     }
 
     public void goToHome(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(HomePageApplication.class.getResource("homePage_view.fxml")));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 1024, 512);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(HomePageApplication.class.getResource("homePage_view.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1024, 512);
         stage.setScene(scene);
         stage.show();
     }
