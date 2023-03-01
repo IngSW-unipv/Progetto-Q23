@@ -1,5 +1,5 @@
 package com.example.testingproject.control;
-import com.example.testingproject.model.Account;
+
 import com.example.testingproject.model.Voli;
 import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.model.DAO.VoliDAO;
@@ -12,30 +12,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javafx.stage.Stage;
-import com.example.testingproject.view.Voli.VoliArrivo.VoliArrivoApplication;
-import com.example.testingproject.view.Voli.VoliPartenze.VoliPartenzeApplication;
-
 public class VoliArrivoController {
 
-    @FXML
-    private Button buttonVoliDepartures;
-    @FXML
-    private Button buttonVoliArrivals;
-    @FXML
-    private Label Label;
 
 
     @FXML
     public ListView voliListView;
     private Stage stage;
     private Scene scene;
-    private Voli tempVoli;
+
 
 
     private Parent root;
@@ -56,7 +45,7 @@ public class VoliArrivoController {
         ArrayList<Voli> voli_ = new ArrayList<>();
         voli_ = VoliDAO.getVoliArrivo();
         for (int i = 0; i < voli_.size(); i++) {
-            voliListView.getItems().add(voli_.get(i).getGate() + "  "+ voli_.get(i).getAeroportop()+" "+ voli_.get(i).getDataora() +
+            voliListView.getItems().add(voli_.get(i).getGate() + "       "+ voli_.get(i).getAeroportop()+"                  "+ voli_.get(i).getDataora() +
 
                     " "+ voli_.get(i).getId() + " " + voli_.get(i).getDurata() + " " + + voli_.get(i).getRitardo() +
                     " " +  voli_.get(i).getAereo() + " " +

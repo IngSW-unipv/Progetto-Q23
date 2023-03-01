@@ -1,7 +1,6 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.DAO.VoliDAO;
-import com.example.testingproject.model.Voli;
 import com.example.testingproject.view.homePage.HomePage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 
@@ -46,7 +44,6 @@ public class AggiuntaVoli {
     public MenuBar myMenuBar;
     @FXML
     private javafx.scene.control.ListView<String> listView;
-    private Voli tempVoli;
     private Stage stage;
     private Scene scene;
 

@@ -1,5 +1,5 @@
 package com.example.testingproject.control;
-import com.example.testingproject.model.Account;
+
 import com.example.testingproject.model.Voli;
 import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.model.DAO.VoliDAO;
@@ -13,37 +13,28 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javafx.stage.Stage;
-import com.example.testingproject.view.Voli.VoliArrivo.VoliArrivoApplication;
-import com.example.testingproject.view.Voli.VoliPartenze.VoliPartenzeApplication;
+
 
 public class VoliPartenzaController {
 
     @FXML
-    private Button buttonVoliDepartures;
-    @FXML
-    private Button buttonVoliArrivals;
-    @FXML
-    private Label Label;
-    @FXML
     public ListView voliListView;
     private Stage stage;
     private Scene scene;
-    private Voli tempVoli;
+
 
 
     private Parent root;
 
 
     private VoliDAO VoliDAO = new VoliDAO();
-    private AccountService accountService = new AccountService();
+
     public void goToHome(ActionEvent event) throws IOException {
         root = FXMLLoader.load(HomePage.class.getResource("homePage_view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
