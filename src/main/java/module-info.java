@@ -7,7 +7,7 @@ module com.example.testingproject {
     //requires org.testng;
 
 
-    opens com.example.testingproject to javafx.fxml;
+    opens com.example.testingproject to javafx.fxml,javafx.graphics;
     opens com.example.testingproject.view to javafx.fxml;
     exports com.example.testingproject.control;
     opens com.example.testingproject.control to javafx.fxml;
@@ -54,6 +54,8 @@ opens com.example.testingproject.view.Voli.VoliPartenze;
 exports com.example.testingproject.view.Voli.AggiuntaVoli to javafx.graphics,javafx.fxml;
     exports com.example.testingproject.view.Voli.VoliArrivo to javafx.graphics,javafx.fxml;
     exports com.example.testingproject.view.Voli.VoliPartenze to javafx.graphics,javafx.fxml;
+
+
 
 
 

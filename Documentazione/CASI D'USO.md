@@ -64,12 +64,11 @@ UC3
 ```markdown
 Visualizzazione Voli
 
-Scope- Visualizzazione ed inserimento di voli in arrivo e/o partenza da e verso l'aeroporto da perte degli utenti
+Scope- Visualizzazione  voli in arrivo e/o partenza da e verso l'aeroporto da perte degli utenti
 Level - Obiettivo Utente
 Primary Actor and Stakeholders - Utente Bagaglio, l'utente pista sono gli attori primari, . 
 Preconditions - L’utente deve essere loggato nel sistema sotto il titolo “Torre”,o "Bagaglio".
-Success Guarantee - L’utente è loggato come utente Torre,Bagaglio per entrambi i casi d'uso inoltre solo per l'inserimento di voli devono essere corretti i formati dei dati inseriti nella pagina 
-di inserimento voli es:(id volo non già esistente e idaereo pista e gate esistenti)
+Success Guarantee - L’utente è loggato come utente Torre,Bagaglio.
 
 
 
@@ -77,14 +76,9 @@ L’utente Torre o Bagaglio clicca sul bottone per voli in arrivo e apre una pag
 che contine i voli in arrivo
 L’utente Torre o Bagaglio clicca sul bottone per voli in partenza e apre una pagina con la visualizzazione di una lista
 che contine i voli in partenza
-L’utente clicca sul bottone “Aggiungere Volo” e selzionando il tasto "voli in partenza" inserisce dei voli in partenza
-e cliccando su "voli in arrivo" inserisce nel db dei voli in partenza
 
-Il database viene aggiornato con questi nuovi dati, che poi possono essere visualizzati nel caso in cui siano arrivo o partenza
-nelle relative pagine per la visualizzazione
 
 Extensions/Alternative Scenarios -
-Scenario 1:  L’utente se non inserisce correttamente i dati avrà un messaggio sullo scherma che li dirà di inserire correttamente i dati
 
 Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre e/o Bagagli
 
@@ -175,3 +169,31 @@ Frequency of Occurrence – Ogni volta che un dipendente necessita di accedere a
 
 
 ```
+UC9
+```markdown
+Aggiunta Voli
+
+Scope - AirManager Software
+Level - User Goal
+Primary Actor - Utente Voli
+
+Stakeholders and Interests - Utente Voli,Utenti Bagagli e l’amministratore deve poter aggiungere una Volo in arrivo e partenza da e verso un aeroporto, se cambia la struttura fisica dell aeroporto o si vuole adattare il sistema a un nuovo aeroporto.
+
+Preconditions - L’utente deve essere autenticato come amministratore,utente Voli o utente bagagli.
+
+Success Guarantee - L’utente è autenticato correttamente come uno degli utenti con accesso, e la connessione con il database all’inizio del programma per la creazione della lista pista non deve essere interrotta o scattare un eccezione.
+
+Main Sequenze -
+1. L’utente apre la pagina Voli dalla Home Page
+2. L'utente apre la pagina dedicata all'aggiunta di voli
+3. L’utente scrive i dati necessari per l’aggiunta di un Volo
+4. L’aggiunta della pista viene confermata
+
+
+Extensions/Alternative Scenarios - B2: L’utente esce dalla pagina Voli
+B3: L’utente non scrive i dati necessari o scrive in modo  
+sbagliato, in tal caso il programma farà apparire un  
+errore.
+
+
+Frequency of Occurrence - Dipende dagli utenti, ogni volta che l’utente vuole aggiungere un Volo nuova.
