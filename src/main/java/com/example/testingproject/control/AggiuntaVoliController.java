@@ -60,6 +60,7 @@ public class AggiuntaVoliController {
     }
 
     public void inserisciVoliPart(ActionEvent actionEvent) throws SQLException {
+        try{
         String gate = gateh.getText();
         String aeroportop = aeroportoph.getText();
         String dataora = dataorah.getText();
@@ -73,14 +74,27 @@ public class AggiuntaVoliController {
         int  ritardoapp = Integer.parseInt(ritardo);
         int  aereo = Integer.parseInt(idaereo);
         int  pistaapp = Integer.parseInt(pista);
+            boolean inserisci = VoliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
+            System.out.println(inserisci);
+            VoliDAO.inserisciPartenza(idVolo, pistaapp, dataora, aeroportop);
+            System.out.println("ok!");
+        }
+        catch(NumberFormatException e){
+            System.out.println("Errore");
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Errore di Inserimento");
+            errorAlert.setHeaderText("Record già esistente");
+            errorAlert.setContentText("La sosta inserita esiste già in tabella");
+            errorAlert.showAndWait();
 
-
-
-        VoliDAO.inserisciVoli(idVolo,durataapp,ritardoapp,aereo,gate);
-        VoliDAO.inserisciPartenza(idVolo,pistaapp,dataora,aeroportop);
-        System.out.println("ok!");
+        }
 
     }
+
+
+
+
+
     public void inserisciVoliArrivo(ActionEvent insertButtonArrivo) throws SQLException {
        try {
            String gate = gateh.getText();
