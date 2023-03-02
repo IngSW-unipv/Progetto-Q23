@@ -55,7 +55,7 @@ public class LoadingPageController implements Initializable {
 
 
                     }
-                    TimeUnit.MILLISECONDS.sleep(250);
+
 
 
                 } catch (Exception e) {

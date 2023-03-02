@@ -124,22 +124,33 @@ public class HomePageController{
                             });
                         }
                         if (col == 1 && row ==2){
-                            button.setText("Terreno");
+                            button.setText("Piste");
                             button.setStyle("-fx-font-size:20");
 
                             button.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
                                     try {
-                                        root = FXMLLoader.load(LandPageApplication.class.getResource("landPage_view.fxml"));
+                                        root = FXMLLoader.load(PisteApplication.class.getResource("piste-view.fxml"));
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }
                                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     scene = new Scene(root, 1024, 512);
                                     stage.setScene(scene);
-                                    stage.setTitle("Terreno Page");
+                                    stage.setTitle("Piste Page");
                                     stage.show();
+                                }
+                            });
+                        }
+                        if (col == 0 && row ==2){
+                            button.setText("Close");
+                            button.setStyle("-fx-font-size:20");
+
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    System.exit(1);
                                 }
                             });
                         }
