@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class ConnectionHolder {
 
-        private static DatabaseConnection instance;
-        private Connection connection;
+    private static DatabaseConnection instance;
+    private Connection connection;
     private final String databaseUser = "root";
     private final String databasePassword = "riccardo12caiulo";
     private final String url = "jdbc:mysql://34.68.181.102:3306/AirportManager";
@@ -39,7 +39,6 @@ public class ConnectionHolder {
 
             return instance;
         }catch (SQLException e){
-
         }
             return null;
         }
