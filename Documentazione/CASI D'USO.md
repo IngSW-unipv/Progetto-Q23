@@ -100,23 +100,24 @@ Frequency of Occurrence - La frequenza è relativa all’utilizzatore.
 
 Caso D'uso Terreni:
 ```markdown
-
-Scope -  Assegnazione di un Hangar 
+UC6 :  
+Scope - Inserimento sosta 
 Level - (da specificare)
 Primary Actor - Personale addetto alla gestione dei terreni  
-Preconditions – Il Terreno deve esistere e non deve essere già assegnato
-Main Success Scenario - il terreno viene assegnato al nuovo affittuario
-Extensions/Alternative Scenarios – Special Requirements -  il terreno è gia stato assegnato
+Preconditions – L' Hangar deve esistere e i relativi posti non devono essere già assegnati
+Main Success Scenario - Il terreno viene assegnato ad un aereo.Viene restituito un risultato.
+Extensions/Alternative Scenarios – Special Requirements -  Il terreno è gia stato assegnato
 Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
 Open Issues - 
 
-Scope - Consultazione Hangar e relative associazioni
+UC7 :
+Scope - Ricerca sosta
 Level - (da specificare)
 Primary Actor - Personale addetto alla gestione dei terreni
-Preconditions -  Devono esistere Hangar all'interno del db
-Main Success Scenario - Stampa delle informazioni riguardanti i terreni e relative associazioni ad aerei esistenti nel db
-Extensions/Alternative Scenarios – non sono presenti terreni all'interno del db
+Preconditions -  Il relativo hangar deve esistere all'interno del Db
+Main Success Scenario - Stampa delle informazioni riguardanti i terreni e relative associazioni ad aerei
+Extensions/Alternative Scenarios – L'Hangar selezionato non è presente all'interno del db
 Special Requirements - 
 Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
