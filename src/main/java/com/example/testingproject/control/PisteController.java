@@ -4,6 +4,7 @@ package com.example.testingproject.control;
 import com.example.testingproject.model.DAO.PistaDAO;
 import com.example.testingproject.model.Pista;
 import com.example.testingproject.model.PistaSingleton;
+import com.example.testingproject.view.homePage.HomePageApplication;
 import com.example.testingproject.view.piste.SinglePistaApplication;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -30,6 +31,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PisteController implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private VBox itemHolder = null;
@@ -204,6 +208,13 @@ public class PisteController implements Initializable {
 
 
 
+    }
+    public void goToHome(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(HomePageApplication.class.getResource("homePage_view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 1024, 512);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
