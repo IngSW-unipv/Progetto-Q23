@@ -42,9 +42,9 @@ public class LandPageController {
     Label npostiliberi;
     public ArrayList<Hangar> tr;
     public int selected;
-
+    TerreniDAO terreniDAO = new TerreniDAO();
     public void initialize()  {
-    tr = TerreniDAO.getTerreni();
+    tr = terreniDAO.getTerreni();
     for(int i = 0 ; i < tr.size(); i++){
         terreniList.getItems().add(tr.get(i).getId());
        }
@@ -73,7 +73,7 @@ public class LandPageController {
                     npostiliberi.setText(Integer.toString(tr.get(i).getNpostiLiberi()));
                 }
             }
-            ArrayList<Sosta> soste = TerreniDAO.getSoste(id);
+            ArrayList<Sosta> soste = terreniDAO.getSoste(id);
             for (int j = 0; j < soste.size(); j++) {
 
                 sosteList.getItems().add("ID Aereo: " + soste.get(j).getAereo() + "     Inizio: " + soste.get(j).getInizio() + "    Fine: " + soste.get(j).getFine());

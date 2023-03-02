@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class TerreniDAO {
+public class TerreniDAO implements ITerreniDAO{
      static DatabaseConnection connection = ConnectionHolder.getInstance();
 
-    public static Hangar getTerrenoByID(int id)  {
+    public  Hangar getTerrenoByID(int id)  {
         Hangar terreno;
         Connection conn = connection.getConnection();
         try{
@@ -39,7 +39,7 @@ public class TerreniDAO {
 
         return terreno;
     }
-    public static ArrayList<Hangar> getTerreni() {
+    public  ArrayList<Hangar> getTerreni() {
         ArrayList<Hangar> terreni = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
@@ -67,7 +67,7 @@ public class TerreniDAO {
 
         return terreni;
     }
-    public  static ArrayList<Sosta> getSoste(int id)  {
+    public  ArrayList<Sosta> getSoste(int id)  {
         ArrayList<Sosta> soste = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
@@ -99,7 +99,7 @@ public class TerreniDAO {
 
         return soste;
     }
-    public static ArrayList<Aereo> getAerei()  {
+    public  ArrayList<Aereo> getAerei()  {
         ArrayList<Aereo> aerei = new ArrayList<>();
         Connection conn = connection.getConnection();
         try {
@@ -127,7 +127,7 @@ public class TerreniDAO {
         return aerei;
     }
 
-    public static boolean insertSosta(Sosta sosta)  {
+    public  boolean insertSosta(Sosta sosta)  {
 
         Connection conn = connection.getConnection();
 
@@ -151,7 +151,7 @@ public class TerreniDAO {
         }
 
     }
-    public static boolean increaseHangar(int id)  {
+    public  boolean increaseHangar(int id)  {
         Connection conn = connection.getConnection();
         try{
             String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi+1   WHERE (id = '"+id+ "');";
@@ -172,7 +172,7 @@ public class TerreniDAO {
 
         }
     }
-    public static boolean decreaseHangar(int id) {
+    public  boolean decreaseHangar(int id) {
         Connection conn = connection.getConnection();
         try{
             String query = "UPDATE AirportManager.hangar SET npostiliberi = npostiliberi-1   WHERE (id = '"+id+ "');";
@@ -193,7 +193,7 @@ public class TerreniDAO {
 
         }
     }
-    public static boolean removeSosta(Sosta sosta)  {
+    public  boolean removeSosta(Sosta sosta)  {
         Connection conn = connection.getConnection();
 
         try{
