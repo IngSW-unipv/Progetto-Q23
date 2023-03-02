@@ -109,7 +109,7 @@ public class VoliDAO implements IVoliDAO {
     public boolean inserisciPartenza(  int idVolo,int pista,String dataora,String aeroportop) throws SQLException {
         Connection conn = connection.getConnection();
         try {
-            String query = "INSERT INTO partenza(volo,aeroportoa,dataora,pista) values('"+idVolo+"''"+aeroportop+"', '"+dataora+"', '"+pista+"')";
+            String query = "INSERT INTO partenza(volo,aeroportoa,dataora,pista) values('"+idVolo+"','"+aeroportop+"', '"+dataora+"', '"+pista+"')";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.executeUpdate();
             conn.close();
