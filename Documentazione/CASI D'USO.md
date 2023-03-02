@@ -138,7 +138,6 @@ Success Guarantee – L’utente inserisce la combinazione corretta di nome uten
 Main Success Scenario - L’utente riesce ad accedere alla schermata adibita alla sua mansione
 Extensions/Alternative Scenarios – Viene inserita una combinazione di nome utente e password errata o inesistente
 Special Requirements - 
-Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Ogni volta che un dipendente necessita di accedere alla piattaforma che gli consente di gestire la mansione o le mansioni di cui si occupa
 Open Issues - 
 
@@ -149,7 +148,6 @@ Preconditions – L'username scelto non deve già esistere
 Main Success Scenario – Viene creato un nuovo account
 Extensions/Alternative Scenarios - 
 Special Requirements - 
-Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Ogni volta che si vuole creare un nuovo account
 Open Issues - 
 
@@ -160,7 +158,6 @@ Preconditions – L’account deve esistere, chi svolge questa operazione deve e
 Main Success Scenario – L’account selezionato viene eliminato
 Extensions/Alternative Scenarios - 
 Special Requirements - 
-Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando un utente non fa più parte della gestione aeroportuale
 Open Issues -.
 
