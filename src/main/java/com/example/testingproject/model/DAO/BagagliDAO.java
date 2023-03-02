@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class BagagliDAO {
+public class BagagliDAO implements IBagagliDAO{
     static DatabaseConnection connection = ConnectionHolder.getInstance();
 
     public static ArrayList<Luggage> getLuggage() throws SQLException {

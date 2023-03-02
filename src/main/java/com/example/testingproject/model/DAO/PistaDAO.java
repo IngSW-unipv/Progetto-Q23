@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PistaDAO {
+public class PistaDAO implements IPistaDAO{
     static DatabaseConnection connection = ConnectionHolder.getInstance();
 
     public ArrayList<Pista> findPiste() throws SQLException {

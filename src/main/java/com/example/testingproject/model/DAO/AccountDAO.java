@@ -7,7 +7,7 @@ import com.example.testingproject.model.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AccountDAO {
+public class AccountDAO implements IAccountDAO{
     static DatabaseConnection connection = ConnectionHolder.getInstance();
 
 

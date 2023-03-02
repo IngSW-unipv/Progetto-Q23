@@ -8,7 +8,7 @@ import javafx.scene.control.Alert;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class VoliDAO {
+public class VoliDAO implements IVoliDAO {
     static DatabaseConnection connection = ConnectionHolder.getInstance();
 
     public static ArrayList<Voli> getVoliPartenza() throws SQLException {
