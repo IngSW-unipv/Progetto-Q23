@@ -1,7 +1,7 @@
 **Casi D’uso**
 
 
-Requisito Piste:
+Caso D'uso Visualizzazione Piste:
 ```markdown
 
 Scope- Gestione Voli da Utente Torre
@@ -35,7 +35,7 @@ Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, s
 Open Issues - Se il volo non viene accettato, ci potrebbe essere la possibilità di consigliare una lista di aeroporti vicini per fare atterrare questo aereo?
 
 ```
-Requisito Voli:
+Caso D'uso Visualizzazione Voli:
 ```markdown
 
 Scope- Visualizzazione ed inserimento di voli in arrivo e/o partenza da e verso l'aeroporto da perte degli utenti
@@ -63,7 +63,7 @@ Scenario 1:  L’utente se non inserisce correttamente i dati avrà un messaggi
 Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre e/o Bagagli
 
 ```
-Requisito Bagagli: 
+Caso D'uso Bagagli: 
 
 ```markdown
 Rimozione bagalio per volo in Arrivo .
@@ -98,7 +98,7 @@ Frequency of Occurrence - La frequenza è relativa all’utilizzatore.
 
 ```
 
-Requisito Terreni:
+Caso D'uso Terreni:
 ```markdown
 
 Scope -  Assegnazione di un Hangar 
@@ -124,7 +124,7 @@ Open Issues -
 
 ```
 
-Requisito schermata di accesso:
+Caso D'uso schermata di accesso:
 ```markdown
 Login.
 
