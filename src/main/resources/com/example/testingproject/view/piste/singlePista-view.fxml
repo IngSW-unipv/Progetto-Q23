@@ -11,7 +11,7 @@
             <Font name="Verdana" size="37.0" />
          </font>
       </Label>
-      <Label fx:id="pistaID" layoutX="527.0" layoutY="37.0">
+      <Label fx:id="pistaID" layoutX="519.0" layoutY="41.0">
          <font>
             <Font size="37.0" />
          </font>

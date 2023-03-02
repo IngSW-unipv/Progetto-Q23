@@ -1,6 +1,7 @@
 package com.example.testingproject.model.DAO;
 import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DatabaseConnection;
+import com.example.testingproject.model.Pista;
 import com.example.testingproject.model.Voli;
 import javafx.scene.control.Alert;
 
@@ -150,14 +151,86 @@ public class VoliDAO {
         }
     }
 
-    /*
-    public ArrayList<Voli> getVoliwithPista(int pista){
+
+    public ArrayList<Integer> getVoliIdwithPistaId(Integer pistaId) throws SQLException {
+        ArrayList<Integer> voli = new ArrayList<Integer>();
+        Connection conn = connection.getConnection();
+
+        try{
+
+            String query = "SELECT volo FROM AirportManager.arrivo;";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            Integer tempID;
+
+            while(resultSet.next()){
+                tempID= Integer.parseInt(resultSet.getString(1));
+
+
+                voli.add(tempID);
+            }
+
+             query = "SELECT volo FROM AirportManager.partenza;";
+             preparedStatement = conn.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+
+
+            while(resultSet.next()){
+                tempID= Integer.parseInt(resultSet.getString(1));
+
+
+                voli.add(tempID);
+            }
+
+
+
+        }
+
+        catch (SQLException e) {
+            connection.closeConnection(conn);
+            throw new RuntimeException(e);
+        }
+
+        connection.closeConnection(conn);
+        return voli;
+    }
+
+
+    public Voli findVoloByID(Integer ID){
+        Connection conn = connection.getConnection();
+        String tempGate;
+        int tempDuration,tempId, tempAereo,tempDelay;
+        String query = "SELECT * FROM AirportManager.volo where id ="+ID.toString()+";";
+
+
+        try {
+            PreparedStatement  preparedStatement = conn.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(!resultSet.isBeforeFirst()){
+                return null;
+            }else {
+                resultSet.next();
+                tempId = Integer.parseInt(resultSet.getString(1));
+                tempDuration= Integer.parseInt(resultSet.getString(2));
+                tempDelay = Integer.parseInt(resultSet.getString(3));
+                tempAereo = Integer.parseInt(resultSet.getString(4));
+                tempGate = resultSet.getString(5);
+                Voli tempVoli = new Voli(tempGate,null, null, tempId,tempDuration,tempDelay,tempAereo,1);
+                connection.closeConnection(conn);
+                return tempVoli;
+            }
+
+        } catch (SQLException e) {
+            connection.closeConnection(conn);
+            return null;
+        }
 
 
     }
-*/
+
+    }
 
 
 
-
-}
