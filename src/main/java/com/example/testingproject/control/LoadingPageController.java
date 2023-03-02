@@ -2,6 +2,7 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DatabaseConnection;
+import com.example.testingproject.model.PistaSingleton;
 import com.example.testingproject.view.login.LoginPageApplication;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -40,7 +41,7 @@ public class LoadingPageController implements Initializable {
 
 
         myProgressBar.setStyle("-fx-accent: #00FF00;");
-        Task<Void> task = new Task<Void>() {
+        Task<Void> task1 = new Task<Void>() {
 
             @Override
             public Void call() throws InterruptedException{
@@ -66,34 +67,68 @@ public class LoadingPageController implements Initializable {
             }
         };
 
-        task.setOnSucceeded(e -> {
+        task1.setOnSucceeded(e -> {
+          goToHome();
 
 
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginPageApplication.class.getResource("login_view.fxml"));
-            Scene scene = null;
-            try {
+        });
 
-                scene = new Scene(fxmlLoader.load(), 1024, 512);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+
+        Task<Void> task2 = new Task<Void>() {
+
+            @Override
+            public Void call() throws InterruptedException{
+                try {
+                    PistaSingleton.getInstance().getPiste();
+
+
+
+                } catch (Exception e) {
+
+                    System.exit(1);
+                }
+
+                return null;
             }
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setTitle("Login");
-            stage.setScene(scene);
+        };
 
-            stage.show();
-            ((Stage) mainLayout.getScene().getWindow()).close();
+        task2.setOnSucceeded(e -> {
+
+
+
         });
 
 
 
-        new Thread(task).start();
+
+        new Thread(task1).start();
+        new Thread(task2).start();
+
+    }
+    public void goToHome(){
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginPageApplication.class.getResource("login_view.fxml"));
+        Scene scene = null;
+        try {
+
+            scene = new Scene(fxmlLoader.load(), 1024, 512);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.setTitle("Login");
+        stage.setScene(scene);
+
+        stage.show();
+        ((Stage) mainLayout.getScene().getWindow()).close();
+
 
     }
 
 
     }
+
+
 
 
 
