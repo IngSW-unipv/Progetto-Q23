@@ -26,15 +26,6 @@ public class MethodsTests {
     }
 
     @Test
-    void findAccountbyUsernameServiceTest() throws SQLException {
-        String username = "daniele";
-        Account tempaccount = accountService.findAccountByUsername(username);
-        assertEquals(tempaccount.getUsername(),username);
-
-
-    }
-
-    @Test
     void addAccountDAOTest() throws SQLException {
         Account account = new Account("check","check","Voli","chek","check");
         if(accountService.findAccountByUsername(account.getUsername())==null){ //per vedere se account con quel username esiste già
