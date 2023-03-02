@@ -139,7 +139,7 @@ Main Success Scenario - L’utente riesce ad accedere alla schermata adibita all
 Extensions/Alternative Scenarios – Scenario 1: Viene inserita una combinazione di nome utente e password errata o inesistente
 Viene segnalata l'errata combinazione di username e password
 Scenario 2: Si tenta di effettuare l'accesso senza avere inserito ne un username ne una password
-
+Viene segnalato e chiesto di inserire username e password
 Frequency of Occurrence – Ogni volta che un dipendente necessita di accedere alla piattaforma che gli consente di gestire la mansione o le mansioni di cui si occupa
 
 Scope – Viene creato un account
@@ -151,7 +151,6 @@ Extensions/Alternative Scenarios - Scenario 1: L'username inserito è già esist
 Viene segnalato l'errore nella creazione dell'account
 Scenario 2: Non viene inserito l'username o la password oppure entrambi
 Viene segnalata la presenza di campi nulli
-
 Frequency of Occurrence – Ogni volta che si vuole creare un nuovo account
 
 Scope – Viene eliminato un account
