@@ -22,21 +22,16 @@ public class ConnectionHolder {
                 System.out.println("Database Connection Creation Failed : " + ex.getMessage());
             }
         }
-
         public Connection getConnection() {
             return connection;
         }
-
         public static DatabaseConnection getInstance()  {
         try {
             if (instance == null) {
-
                 instance = new DatabaseConnection();
             } else if (instance.getConnection().isClosed()) {
-
                 instance = new DatabaseConnection();
             }
-
             return instance;
         }catch (SQLException e){
         }
