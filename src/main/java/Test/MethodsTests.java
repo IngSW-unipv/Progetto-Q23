@@ -11,7 +11,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class MethodsTests {
-    AccountService accountService = new AccountService();
+
     AccountDAO accountDAO = new AccountDAO();
 
 
@@ -28,11 +28,13 @@ public class MethodsTests {
     @Test
     void addAccountDAOTest() throws SQLException {
         Account account = new Account("check","check","Voli","chek","check");
-        if(accountService.findAccountByUsername(account.getUsername())==null){ //per vedere se account con quel username esiste già
+        if(accountDAO.getAccountbyUsername(account.getUsername())==null){ //per vedere se account con quel username esiste già
             accountDAO.createAccount(account);
-            assertEquals(accountService.findAccountByUsername(account.getUsername()).getUsername(),account.getUsername());
+            assertEquals(accountDAO.getAccountbyUsername(account.getUsername()).getUsername(),account.getUsername());
         }
     }
+
+
 
 
 

@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -24,18 +25,28 @@ import java.net.URL;
 import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class SinglePistaController {
 
     @FXML
     Label pistaID;
 
+     @FXML
+    ListView voliViewList;
 
-    public void setPista(Integer Id) {
+private VoliDAO voliDAO;
+
+
+    public void setPista(Integer Id) throws SQLException {
         pistaID.setText(Id.toString());
-
-
+        ArrayList<Integer> voli = voliDAO.getVoliIdwithPistaId(Id);
+        Set<Integer> set = new LinkedHashSet<>();
+        set.addAll(voli);
+        voli.clear();
+        voli.addAll(set);
 
 
 
