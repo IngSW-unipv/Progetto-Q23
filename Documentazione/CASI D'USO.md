@@ -35,7 +35,35 @@ Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, s
 Open Issues - Se il volo non viene accettato, ci potrebbe essere la possibilità di consigliare una lista di aeroporti vicini per fare atterrare questo aereo?
 
 ```
+Requisito Voli:
+```markdown
+
+Scope- Visualizzazione ed inserimento di voli in arrivo e/o partenza da e verso l'aeroporto da perte degli utenti
+Level - Obiettivo Utente
+Primary Actor and Stakeholders - Utente Bagaglio, l'utente pista sono gli attori primari, . 
+Preconditions - L’utente deve essere loggato nel sistema sotto il titolo “Torre”,o "Bagaglio".
+Success Guarantee - L’utente è loggato come utente Torre,Bagaglio per entrambi i casi d'uso inoltre solo per l'inserimento di voli devono essere corretti i formati dei dati inseriti nella pagina 
+di inserimento voli es:(id volo non già esistente e idaereo pista e gate esistenti)
+
+
+
+L’utente Torre o Bagaglio clicca sul bottone per voli in arrivo e apre una pagina con la visualizzazione di una lista
+che contine i voli in arrivo
+L’utente Torre o Bagaglio clicca sul bottone per voli in partenza e apre una pagina con la visualizzazione di una lista
+che contine i voli in partenza
+L’utente clicca sul bottone “Aggiungere Volo” e selzionando il tasto "voli in partenza" inserisce dei voli in partenza
+e cliccando su "voli in arrivo" inserisce nel db dei voli in partenza
+
+Il database viene aggiornato con questi nuovi dati, che poi possono essere visualizzati nel caso in cui siano arrivo o partenza
+nelle relative pagine per la visualizzazione
+
+Extensions/Alternative Scenarios -
+Scenario 1:  L’utente se non inserisce correttamente i dati avrà un messaggio sullo scherma che li dirà di inserire correttamente i dati
+
+Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre e/o Bagagli
+
 Requisito Bagagli: 
+
 ```markdown
 Rimozione bagalio per volo in Arrivo .
 Aggiunta bagaglio per Partenze.
