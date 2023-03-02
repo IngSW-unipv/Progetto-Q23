@@ -31,7 +31,9 @@ public class PistaSingleton {
         }
         return Piste;
     }
-
+public void update() throws SQLException {
+        Piste = pistaDAO.findPiste();
+}
 
 
 }

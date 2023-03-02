@@ -159,7 +159,7 @@ public class PisteController implements Initializable {
 
 
 
-    public void addPista(ActionEvent event){
+    public void addPista(ActionEvent event) throws SQLException {
         addAlert.setText("");
         PistaDAO pistaDAO = new PistaDAO();
         Integer inputID = 1;
@@ -184,7 +184,7 @@ public class PisteController implements Initializable {
             addAlert.setText("Errore!");
         }
 
-
+        PistaSingleton.getInstance().update();
 
     }
 
@@ -206,7 +206,7 @@ public class PisteController implements Initializable {
         }
 
 
-
+    PistaSingleton.getInstance().update();
 
     }
     public void goToHome(ActionEvent event) throws IOException {
