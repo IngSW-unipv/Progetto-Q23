@@ -5,17 +5,17 @@ UC1
 ```markdown
 Visualizzazione Piste e Voli per una Pista
 
-Portata - AirManager Software
-Livello - User Goal
-Attore Primario - Utente Voli
+Scope - AirManager Software
+Level - User Goal
+Primary Actor - Utente Voli
 
-Parti Interessate- Utente Voli e l’amministratore deve poter visualizzare la lista di piste, l'aeroporto che usa questo software deve poter visualizzare e avere un record corretto delle piste fisiche dell'aeroporto, e quali voli usano quelle piste.
+Stakeholders and Interests- Utente Voli e l’amministratore deve poter visualizzare la lista di piste, l'aeroporto che usa questo software deve poter visualizzare e avere un record corretto delle piste fisiche dell'aeroporto, e quali voli usano quelle piste.
 
-Precondizioni - L’utente deve essere autenticato come amministratore o utente Voli.
+Preconditions - L’utente deve essere autenticato come amministratore o utente Voli.
 
-Garanzia di Successo - L’utente è autenticato correttamente come uno degli utenti con accesso, e la connessione con il database all’inizio del programma per la creazione della lista pista non deve essere interrotta o scattare un eccezione.
+Success Guarantee- L’utente è autenticato correttamente come uno degli utenti con accesso, e la connessione con il database all’inizio del programma per la creazione della lista pista non deve essere interrotta o scattare un eccezione.
 
-Sequenza degli eventi principali - 1. L’utente apre la pagina Piste dalla Home Page
+Main Sequenze - 1. L’utente apre la pagina Piste dalla Home Page
 2. L’utente visualizza la lista di Piste con le relative
 informazioni essenziali.
 3. L’utente clicca su una Pista
@@ -26,7 +26,7 @@ B3: L’utente non è di tipo amministratore o Voli, e non ha
 accesso alla pagina Piste.
 
 
-Frequenza di Occorrenza - Dipende dagli utenti, ogni volta che l’utente vuole vedere la lista di Piste.
+Frequency of Occurrence - Dipende dagli utenti, ogni volta che l’utente vuole vedere la lista di Piste.
 
 
 ```
@@ -34,17 +34,17 @@ UC2
 ```markdown
 Aggiunta Pista
 
-Portata - AirManager Software
-Livello - User Goal
-Attore Primario - Utente Voli
+Scope - AirManager Software
+Level - User Goal
+Primary Actor - Utente Voli
 
-Parti Interessate- Utente Voli e l’amministratore deve poter aggiungere una Pista, se cambia la struttura fisica dell aeroporto o si vuole adattare il sistema a un nuovo aeroporto.
+Stakeholders and Interests - Utente Voli e l’amministratore deve poter aggiungere una Pista, se cambia la struttura fisica dell aeroporto o si vuole adattare il sistema a un nuovo aeroporto.
 
-Precondizioni - L’utente deve essere autenticato come amministratore o utente Voli.
+Preconditions - L’utente deve essere autenticato come amministratore o utente Voli.
 
-Garanzia di Successo - L’utente è autenticato correttamente come uno degli utenti con accesso, e la connessione con il database all’inizio del programma per la creazione della lista pista non deve essere interrotta o scattare un eccezione.
+Success Guarantee - L’utente è autenticato correttamente come uno degli utenti con accesso, e la connessione con il database all’inizio del programma per la creazione della lista pista non deve essere interrotta o scattare un eccezione.
 
-Sequenza degli eventi principali - 1. L’utente apre la pagina Piste dalla Home Page
+Main Sequenze - 1. L’utente apre la pagina Piste dalla Home Page
 2. L’utente scrive i dati necessari per l’aggiunta di una pista
 3. L’aggiunta della pista viene confermata
 
@@ -55,7 +55,7 @@ sbagliato, in tal caso il programma farà apparire un
 errore.
 
 
-Frequenza di Occorrenza - Dipende dagli utenti, ogni volta che l’utente vuole aggiungere una pista nuova.
+Frequency of Occurrence - Dipende dagli utenti, ogni volta che l’utente vuole aggiungere una pista nuova.
 
 
 
