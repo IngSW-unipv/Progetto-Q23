@@ -56,44 +56,6 @@ public class Account {
 
     }
 
-    public void setLoggedIn(boolean bool){
-       this.isLoggedIn = bool;
-    }
-
-
-/*
-    //istanza singleton di current account, lazy implementation, istanza nuova con valori null
-    private static Account currentAccount;
-
-    public static Account getCurrentAccount() {
-        if (currentAccount == null) {
-currentAccount = new Account(null, null,null,null, null);
-
-        }
-return currentAccount;
-    }
-
-*/
-
-    public void logOut(Account account){
-        account.setPassword(null);
-        account.setUsername(null);
-        account.setUserType(null);
-        account.setLoggedIn(false);
-
-    }
-
-    public void logIn(Account account,String username, String password, String userType){
-        account.setUsername(username);
-        account.setPassword(password);
-        account.setUserType(userType);
-        account.setLoggedIn(true);
-
-
-    }
-
-
-
 
 
 

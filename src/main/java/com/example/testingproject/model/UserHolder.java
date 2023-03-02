@@ -4,7 +4,9 @@ public final class UserHolder {
     private Account user;
     private final static UserHolder INSTANCE = new UserHolder();
 
-    private UserHolder() {}
+    private UserHolder() {
+
+    }
 
     public static UserHolder getInstance() {
         return INSTANCE;
@@ -17,4 +19,6 @@ public final class UserHolder {
     public Account getUser() {
         return this.user;
     }
+
+
 }
