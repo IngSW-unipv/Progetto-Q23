@@ -154,7 +154,7 @@ public class VoliDAO implements IVoliDAO {
 
         try{
 
-            String query = "SELECT volo FROM AirportManager.arrivo;";
+            String query = "SELECT volo FROM AirportManager.arrivo WHERE volo ="+pistaId.toString()+";";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -167,7 +167,7 @@ public class VoliDAO implements IVoliDAO {
                 voli.add(tempID);
             }
 
-             query = "SELECT volo FROM AirportManager.partenza;";
+             query = "SELECT volo FROM AirportManager.partenza WHERE volo ="+pistaId.toString()+";";
              preparedStatement = conn.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 

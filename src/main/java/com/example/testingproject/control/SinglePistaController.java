@@ -2,6 +2,7 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.DAO.VoliDAO;
 import com.example.testingproject.model.Pista;
+import com.example.testingproject.model.Voli;
 import com.example.testingproject.model.Wind;
 import com.example.testingproject.model.service.PistaService;
 import com.example.testingproject.view.piste.PisteApplication;
@@ -37,16 +38,20 @@ public class SinglePistaController {
      @FXML
     ListView voliViewList;
 
-private VoliDAO voliDAO;
+
 
 
     public void setPista(Integer Id) throws SQLException {
+        VoliDAO voliDAO = new VoliDAO();
         pistaID.setText(Id.toString());
         ArrayList<Integer> voli = voliDAO.getVoliIdwithPistaId(Id);
-        Set<Integer> set = new LinkedHashSet<>();
-        set.addAll(voli);
-        voli.clear();
-        voli.addAll(set);
+        Voli volo;
+
+        for (int i = 0; i < voli.size(); i++) {
+             volo = voliDAO.findVoloByID(voli.get(i));
+            voliViewList.getItems().add(volo.getId() + "                  " +volo.getGate()+"                    "+volo.getDurata()+"                "+volo.getRitardo()+"               "+volo.getAereo());
+
+        }
 
 
 

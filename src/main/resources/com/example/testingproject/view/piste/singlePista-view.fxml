@@ -18,5 +18,30 @@
          </font>
       </Label>
       <ListView fx:id="voliViewList" layoutX="145.0" layoutY="164.0" prefHeight="291.0" prefWidth="692.0" />
+      <Label layoutX="148.0" layoutY="141.0" text="ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="194.0" layoutY="141.0" text="Gate">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="261.0" layoutY="141.0" text="Durata">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="331.0" layoutY="141.0" text="Ritardo">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="408.0" layoutY="141.0" text="Aereo">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
