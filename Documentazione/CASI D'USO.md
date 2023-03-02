@@ -62,6 +62,7 @@ Scenario 1:  L’utente se non inserisce correttamente i dati avrà un messaggi
 
 Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre e/o Bagagli
 
+```
 Requisito Bagagli: 
 
 ```markdown
@@ -126,41 +127,28 @@ Open Issues -
 Requisito schermata di accesso:
 ```markdown
 Login.
-Creazione Account.
-Eliminazione account.
 
-Scope -  L’utente effettua il login all’interno della pagina
-Level - (da specificare)
+
+Scope -  Effettuare il login all’interno della pagina
+Level - Obiettivo Utente
 Primary Actor – Il dipendente che deve effettuare l’accesso
-Preconditions – Deve esistere una combinazione utente/password all’interno del database
-Success Guarantee – L’utente inserisce la combinazione corretta di nome utente e password
-Main Success Scenario - L’utente riesce ad accedere alla schermata adibita alla sua mansione
-Extensions/Alternative Scenarios – Viene inserita una combinazione di nome utente e password errata o inesistente
-Special Requirements - 
-Technology and Data Variation  List - (Da specificare)
+Preconditions – Deve esistere almeno una combinazione utente/password all’interno del database
+Success Guarantee – L’utente inserisce una combinazione corretta di nome utente e password ovvero una combinazione username e password presente all'interno del database
+Main Success Scenario - 
+L'utente attende che la schermata di login venga caricata
+L'utente inserisce una corretta combinazione di username e password e preme sul bottone "Login"
+L’utente riesce ad accedere alla schermata adibita alla sua mansione
+
+Extensions/Alternative Scenarios –
+
+Scenario 1: Viene inserita una combinazione di nome utente e password errata o inesistente
+Viene segnalata l'errata combinazione di username e password
+
+Scenario 2: Si tenta di effettuare l'accesso senza avere inserito ne un username ne una password
+Viene segnalato e chiesto di inserire username e password
+
 Frequency of Occurrence – Ogni volta che un dipendente necessita di accedere alla piattaforma che gli consente di gestire la mansione o le mansioni di cui si occupa
-Open Issues - 
 
-Scope – Viene creato un account
-Level - (da specificare)
-Primary Actor – Un utente "admin"
-Preconditions – L'username scelto non deve già esistere
-Main Success Scenario – Viene creato un nuovo account
-Extensions/Alternative Scenarios - 
-Special Requirements - 
-Technology and Data Variation  List - (Da specificare)
-Frequency of Occurrence – Ogni volta che si vuole creare un nuovo account
-Open Issues - 
 
-Scope – Viene eliminato un account
-Level - (da specificare)
-Primary Actor – L’amministratore
-Preconditions – L’account deve esistere, chi svolge questa operazione deve essere un account amministratore
-Main Success Scenario – L’account selezionato viene eliminato
-Extensions/Alternative Scenarios - 
-Special Requirements - 
-Technology and Data Variation  List - (Da specificare)
-Frequency of Occurrence – Quando un utente non fa più parte della gestione aeroportuale
-Open Issues -.
 
 ```

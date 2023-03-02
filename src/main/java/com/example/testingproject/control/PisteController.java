@@ -4,7 +4,6 @@ package com.example.testingproject.control;
 import com.example.testingproject.model.DAO.PistaDAO;
 import com.example.testingproject.model.Pista;
 import com.example.testingproject.model.PistaSingleton;
-import com.example.testingproject.model.service.PistaService;
 import com.example.testingproject.view.piste.SinglePistaApplication;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,13 +21,11 @@ import javafx.scene.layout.VBox;
 import com.example.testingproject.model.Wind;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.example.testingproject.view.piste.PisteApplication;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -62,7 +59,7 @@ public class PisteController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        PistaService pisteService = new PistaService();
+
 
         try {
 
@@ -132,6 +129,8 @@ public class PisteController implements Initializable {
                         primaryStage.show();
 
                     } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
 

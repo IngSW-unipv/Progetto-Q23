@@ -1,5 +1,6 @@
 package com.example.testingproject.control;
 
+import com.example.testingproject.model.DAO.TerreniDAO;
 import com.example.testingproject.model.DAO.VoliDAO;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
@@ -15,7 +16,6 @@ import java.sql.SQLException;
 
 
 public class AggiuntaVoliController {
-    public Spinner<Integer> WightSpinner;
     @FXML
     public Button insertButtonPart;
     @FXML
@@ -51,6 +51,8 @@ public class AggiuntaVoliController {
 
 
     private Parent root;
+
+    VoliDAO voliDAO = new VoliDAO();
     public void goToHome(ActionEvent event) throws IOException {
         root = FXMLLoader.load(HomePageApplication.class.getResource("homePage_view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -74,17 +76,16 @@ public class AggiuntaVoliController {
         int  ritardoapp = Integer.parseInt(ritardo);
         int  aereo = Integer.parseInt(idaereo);
         int  pistaapp = Integer.parseInt(pista);
-            boolean inserisci = VoliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
+            boolean inserisci = voliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
             System.out.println(inserisci);
-            VoliDAO.inserisciPartenza(idVolo, pistaapp, dataora, aeroportop);
+            voliDAO.inserisciPartenza(idVolo, pistaapp, dataora, aeroportop);
             System.out.println("ok!");
         }
         catch(NumberFormatException e){
             System.out.println("Errore");
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setTitle("Errore di Inserimento");
-            errorAlert.setHeaderText("Record già esistente");
-            errorAlert.setContentText("La sosta inserita esiste già in tabella");
+            errorAlert.setHeaderText("Inserisci i dati nel formato corretto");
             errorAlert.showAndWait();
 
         }
@@ -112,24 +113,20 @@ public class AggiuntaVoliController {
            int pistaapp = Integer.parseInt(pista);
 
 
-           boolean inserisci = VoliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
+           boolean inserisci = voliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
            System.out.println(inserisci);
-           VoliDAO.inserisciArrivo(idVolo, pistaapp, dataora, aeroportop);
+           voliDAO.inserisciArrivo(idVolo, pistaapp, dataora, aeroportop);
            System.out.println("ok!");
        }catch(NumberFormatException e){
            System.out.println("Errore");
            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
            errorAlert.setTitle("Errore di Inserimento");
-           errorAlert.setHeaderText("Record già esistente");
-           errorAlert.setContentText("La sosta inserita esiste già in tabella");
+           errorAlert.setHeaderText("Inserisci i dati nel formato corretto");
            errorAlert.showAndWait();
 
         }
 
     }
 
-    public void closeWindow(ActionEvent event) {
-        Stage stage = (Stage) myMenuBar.getScene().getWindow();
-        stage.close();
-    }
+
 }

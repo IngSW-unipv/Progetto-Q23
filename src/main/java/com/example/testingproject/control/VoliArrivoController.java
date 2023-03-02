@@ -1,7 +1,6 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.Voli;
-import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.model.DAO.VoliDAO;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
@@ -30,8 +29,8 @@ public class VoliArrivoController {
     private Parent root;
 
 
-    private final VoliDAO VoliDAO = new VoliDAO();
-    private final AccountService accountService = new AccountService();
+    private final VoliDAO voliDAO = new VoliDAO();
+
     public void goToHome(ActionEvent event) throws IOException {
         root = FXMLLoader.load(HomePageApplication.class.getResource("homePage_view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -43,12 +42,12 @@ public class VoliArrivoController {
     public void initialize() throws SQLException {
 
         ArrayList<Voli> voli_ = new ArrayList<>();
-        voli_ = com.example.testingproject.model.DAO.VoliDAO.getVoliArrivo();
+        voli_ = voliDAO.getVoliArrivo();
         for (int i = 0; i < voli_.size(); i++) {
-            voliListView.getItems().add(voli_.get(i).getGate() + "       "+ voli_.get(i).getAeroportop()+"                  "+ voli_.get(i).getDataora() +
+            voliListView.getItems().add(voli_.get(i).getGate() + "          "+ voli_.get(i).getAeroportop()+"                    "+ voli_.get(i).getDataora() +
 
-                    " "+ voli_.get(i).getId() + " " + voli_.get(i).getDurata() + " " + + voli_.get(i).getRitardo() +
-                    " " +  voli_.get(i).getAereo() + " " +
+                    "               "+ voli_.get(i).getId() + "                 " + voli_.get(i).getDurata() + "                    " + + voli_.get(i).getRitardo() +
+                    "                       " +  voli_.get(i).getAereo() + "                     " +
                     voli_.get(i).getPista() );
 
         }

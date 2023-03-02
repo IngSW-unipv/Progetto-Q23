@@ -39,7 +39,7 @@ public class HomePageController{
         switch (holder.getUser().getUserType()) {
             case "Admin":
                 buttons = new ArrayList<>();
-                for (int row = 0; row < 2; row++) {
+                for (int row = 0; row < 3; row++) {
                     for (int col = 0; col < 2; col++) {
                         ToggleButton button = new ToggleButton();
                         if (col == 0 && row ==0) {
@@ -104,6 +104,26 @@ public class HomePageController{
                         }
 
                         if (col == 1 && row ==1){
+                            button.setText("Terreno");
+                            button.setStyle("-fx-font-size:20");
+
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    try {
+                                        root = FXMLLoader.load(LandPageApplication.class.getResource("landPage_view.fxml"));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root, 1024, 512);
+                                    stage.setScene(scene);
+                                    stage.setTitle("Terreno Page");
+                                    stage.show();
+                                }
+                            });
+                        }
+                        if (col == 1 && row ==2){
                             button.setText("Terreno");
                             button.setStyle("-fx-font-size:20");
 

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.example.testingproject.model.Account;
-import com.example.testingproject.model.service.AccountService;
+import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,7 +46,8 @@ public class CreazioneAccountController implements Initializable{
     private final String[] ruolo = {"Terreni","Bagagli","Piste","Admin"};
     public String selectedRole;
 
-    AccountService accountService = new AccountService();
+
+    AccountDAO accountDAO = new AccountDAO();
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -67,7 +68,7 @@ public class CreazioneAccountController implements Initializable{
         if(!(usernameField.getText().isEmpty() || passwordField.getText().isEmpty())) {
             Account tempAccount = new Account(usernameField.getText(),passwordField.getText(),selectedRole,nomeField.getText(),cognomeField.getText());
             try {
-                boolean output = accountService.AddAccount(tempAccount);
+                boolean output = accountDAO.createAccount(tempAccount);
 
                 if (output) {
                     goToHome(actionEvent);
