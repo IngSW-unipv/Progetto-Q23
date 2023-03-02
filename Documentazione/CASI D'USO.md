@@ -66,7 +66,6 @@ Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, s
 Caso D'uso Bagagli: 
 
 ```markdown
-Rimozione bagalio per volo in Arrivo .
 Aggiunta bagaglio per Partenze.
 Ricerca ed amministrazione bagagli. 
 
