@@ -62,7 +62,6 @@ Scenario 1:  L’utente se non inserisce correttamente i dati avrà un messaggi
 
 Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre e/o Bagagli
 
-
 Requisito Bagagli: 
 
 ```markdown

@@ -2,7 +2,6 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
-import com.example.testingproject.model.VistaVoloBagaglio;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class LuggageManageController {
@@ -34,61 +32,23 @@ public class LuggageManageController {
     @FXML
     private final BagagliDAO luggageDAO = new BagagliDAO();
 
-
-    public void initialize() throws SQLException {
-        ArrayList<VistaVoloBagaglio> voli = new ArrayList<>();
-        ListView1.getItems().add("VOLO"+"  "+ "PARTENZA"+"  "+ "ARRIVO");
-        voli = luggageDAO.getVistaArrivo();
-        for (VistaVoloBagaglio vistaVoloBagaglio : voli) {
-            ListView1.getItems().add(vistaVoloBagaglio.getIdVolo() + "             " + vistaVoloBagaglio.getAeroportoP() + "             " + vistaVoloBagaglio.getAeroportoA());
-        }
-    }
-
     public void search(ActionEvent event) throws SQLException {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
-        int lcod, line = 0;
-        char j;
-        codice = codice.substring(8);
-        lcod = codice.length();
-        for (int i = 0; i < lcod; i++) {
-            j = codice.charAt(i);
-            if (j == '-') {
-                line = i;
-                break;
-            }
-        }
-        System.out.println(line);
-        // prelevamento informazioni dall'etichetta
-        int idVolo = 0;
         int idBagaglio = 0;
-        boolean verifica1 = false;
-        boolean verifica2 = false;
-        String firstAirport = textField.getText().substring(0, 3);
-        String secondAirport = textField.getText().substring(4, 7);
-        String volo = codice.substring(0, line);
-        String bagaglio = codice.substring(line + 1, lcod);
-
-        System.out.println("id baglio: " + bagaglio);
 
         modifyButton.setVisible(false);
         modifyButtonInVolo.setVisible(false);
         try {
-            idVolo = Integer.parseInt(volo);
-            idBagaglio = Integer.parseInt(bagaglio);
-            System.out.println("id volo: " + idVolo);
+            idBagaglio = Integer.parseInt(codice);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
-        // verifica di presenza del volo specificato
-        verifica1 = luggageDAO.verifyFly(idVolo, firstAirport, secondAirport);
-        // verifica presenza di bagaglio su quel determinato volo
-        verifica2 = luggageDAO.verifyLuggegeinFly(idBagaglio, idVolo);
-        if (!verifica1) {
-            ListView.getItems().add("IL VOLO RICERCATO NON ESISTE");
-        } else {
-            if (!verifica2) {
-                ListView.getItems().add("IL BAGAGLIO SELEZIONATO NON E' PRESENTE SU QUESTO VOLO");
+
+        boolean verifica = luggageDAO.verify(idBagaglio);
+
+            if (!verifica) {
+                ListView.getItems().add("IL BAGAGLIO NON ESISTE");
             } else {
                 tempLuggage = luggageDAO.getLuggaggeById(idBagaglio);
                 if (tempLuggage.getId() == idBagaglio) {
@@ -106,7 +66,6 @@ public class LuggageManageController {
                 }
             }
         }
-    }
     public void modify() throws SQLException {
         String Smarrito = "SMARRITO";
         luggageDAO.modifyStato(tempLuggage.getId(), Smarrito);

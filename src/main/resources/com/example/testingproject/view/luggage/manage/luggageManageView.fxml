@@ -32,11 +32,6 @@
     </ScrollPane>
    <Button fx:id="modifyButton" layoutX="79.0" layoutY="256.0" mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: RED;" text="SMARRITO" textAlignment="CENTER" visible="false" />
    <Button fx:id="modifyButtonInVolo" layoutX="79.0" layoutY="256.0" mnemonicParsing="false" onAction="#modifyINVOLO" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: GREEN;" text="IN VOLO" textAlignment="CENTER" visible="false" />
-   <ScrollPane layoutX="79.0" layoutY="301.0" prefHeight="165.0" prefWidth="233.0">
-      <content>
-         <ListView fx:id="ListView1" prefHeight="167.0" prefWidth="220.0" />
-      </content>
-   </ScrollPane>
    <GridPane layoutX="850.0" layoutY="416.0" prefHeight="30.0" prefWidth="82.0">
      <columnConstraints>
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

@@ -34,6 +34,11 @@ public class SinglePistaController {
 
     public void setPista(Integer Id) {
         pistaID.setText(Id.toString());
+
+
+
+
+
     }
 
 }
