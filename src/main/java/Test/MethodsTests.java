@@ -3,12 +3,15 @@ package Test;
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
 
+import com.example.testingproject.model.DAO.PistaDAO;
+import com.example.testingproject.model.DAO.VoliDAO;
+import com.example.testingproject.model.Pista;
+import com.example.testingproject.model.Voli;
 import org.testng.annotations.Test;
 
 import java.sql.SQLException;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class MethodsTests {
 
@@ -33,6 +36,33 @@ public class MethodsTests {
             assertEquals(accountDAO.getAccountbyUsername(account.getUsername()).getUsername(),account.getUsername());
         }
     }
+
+    @Test
+    void findPistaByIDTest() throws SQLException {
+        PistaDAO pistaDAO = new PistaDAO();
+        Integer Id = 1;
+        Pista pista =pistaDAO.findPistaByID(Id);
+        assertNotNull(pista);
+        assertEquals(pista.getId(),Id);
+
+
+    }
+
+
+    @Test
+    void findVolobyIDTest(){
+        VoliDAO voliDAO = new VoliDAO();
+        Integer Id = 1;
+        Voli volo = voliDAO.findVoloByID(Id);
+        assertNotNull(volo);
+        assertEquals(volo.getId(),Id);
+
+
+    }
+
+
+
+
 
 
 
