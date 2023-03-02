@@ -19,7 +19,7 @@ public class SinglePistaApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    protected static void main(String[] args) {
         launch();
     }
 }
