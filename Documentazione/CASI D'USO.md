@@ -91,7 +91,7 @@ Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, s
 ```
 UC4
 ```markdown
-Aggiunta bagaglio per Partenze.
+Aggiunta bagaglio per Partenze
 
 Scope - Aggiunta Bagaglio volo in Partenza
 Primary Actor - Personale addetto alle Partenze
@@ -106,9 +106,9 @@ Open Issues - Cosa accade se non siamo in grado di spedire il bagaglio con l’a
 ```
 UC5
 ```markdown
-Ricerca ed amministrazione bagagli.
+Ricerca ed cambio satto di un bagaglio
 
-Scope - Ricerca ed Amministrazione per Bagaglio
+Scope - Ricerca e cambio stato di un Bagaglio
 Primary Actor - Utente gestore di bagagli, viene utilizzato per reperire tutte le informazione relativa ad un determinato bagaglio ed eventualmente effettuare delle modifiche su di essi.  
 Preconditions - Condizione necessaria affinché sia possibile svolgere l’operazione è che l’utente abbia effettuato il login, e sia un utente gestore bagagli.
 Success Guarantee - Il bagaglio deve esistere.
