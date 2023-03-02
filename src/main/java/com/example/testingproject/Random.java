@@ -22,11 +22,7 @@ public class Random {
 
 
         VoliDAO voliDAO = new VoliDAO();
-        ArrayList<Integer> voli = voliDAO.getVoliIdwithPistaId(1);
-        Set<Integer> set = new LinkedHashSet<>();
-        set.addAll(voli);
-        voli.clear();
-        voli.addAll(set);
+        ArrayList<Integer> voli = voliDAO.getVoliIdwithPistaId(12);
         for(int i=0;i<voli.size();i++){
             System.out.print("\n "+ voli.get(i));
         }
