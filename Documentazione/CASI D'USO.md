@@ -91,17 +91,9 @@ Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, s
 Caso D'uso Bagagli: 
 
 ```markdown
-Rimozione bagalio per volo in Arrivo .
 Aggiunta bagaglio per Partenze.
 Ricerca ed amministrazione bagagli. 
 
-
-Scope - Aggiunta Bagaglio per volo in Arrivo
-Primary Actor - Personale addetto all’arrivo dunque il personale di terra che smista i bagagli e li posiziona sui rulli trasportatori.
-Preconditions - Condizione necessaria affinché sia possibile svolgere l’operazione è che l’utente abbia effettuato il login, e sia un utente gestore bagagli.
-Success Guarantee - Il volo sul quale dobbiamo effettuare l’operazione esiste, il bagaglio esiste e l’etichetta viene inserita nella maniera opportuna.
-Main Success Scenario - Il bagaglio viene aggiunto alla lista bagagli e la sua etichetta risulta presente all'interno del database.
-Frequency of Occurrence - Ogni qualvolta un aereo atterra e viene effettuata l’operazione di smistaggio.
 
 Scope - Aggiunta Bagaglio volo in Partenza
 Primary Actor - Personale addetto alle Partenze
