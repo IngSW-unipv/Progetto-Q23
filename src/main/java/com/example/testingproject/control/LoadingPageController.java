@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 import java.net.URL;
 
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -36,8 +37,7 @@ public class LoadingPageController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-         DatabaseConnection connection = ConnectionHolder.getInstance();
-         System.out.println(connection+ " Connessione");
+
 
 
         myProgressBar.setStyle("-fx-accent: #00FF00;");
@@ -68,7 +68,7 @@ public class LoadingPageController implements Initializable {
         };
 
         task1.setOnSucceeded(e -> {
-          goToHome();
+
 
 
         });
@@ -79,11 +79,13 @@ public class LoadingPageController implements Initializable {
             @Override
             public Void call() throws InterruptedException{
                 try {
+                    DatabaseConnection connection = ConnectionHolder.getInstance();
+                    System.out.println(connection+ " Connessione");
                     PistaSingleton.getInstance().getPiste();
 
 
 
-                } catch (Exception e) {
+                } catch (SQLException e) {
 
                     System.exit(1);
                 }
@@ -94,8 +96,11 @@ public class LoadingPageController implements Initializable {
 
         task2.setOnSucceeded(e -> {
 
+            goToHome();
 
-
+        });
+        task2.setOnFailed(e ->{
+            System.exit(1);
         });
 
 
