@@ -98,7 +98,7 @@ Open Issues -
 Requisito schermata di accesso:
 ```markdown
 Login.
-Logout.
+Creazione Account.
 Eliminazione account.
 
 Scope -  L’utente effettua il login all’interno della pagina
@@ -113,15 +113,15 @@ Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Ogni volta che un dipendente necessita di accedere alla piattaforma che gli consente di gestire la mansione o le mansioni di cui si occupa
 Open Issues - 
 
-Scope – L’utente si scollega dalla piattaforma
+Scope – Viene creato un account
 Level - (da specificare)
-Primary Actor – L’utente che stava lavorando
-Preconditions – L’utente deve avere già effettuato l’accesso 
-Main Success Scenario – L’utente riesce a scollegarsi dalla piattaforma
+Primary Actor – Un utente "admin"
+Preconditions – L'username scelto non deve già esistere
+Main Success Scenario – Viene creato un nuovo account
 Extensions/Alternative Scenarios - 
 Special Requirements - 
 Technology and Data Variation  List - (Da specificare)
-Frequency of Occurrence – Ogni volta che un dipendente ha finito il lavoro di cui si doveva occupare
+Frequency of Occurrence – Ogni volta che si vuole creare un nuovo account
 Open Issues - 
 
 Scope – Viene eliminato un account

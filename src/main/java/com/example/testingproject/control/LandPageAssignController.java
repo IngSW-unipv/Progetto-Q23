@@ -43,13 +43,13 @@ public class LandPageAssignController {
     public int selectedHangar;
     public  int selectedAereo;
     public  String selectedDateI,selectedDateF;
-
+    TerreniDAO terreniDAO = new TerreniDAO();
     public void initialize() throws SQLException {
-      hg = TerreniDAO.getTerreni();
+      hg = terreniDAO.getTerreni();
       for (int i =0; i< hg.size(); i++){
           hangarList.getItems().add(hg.get(i).getId());
       }
-    aerei = TerreniDAO.getAerei();
+    aerei = terreniDAO.getAerei();
 
       for (int j = 0; j<aerei.size();j++){
           aereiList.getItems().add(aerei.get(j).getId());
@@ -78,14 +78,14 @@ public class LandPageAssignController {
     }
     public void handleRemove(ActionEvent actionEvent) throws  SQLException{
         Sosta sosta = new Sosta(selectedHangar,selectedAereo,selectedDateI,selectedDateF);
-        Hangar hgt = TerreniDAO.getTerrenoByID(sosta.getHangar());
+        Hangar hgt = terreniDAO.getTerrenoByID(sosta.getHangar());
         boolean inserimento=false;
         if (hgt.getNpostiLiberi()<hgt.getNposti()){
-            inserimento = TerreniDAO.removeSosta(sosta);
+            inserimento = terreniDAO.removeSosta(sosta);
             System.out.println(inserimento);
         }
         if(inserimento){
-            TerreniDAO.increaseHangar(sosta.getHangar());
+            terreniDAO.increaseHangar(sosta.getHangar());
         }
         else{
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -99,13 +99,13 @@ public class LandPageAssignController {
     public void handleAssign(ActionEvent actionEvent) throws SQLException {
         System.out.println(selectedAereo+"  "+selectedHangar);
         Sosta sosta = new Sosta(selectedHangar,selectedAereo,selectedDateI,selectedDateF);
-        Hangar hgt = TerreniDAO.getTerrenoByID(sosta.getHangar());
+        Hangar hgt = terreniDAO.getTerrenoByID(sosta.getHangar());
         boolean inserimento=false;
         if (hgt.getNpostiLiberi()>0){
-            inserimento = TerreniDAO.insertSosta(sosta);
+            inserimento = terreniDAO.insertSosta(sosta);
         }
         if(inserimento){
-            boolean update = TerreniDAO.decreaseHangar(sosta.getHangar());
+            boolean update = terreniDAO.decreaseHangar(sosta.getHangar());
         }
         else{
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
