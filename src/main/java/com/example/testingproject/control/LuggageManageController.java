@@ -1,7 +1,7 @@
 package com.example.testingproject.control;
 
-import com.example.testingproject.model.Luggage;
 import com.example.testingproject.model.DAO.BagagliDAO;
+import com.example.testingproject.model.Luggage;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,9 +9,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,15 +36,15 @@ public class LuggageManageController {
     @FXML
     private final BagagliDAO luggageDAO = new BagagliDAO();
     public void initialize() throws SQLException {
-        ArrayList<Luggage> bagaglio = new ArrayList<>();
+        ArrayList<Luggage> bagaglio;
         bagaglio = BagagliDAO.getLuggage();
         ListView1.getItems().add("BAGAGLIO"+"  "+ "STATO");
-        for (int i = 0; i < bagaglio.size(); i++) {
-            ListView1.getItems().add(bagaglio.get(i).getId() +"        "+ bagaglio.get(i).getStato());
+        for (Luggage luggage : bagaglio) {
+            ListView1.getItems().add(luggage.getId() + "        " + luggage.getStato());
         }
 
     }
-    public void search(ActionEvent event) throws SQLException {
+    public void search() throws SQLException {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
         int idBagaglio = 0;
@@ -95,7 +97,7 @@ public class LuggageManageController {
         stage.setScene(scene);
         stage.show();
     }
-    public void clear(MouseEvent mouseEvent) {
+    public void clear() {
         int selectedId = ListView.getSelectionModel().getSelectedIndex();
         ListView.getItems().remove(selectedId);
     }
