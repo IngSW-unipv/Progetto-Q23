@@ -30,11 +30,11 @@
         </ScrollPane>
       <Text layoutX="58.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GATE" />
       <Text layoutX="94.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AEROPORTOP" />
-      <Text layoutX="176.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA ORA" />
-      <Text layoutX="240.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID VOLO" />
-      <Text layoutX="295.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DURATA" />
-      <Text layoutX="349.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RITARDO" />
-      <Text layoutX="407.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID AEREO" />
-      <Text layoutX="470.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PISTA" />
+      <Text layoutX="205.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA ORA" />
+      <Text layoutX="332.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID VOLO" />
+      <Text layoutX="415.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DURATA" />
+      <Text layoutX="480.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RITARDO" />
+      <Text layoutX="568.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID AEREO" />
+      <Text layoutX="658.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PISTA" />
     </children>
 </Pane>
