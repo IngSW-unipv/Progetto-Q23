@@ -2,6 +2,7 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.DAO.BagagliDAO;
 import com.example.testingproject.model.Luggage;
+import com.example.testingproject.model.Voli;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LuggageDepartureController {
@@ -27,6 +29,8 @@ public class LuggageDepartureController {
     private Parent root;
     @FXML
     private javafx.scene.control.ListView<String> listView;
+    @FXML
+    private javafx.scene.control.ListView<String> listView1;
     private Luggage tempLuggage;
     private final BagagliDAO luggageDAO = new BagagliDAO();
 

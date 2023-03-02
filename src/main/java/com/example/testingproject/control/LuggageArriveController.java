@@ -50,7 +50,7 @@ public class LuggageArriveController {
         }else if (wigthLuggage == 0) {
                 listView.getItems().add("PESO ERRATO: INSERISCI UN PESO CHE SIA ALMENO MAGGIORE DI 0");
         } else {
-            listView.getItems().add("IL BAGAGLIO E' STATO AGGIUNTO CORRETTAMENTE DESTINAZIONE");
+            listView.getItems().add("IL BAGAGLIO E' STATO AGGIUNTO CORRETTAMENTE");
             luggageDAO.addLuggage(wigthLuggage,string, idVolo);
         }
     }

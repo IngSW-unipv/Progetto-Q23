@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LuggageManageController {
@@ -24,6 +25,7 @@ public class LuggageManageController {
     public TextField textField;
     public Button modifyButton;
     public Button modifyButtonInVolo;
+    @FXML
     public javafx.scene.control.ListView<String> ListView1;
     @FXML
     public Button clearButton;
@@ -31,7 +33,15 @@ public class LuggageManageController {
     private Luggage tempLuggage;
     @FXML
     private final BagagliDAO luggageDAO = new BagagliDAO();
+    public void initialize() throws SQLException {
+        ArrayList<Luggage> bagaglio = new ArrayList<>();
+        bagaglio = BagagliDAO.getLuggage();
+        ListView1.getItems().add("BAGAGLIO"+"  "+ "STATO");
+        for (int i = 0; i < bagaglio.size(); i++) {
+            ListView1.getItems().add(bagaglio.get(i).getId() +"        "+ bagaglio.get(i).getStato());
+        }
 
+    }
     public void search(ActionEvent event) throws SQLException {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
