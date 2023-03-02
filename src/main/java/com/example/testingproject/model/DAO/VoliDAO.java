@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class VoliDAO implements IVoliDAO {
     static DatabaseConnection connection = ConnectionHolder.getInstance();
 
-    public static ArrayList<Voli> getVoliPartenza() throws SQLException {
+    public  ArrayList<Voli> getVoliPartenza() throws SQLException {
         ArrayList<Voli> voli = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
@@ -49,7 +49,7 @@ public class VoliDAO implements IVoliDAO {
         connection.closeConnection(conn);
         return voli;
     }
-    public static ArrayList<Voli> getVoliArrivo() throws SQLException {
+    public  ArrayList<Voli> getVoliArrivo() throws SQLException {
         ArrayList<Voli> voli = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
@@ -87,7 +87,7 @@ public class VoliDAO implements IVoliDAO {
 
 
 
-    public static boolean inserisciVoli( int idVolo, int durataapp, int ritardoapp,int aereo,String gate) throws SQLException {
+    public boolean inserisciVoli( int idVolo, int durataapp, int ritardoapp,int aereo,String gate) throws SQLException {
         Connection conn = connection.getConnection();
         try {
             String query = "INSERT INTO volo(id,durata,ritardo,aereo,gate) values('"+idVolo+"', '"+durataapp+"', '"+ritardoapp+"', '"+aereo+ "' , '" +gate+"')";
@@ -99,8 +99,6 @@ public class VoliDAO implements IVoliDAO {
             e.printStackTrace();
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setTitle("Errore di Inserimento");
-            errorAlert.setHeaderText("Record già esistente");
-            errorAlert.setContentText("La sosta inserita esiste già in tabella");
             errorAlert.showAndWait();
             connection.closeConnection(conn);
             System.err.println("Got an exception!");
@@ -108,7 +106,7 @@ public class VoliDAO implements IVoliDAO {
             return false;
         }
     }
-    public static boolean inserisciPartenza(  int idVolo,int pista,String dataora,String aeroportop) throws SQLException {
+    public boolean inserisciPartenza(  int idVolo,int pista,String dataora,String aeroportop) throws SQLException {
         Connection conn = connection.getConnection();
         try {
             String query = "INSERT INTO partenza(volo,aeroportoa,dataora,pista) values('"+idVolo+"''"+aeroportop+"', '"+dataora+"', '"+pista+"')";
@@ -120,8 +118,6 @@ public class VoliDAO implements IVoliDAO {
             e.printStackTrace();
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setTitle("Errore di Inserimento");
-            errorAlert.setHeaderText("Record già esistente");
-            errorAlert.setContentText("La sosta inserita esiste già in tabella");
             errorAlert.showAndWait();
             connection.closeConnection(conn);
             System.err.println("Got an exception!");
@@ -129,7 +125,7 @@ public class VoliDAO implements IVoliDAO {
             return false;
         }
     }
-    public static boolean inserisciArrivo( int idVolo, int pista,String dataora,String aeroportop) throws SQLException {
+    public boolean inserisciArrivo( int idVolo, int pista,String dataora,String aeroportop) throws SQLException {
         Connection conn = connection.getConnection();
         try {
             String query = "INSERT INTO arrivo(volo,aeroportop,dataora,pista) values('"+idVolo+"','"+aeroportop+"', '"+dataora+"', '"+pista+"')";
