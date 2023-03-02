@@ -50,7 +50,7 @@ public class MethodsTests {
 
 
     @Test
-    void findVolobyIDTest(){
+    void findVoloByIDTest(){
         VoliDAO voliDAO = new VoliDAO();
         Integer Id = 1;
         Voli volo = voliDAO.findVoloByID(Id);
