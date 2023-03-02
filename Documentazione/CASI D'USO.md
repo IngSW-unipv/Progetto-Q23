@@ -1,43 +1,68 @@
 **Casi D’uso**
 
 
-Caso D'uso Visualizzazione Piste:
+UC1
 ```markdown
 
-Scope- Gestione Voli da Utente Torre
-Level - Obiettivo Utente
-Primary Actor and Stakeholders - Utente Torre è l’attore primario, con Stakeholder anche gli altri utenti possibili che possono interagire con la pagina Voli. 
-Preconditions - L’utente deve essere loggato nel sistema sotto il titolo “Torre”.
-Success Guarantee - L’utente è loggato come utente Torre, il volo che si vuole aggiungere ha le condizioni necessarie per essere accettato, ossia che il modello dell’aereo sia accettato, che la direzione del vento non sia nella stessa esatta direzione dell’arrivo dell’aereo, e se c’è lo spazio per parcheggiare l’aereo.
+Visualizzazione Piste e Voli per una Pista:
+Portata - AirManager Software
+Livello - User Goal
+Attore Primario - Utente Voli
 
-Main Success Scenario - 
+Parti Interessate- Utente Voli e l’amministratore deve poter visualizzare la lista di piste, l'aeroporto che usa questo software deve poter visualizzare e avere un record corretto delle piste fisiche dell'aeroporto, e quali voli usano quelle piste.
+
+Precondizioni - L’utente deve essere autenticato come amministratore o utente Voli.
+
+Garanzia di Successo - L’utente è autenticato correttamente come uno degli utenti con accesso, e la connessione con il database all’inizio del programma per la creazione della lista pista non deve essere interrotta o scattare un eccezione.
+
+Sequenza degli eventi principali - 1. L’utente apre la pagina Piste dalla Home Page
+2. L’utente visualizza la lista di Piste con le relative
+informazioni essenziali.
+3. L’utente clicca su una Pista
+4. L’utente visualizza la lista di voli per la Pista
+
+Extensions/Alternative Scenarios - B2: L’utente esce dalla pagina Piste
+B3: L’utente non è di tipo amministratore o Voli, e non ha  
+accesso alla pagina Piste.
 
 
-L’utente Torre clicca sul bottone per Pista X e apre la pagina per questa pista
-L’utente clicca sul bottone “Aggiungere Volo”
-L’utente mette in input i dati necessari per il volo, che vengono collaudati dal software, e l’algoritmo di controllo voli mette in output una lista di piste alternative se la pista X non è la scelta migliore. 
-L’utente clicca sulla pista dove preferisce aggiungere il Volo.
-Il volo viene aggiunto a una pista.
-Il database viene aggiornato con questi nuovi dati, e la pagina “Dashboard” dove si visualizzano i voli in arrivo/partenza aggiorna la visualizzazione dei dati.
+Frequenza di Occorrenza - Dipende dagli utenti, ogni volta che l’utente vuole vedere la lista di Piste.
 
-Extensions/Alternative Scenarios -
-Scenario 1:  L’utente sceglie un'altra pista dove far atterrare l’aereo
-Il Database verrà aggiornato ora non per aggiornare i dati di pista X, ma i dati della pista che ha scelto l’utente
-La pagina “Dashboard” verrà aggiornata con il nuovo volo in arrivo, e anche la pagina visualizzazione voli per la pista che aveva scelto l’utente
-
-Scenario 2: La direzione del vento combacia con la direzione di arrivo dell’aereo
-In questo caso la pista non è disponibile per essere scelta come pista di atterraggio/partenza del volo, l’utente potrà o chiudere la pagina e provare con un'altra pista, oppure scegliere una delle 3 opzioni listate dall’algoritmo di selezione piste.
-
-Scenario 3: Non c’è spazio nel Hangar dove parcheggiare l’aereo (se rimane all'aeroporto per più di tre ore)
-In questo caso il volo non può essere aggiunto, le soluzioni per l’utente Torre sono di aggiungere il volo su pista X ma con orari che combaciano con la disponibilità dei Hangar associati ad aziende aeree che non hanno spazi permanenti nel Hangar.
-
-Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre
-Open Issues - Se il volo non viene accettato, ci potrebbe essere la possibilità di consigliare una lista di aeroporti vicini per fare atterrare questo aereo?
 
 ```
-Caso D'uso Visualizzazione Voli:
+UC2
 ```markdown
 
+Aggiunta Pista
+Portata - AirManager Software
+Livello - User Goal
+Attore Primario - Utente Voli
+
+Parti Interessate- Utente Voli e l’amministratore deve poter aggiungere una Pista, se cambia la struttura fisica dell aeroporto o si vuole adattare il sistema a un nuovo aeroporto.
+
+Precondizioni - L’utente deve essere autenticato come amministratore o utente Voli.
+
+Garanzia di Successo - L’utente è autenticato correttamente come uno degli utenti con accesso, e la connessione con il database all’inizio del programma per la creazione della lista pista non deve essere interrotta o scattare un eccezione.
+
+Sequenza degli eventi principali - 1. L’utente apre la pagina Piste dalla Home Page
+2. L’utente scrive i dati necessari per l’aggiunta di una pista
+3. L’aggiunta della pista viene confermata
+
+
+Extensions/Alternative Scenarios - B2: L’utente esce dalla pagina Piste
+B3: L’utente non scrive i dati necessari o scrive in modo  
+sbagliato, in tal caso il programma farà apparire un  
+errore.
+
+
+Frequenza di Occorrenza - Dipende dagli utenti, ogni volta che l’utente vuole aggiungere una pista nuova.
+
+
+
+```
+C3
+```markdown
+Visualizzazione Voli
 Scope- Visualizzazione ed inserimento di voli in arrivo e/o partenza da e verso l'aeroporto da perte degli utenti
 Level - Obiettivo Utente
 Primary Actor and Stakeholders - Utente Bagaglio, l'utente pista sono gli attori primari, . 
@@ -109,7 +134,7 @@ Main Success Scenario - il terreno viene assegnato al nuovo affittuario
 Extensions/Alternative Scenarios – Special Requirements -  il terreno è gia stato assegnato
 Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
-Open Issues - 
+
 
 Scope - Consultazione Hangar e relative associazioni
 Level - (da specificare)
@@ -120,7 +145,7 @@ Extensions/Alternative Scenarios – non sono presenti terreni all'interno del d
 Special Requirements - 
 Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
-Open Issues - 
+
 
 ```
 
