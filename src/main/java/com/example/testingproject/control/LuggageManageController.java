@@ -20,20 +20,20 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class LuggageManageController {
-
+    @FXML
     public MenuBar myMenuBar;
-
+    @FXML
     public javafx.scene.control.ListView<String> ListView;
     public TextField textField;
+    @FXML
     public Button modifyButton;
+    @FXML
     public Button modifyButtonInVolo;
     @FXML
     public javafx.scene.control.ListView<String> ListView1;
     @FXML
     public Button clearButton;
-    @FXML
     private Luggage tempLuggage;
-    @FXML
     private final BagagliDAO luggageDAO = new BagagliDAO();
     public void initialize() throws SQLException {
         ArrayList<Luggage> bagaglio;
