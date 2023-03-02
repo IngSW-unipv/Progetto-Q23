@@ -3,8 +3,8 @@
 
 UC1
 ```markdown
+Visualizzazione Piste e Voli per una Pista
 
-Visualizzazione Piste e Voli per una Pista:
 Portata - AirManager Software
 Livello - User Goal
 Attore Primario - Utente Voli
@@ -32,8 +32,8 @@ Frequenza di Occorrenza - Dipende dagli utenti, ogni volta che l’utente vuole 
 ```
 UC2
 ```markdown
-
 Aggiunta Pista
+
 Portata - AirManager Software
 Livello - User Goal
 Attore Primario - Utente Voli
@@ -60,9 +60,10 @@ Frequenza di Occorrenza - Dipende dagli utenti, ogni volta che l’utente vuole 
 
 
 ```
-C3
+UC3
 ```markdown
 Visualizzazione Voli
+
 Scope- Visualizzazione ed inserimento di voli in arrivo e/o partenza da e verso l'aeroporto da perte degli utenti
 Level - Obiettivo Utente
 Primary Actor and Stakeholders - Utente Bagaglio, l'utente pista sono gli attori primari, . 
@@ -88,12 +89,9 @@ Scenario 1:  L’utente se non inserisce correttamente i dati avrà un messaggi
 Frequency of Occurrence - Dipende dalla frequenza dei voli in arrivo/partenza, sarà a discrezione dell’utente Torre e/o Bagagli
 
 ```
-Caso D'uso Bagagli: 
-
+UC4
 ```markdown
 Aggiunta bagaglio per Partenze.
-Ricerca ed amministrazione bagagli. 
-
 
 Scope - Aggiunta Bagaglio volo in Partenza
 Primary Actor - Personale addetto alle Partenze
@@ -105,6 +103,11 @@ Frequency of Occurrence - Ogni volta che abbiamo un volo in partenza.
 Open Issues - Cosa accade se non siamo in grado di spedire il bagaglio con l’aereo corretto a seguito di un problema di carico eccessivo?
 
 
+```
+UC5
+```markdown
+Ricerca ed amministrazione bagagli.
+
 Scope - Ricerca ed Amministrazione per Bagaglio
 Primary Actor - Utente gestore di bagagli, viene utilizzato per reperire tutte le informazione relativa ad un determinato bagaglio ed eventualmente effettuare delle modifiche su di essi.  
 Preconditions - Condizione necessaria affinché sia possibile svolgere l’operazione è che l’utente abbia effettuato il login, e sia un utente gestore bagagli.
@@ -114,10 +117,10 @@ Extensions/Alternative Scenarios - Lista di scenari alternativi dove qualcos’a
 Frequency of Occurrence - La frequenza è relativa all’utilizzatore.
 
 ```
-
-Caso D'uso Terreni:
+UC6
 ```markdown
-UC6 :  
+Inserimento sosta
+
 Scope - Inserimento sosta 
 Level - (da specificare)
 Primary Actor - Personale addetto alla gestione dei terreni  
@@ -128,7 +131,11 @@ Technology and Data Variation  List - (Da specificare)
 Frequency of Occurrence – Quando necessario 
 
 
+```
 UC7 :
+```markdown
+Ricerca sosta
+
 Scope - Ricerca sosta
 Level - (da specificare)
 Primary Actor - Personale addetto alla gestione dei terreni
@@ -141,11 +148,9 @@ Frequency of Occurrence – Quando necessario
 
 
 ```
-
-Caso D'uso schermata di accesso:
+UC8
 ```markdown
-Login.
-
+Login
 
 Scope -  Effettuare il login all’interno della pagina
 Level - Obiettivo Utente
