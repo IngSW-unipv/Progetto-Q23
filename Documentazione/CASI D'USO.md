@@ -137,6 +137,7 @@ Preconditions – Deve esistere una combinazione utente/password all’interno d
 Success Guarantee – L’utente inserisce la combinazione corretta di nome utente e password
 Main Success Scenario - L’utente riesce ad accedere alla schermata adibita alla sua mansione
 Extensions/Alternative Scenarios – Viene inserita una combinazione di nome utente e password errata o inesistente
+Viene segnalata l'errata combinazione di username e password
 Frequency of Occurrence – Ogni volta che un dipendente necessita di accedere alla piattaforma che gli consente di gestire la mansione o le mansioni di cui si occupa
 
 Scope – Viene creato un account
@@ -144,7 +145,11 @@ Level - (da specificare)
 Primary Actor – Un utente "admin"
 Preconditions – L'username scelto non deve già esistere
 Main Success Scenario – Viene creato un nuovo account
-Extensions/Alternative Scenarios - 
+Extensions/Alternative Scenarios - Scenario 1: L'username inserito è già esistente
+Viene segnalato l'errore nella creazione dell'account
+Scenario 2: Non viene inserito l'username o la password oppure entrambi
+Viene segnalata la presenza di campi nulli
+
 Frequency of Occurrence – Ogni volta che si vuole creare un nuovo account
 
 Scope – Viene eliminato un account
@@ -152,7 +157,8 @@ Level - (da specificare)
 Primary Actor – L’amministratore
 Preconditions – L’account deve esistere, chi svolge questa operazione deve essere un account amministratore
 Main Success Scenario – L’account selezionato viene eliminato
-Extensions/Alternative Scenarios -  
+Extensions/Alternative Scenarios -  Viene inserito un username non esistente
+Viene segnalato l'errato inserimento dell'username
 Frequency of Occurrence – Quando un utente non fa più parte della gestione aeroportuale
 
 ```
