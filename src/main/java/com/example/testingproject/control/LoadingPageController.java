@@ -68,7 +68,7 @@ public class LoadingPageController implements Initializable {
         };
 
         task1.setOnSucceeded(e -> {
-
+            goToHome();
 
 
         });
@@ -96,7 +96,7 @@ public class LoadingPageController implements Initializable {
 
         task2.setOnSucceeded(e -> {
 
-            goToHome();
+
 
         });
         task2.setOnFailed(e ->{
