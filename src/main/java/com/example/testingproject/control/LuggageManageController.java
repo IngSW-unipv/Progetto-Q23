@@ -44,7 +44,6 @@ public class LuggageManageController {
         }
     }
 
-
     public void search(ActionEvent event) throws SQLException {
         // addettamento stringa dinamica per ricerca
         String codice = textField.getText();
