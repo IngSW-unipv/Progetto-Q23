@@ -15,7 +15,7 @@ public class VoliDAO implements IVoliDAO {
         ArrayList<Voli> voli = new ArrayList<>();
         Connection conn = connection.getConnection();
         try{
-            //change tipo to type, change database table layout
+
             String query = "SELECT A.*,B.pista,B.aeroportoa,B.dataora FROM volo AS A JOIN(SELECT * FROM partenza )AS B ON A.id=B.volo;";
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
