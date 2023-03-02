@@ -5,7 +5,7 @@
 ![MySql](https://img.shields.io/badge/Database-MySQL-purple)
 
  <p align="left">
-  <img width="300" style= alt="logo" src="https://github.com/IngSW-unipv/Progetto-Q23/blob/main/src/main/resources/com/example/testingproject/logo.png">
+  <img width="300" style= alt="logo" src="https://github.com/IngSW-unipv/Progetto-Q23/blob/main/src/main/resources/com/example/testingproject/view/Logo.png">
 </p>
  
 ## INTRODUZIONE
