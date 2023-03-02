@@ -107,6 +107,26 @@ public boolean newPista(Pista pista) throws SQLException {
 
     }
 
+    public boolean removePista(Pista pista) {
+        Connection conn = connection.getConnection();
+        try{
+            Integer Id = pista.getId();
+
+            String query = "DELETE FROM AirportManager.pista WHERE id = "+Id.toString() +";";
+
+            PreparedStatement preparedStatement =conn.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            connection.closeConnection(conn);
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            connection.closeConnection(conn);
+            return false;
+        }
+
+    }
+
 
 }
 

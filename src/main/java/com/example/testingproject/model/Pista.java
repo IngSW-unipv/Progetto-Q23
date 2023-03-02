@@ -26,7 +26,22 @@ public class Pista {
     }
 
 
+    public static String convertDirection(String input){
+        if(input.equals("Est")){
+            return "E";
+        }
+        else if(input.equals("Ovest")){
+            return "W";
+        }
+        else if(input.equals("Nord")){
+            return "N";
+        }
+        else{
+            return "S";
+        }
 
+
+    }
 
 
 

@@ -1,13 +1,15 @@
 package com.example.testingproject.model;
 
 public class Wind {
-    private final String[] possibleDirections = {"N","E","W","S"};
+
 
     public String getDirectionIndex(){
+        final String[] possibleDirections = {"N","E","W","S"};
         int index = (int)(Math.random()*4);
         return possibleDirections[index];
 
     }
+
 
     public String getDirection(){
         String direction = getDirectionIndex();

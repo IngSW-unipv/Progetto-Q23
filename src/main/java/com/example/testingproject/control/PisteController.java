@@ -1,9 +1,12 @@
 package com.example.testingproject.control;
 
+
 import com.example.testingproject.model.DAO.PistaDAO;
 import com.example.testingproject.model.Pista;
+import com.example.testingproject.model.PistaSingleton;
 import com.example.testingproject.model.service.PistaService;
 import com.example.testingproject.view.piste.SinglePistaApplication;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import com.example.testingproject.model.Wind;
@@ -36,6 +40,24 @@ public class PisteController implements Initializable {
     @FXML
     private ScrollPane scroller;
 
+   @FXML
+   Label removeAlert;
+
+   @FXML
+   Label addAlert;
+
+   @FXML
+    TextField removeID;
+
+
+    @FXML
+    TextField lengthValue;
+
+    @FXML
+    TextField directionValue;
+
+    private PistaSingleton pistaSingleton;
+
 
 
     @Override
@@ -49,7 +71,7 @@ public class PisteController implements Initializable {
             itemHolder.setSpacing(10);
             scroller.setFitToWidth(true);
 
-            ArrayList<Pista> piste= pisteService.getPiste();
+            ArrayList<Pista> piste= pistaSingleton.getInstance().getPiste();
         Node[] nodes = new Node[piste.size()];
 
         String Wind,Direction;
@@ -131,4 +153,60 @@ public class PisteController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+
+
+    public void addPista(ActionEvent event){
+        addAlert.setText("");
+        PistaDAO pistaDAO = new PistaDAO();
+        Integer inputID = 1;
+
+        if(!(directionValue.getText().isEmpty() && lengthValue.getText().isEmpty())) {
+            Integer inputLength = Integer.parseInt(lengthValue.getText());
+            String inputDirection = Pista.convertDirection(directionValue.getText());
+            Pista tempPista = new Pista(inputID, inputLength, inputDirection);
+            boolean output = false;
+            try {
+                output = pistaDAO.newPista(tempPista);
+            } catch (Exception e) {
+                addAlert.setText("Errore!");
+            }
+            if (!output) {
+                addAlert.setText("Errore!");
+            } else {
+                addAlert.setText("");
+            }
+        }
+        else{
+            addAlert.setText("Errore!");
+        }
+
+
+
+    }
+
+    public void removePista(ActionEvent event) throws SQLException {
+        removeAlert.setText("");
+        if(!(removeID.getText().isEmpty())) {
+            Integer inputID = Integer.parseInt(removeID.getText());
+            PistaDAO pistaDAO = new PistaDAO();
+            Pista pista = pistaDAO.findPistaByID(inputID);
+            if (pista != null) {
+                pistaDAO.removePista(pista);
+
+            } else {
+                removeAlert.setText("Pista non esiste!");
+            }
+        }
+        else{
+            removeAlert.setText("Pista non esiste!");
+        }
+
+
+
+
+    }
+
 }
+
+
