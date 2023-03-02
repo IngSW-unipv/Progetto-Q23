@@ -2,7 +2,7 @@ package Test;
 
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
-import com.example.testingproject.model.service.AccountService;
+
 import org.testng.annotations.Test;
 
 import java.sql.SQLException;

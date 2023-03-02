@@ -2,7 +2,6 @@ package com.example.testingproject.control;
 
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
-import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

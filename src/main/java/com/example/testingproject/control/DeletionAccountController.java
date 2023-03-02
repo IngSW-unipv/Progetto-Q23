@@ -1,7 +1,7 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.Account;
-import com.example.testingproject.model.service.AccountService;
+import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,15 +32,16 @@ public class DeletionAccountController {
 
     public void DeleteAccount(ActionEvent event) throws SQLException, IOException {
         String username = usernameInput.getText();
-        AccountService accountService = new AccountService();
 
-            Account tempAccount = accountService.findAccountByUsername(username);
+        AccountDAO accountDAO = new AccountDAO();
+
+            Account tempAccount = accountDAO.getAccountbyUsername(username);
             if (tempAccount == null) {
                 accountNotFound.setText("Account non esiste!");
 
 
             } else {
-                accountService.deleteAccount(tempAccount);
+                accountDAO.deleteAccount(tempAccount);
                 goToHome(event);
 
 

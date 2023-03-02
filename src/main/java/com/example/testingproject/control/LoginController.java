@@ -3,7 +3,6 @@ package com.example.testingproject.control;
 import com.example.testingproject.model.Account;
 import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.model.UserHolder;
-import com.example.testingproject.model.service.AccountService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
