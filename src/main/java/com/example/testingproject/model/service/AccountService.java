@@ -91,8 +91,5 @@ return output;
 
     }
 
-    public boolean checkPassword(Account account, String InputPassword){
-        return account != null && account.getPassword().equals(InputPassword);
-    }
 
 }

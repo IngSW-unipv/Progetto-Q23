@@ -1,6 +1,7 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.Account;
+import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.model.service.AccountService;
 import com.example.testingproject.view.homePage.HomePageApplication;
 import javafx.event.ActionEvent;
@@ -41,7 +42,7 @@ public class ModificaAccountSceltaController {
 
     @FXML
     private Label sucessText;
-    AccountService accountService = new AccountService();
+    AccountDAO accountDAO = new AccountDAO();
 
 
 
@@ -55,7 +56,7 @@ public class ModificaAccountSceltaController {
     }
 
     public void findAccount(ActionEvent event) throws SQLException {
-        Account tempaccount = accountService.findAccountByUsername(inputUsername.getText());
+        Account tempaccount = accountDAO.getAccountbyUsername(inputUsername.getText());
         sucessText.setText("");
         if(tempaccount==null){
             alarmText.setText("Account non esiste!");
@@ -71,12 +72,13 @@ public class ModificaAccountSceltaController {
     }
 
     public void updateAccount(ActionEvent event) throws InterruptedException, SQLException {
-        Account tempaccount = accountService.findAccountByUsername(inputUsername.getText());
+        Account tempaccount = accountDAO.getAccountbyUsername(inputUsername.getText());
 
         try {
-            accountService.changeUsername(tempaccount, newUsername.getText());
-            accountService.changePassword(tempaccount, newPassword.getText());
-            accountService.changeUserType(tempaccount, newType.getText());
+
+            accountDAO.updateUsername(tempaccount.getUsername(), newUsername.getText());
+            accountDAO.updatePassword(tempaccount.getPassword(), newPassword.getText());
+            accountDAO.updateType(tempaccount.getUserType(), newType.getText());
             sucessText.setText("Account aggiornato!");
         }
         catch (SQLException e){

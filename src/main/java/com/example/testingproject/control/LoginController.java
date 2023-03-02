@@ -1,6 +1,7 @@
 package com.example.testingproject.control;
 
 import com.example.testingproject.model.Account;
+import com.example.testingproject.model.DAO.AccountDAO;
 import com.example.testingproject.model.UserHolder;
 import com.example.testingproject.model.service.AccountService;
 import javafx.event.ActionEvent;
@@ -42,7 +43,7 @@ private TextField InputUsername;
 
     private Account tempAccount;
 
-    private final AccountService accountService = new AccountService();
+    private final AccountDAO accountDAO = new AccountDAO();
 
 
 
@@ -61,12 +62,13 @@ private TextField InputUsername;
 
 
             try {
-                tempAccount = accountService.findAccountByUsername(InputUsername.getText());
+                tempAccount = accountDAO.getAccountbyUsername(InputUsername.getText());
+
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
 
-            if (accountService.checkPassword(tempAccount,InputPassword.getText())) {
+            if (tempAccount!= null && tempAccount.checkPassword(InputPassword.getText())) {
                 UserHolder holder = UserHolder.getInstance();
                 holder.setUser(tempAccount);
                 root = FXMLLoader.load(HomePageApplication.class.getResource("homePage_view.fxml"));

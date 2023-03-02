@@ -56,6 +56,10 @@ public class Account {
 
     }
 
+    public boolean checkPassword( String InputPassword){
+        return this!= null && this.getPassword().equals(InputPassword);
+    }
+
 
 
 
