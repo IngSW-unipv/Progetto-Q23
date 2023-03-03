@@ -7,7 +7,7 @@ public class Account {
     private String userType;
     private final String name;
     private final String surname;
-    private boolean isLoggedIn;
+
 
     public Account(String username, String password, String userType, String name, String surname) {
         this.username = username;
@@ -28,9 +28,7 @@ public class Account {
     public String getPassword() {
         return this.password;
     }
-    public boolean getLoggedIn(){
-        return this.isLoggedIn;
-    }
+
 
     public String getName(){
         return this.name;
@@ -58,6 +56,11 @@ public class Account {
 
     public boolean checkPassword( String InputPassword){
         return this!= null && this.getPassword().equals(InputPassword);
+    }
+
+    public boolean isLoggedIn(){
+        return true;
+
     }
 
 

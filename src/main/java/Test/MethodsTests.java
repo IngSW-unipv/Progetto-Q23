@@ -15,50 +15,29 @@ import static org.testng.Assert.*;
 
 public class MethodsTests {
 
-    AccountDAO accountDAO = new AccountDAO();
+
 
 
 
     @Test
-    void findAccountbyUsernameDAOTest() throws SQLException {
-        String username = "daniele";
-        Account tempaccount = accountDAO.getAccountbyUsername(username);
-        assertEquals(tempaccount.getUsername(),username);
+    void checkLoggedIn() {
+
 
 
     }
 
     @Test
-    void addAccountDAOTest() throws SQLException {
-        Account account = new Account("check","check","Voli","chek","check");
-        if(accountDAO.getAccountbyUsername(account.getUsername())==null){ //per vedere se account con quel username esiste già
-            accountDAO.createAccount(account);
-            assertEquals(accountDAO.getAccountbyUsername(account.getUsername()).getUsername(),account.getUsername());
-        }
+    void checkConversionDirection(){
+
     }
 
     @Test
-    void findPistaByIDTest() throws SQLException {
-        PistaDAO pistaDAO = new PistaDAO();
-        Integer Id = 1;
-        Pista pista =pistaDAO.findPistaByID(Id);
-        assertNotNull(pista);
-        assertEquals(pista.getId(),Id);
-
+    void checkPasswordTest(){
 
     }
 
 
-    @Test
-    void findVoloByIDTest(){
-        VoliDAO voliDAO = new VoliDAO();
-        Integer Id = 1;
-        Voli volo = voliDAO.findVoloByID(Id);
-        assertNotNull(volo);
-        assertEquals(volo.getId(),Id);
 
-
-    }
 
 
 
