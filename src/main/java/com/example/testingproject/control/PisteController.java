@@ -57,7 +57,7 @@ public class PisteController implements Initializable {
     @FXML
     TextField directionValue;
 
-    private PistaSingleton pistaSingleton;
+
 
 
 
@@ -72,7 +72,7 @@ public class PisteController implements Initializable {
             itemHolder.setSpacing(10);
             scroller.setFitToWidth(true);
 
-            ArrayList<Pista> piste= pistaSingleton.getInstance().getPiste();
+            ArrayList<Pista> piste= PistaSingleton.getInstance().getPiste();
         Node[] nodes = new Node[piste.size()];
 
         String Wind,Direction;
