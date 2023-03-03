@@ -78,8 +78,10 @@ public class AggiuntaVoliController {
         int  pistaapp = Integer.parseInt(pista);
             boolean inserisci = voliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
             System.out.println(inserisci);
-            voliDAO.inserisciPartenza(idVolo, pistaapp, dataora, aeroportop);
-            System.out.println("ok!");
+            if(inserisci) {
+                voliDAO.inserisciPartenza(idVolo, pistaapp, dataora, aeroportop);
+                System.out.println("ok!");
+            }
         }
         catch(NumberFormatException e){
             System.out.println("Errore");
@@ -115,8 +117,10 @@ public class AggiuntaVoliController {
 
            boolean inserisci = voliDAO.inserisciVoli(idVolo, durataapp, ritardoapp, aereo, gate);
            System.out.println(inserisci);
-           voliDAO.inserisciArrivo(idVolo, pistaapp, dataora, aeroportop);
-           System.out.println("ok!");
+           if (inserisci) {
+               voliDAO.inserisciArrivo(idVolo, pistaapp, dataora, aeroportop);
+               System.out.println("ok!");
+           }
        }catch(NumberFormatException e){
            System.out.println("Errore");
            Alert errorAlert = new Alert(Alert.AlertType.ERROR);

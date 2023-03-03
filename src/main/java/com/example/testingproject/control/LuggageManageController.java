@@ -37,7 +37,7 @@ public class LuggageManageController {
     private final BagagliDAO luggageDAO = new BagagliDAO();
     public void initialize() throws SQLException {
         ArrayList<Luggage> bagaglio;
-        bagaglio = BagagliDAO.getLuggage();
+        bagaglio = luggageDAO.getLuggage();
         ListView1.getItems().add("BAGAGLIO"+"  "+ "STATO");
         for (Luggage luggage : bagaglio) {
             ListView1.getItems().add(luggage.getId() + "        " + luggage.getStato());

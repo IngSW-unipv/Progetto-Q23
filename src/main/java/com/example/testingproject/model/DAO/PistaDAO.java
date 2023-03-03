@@ -1,6 +1,6 @@
 package com.example.testingproject.model.DAO;
 
-import com.example.testingproject.model.Account;
+
 import com.example.testingproject.model.ConnectionHolder;
 import com.example.testingproject.model.DatabaseConnection;
 import com.example.testingproject.model.Pista;

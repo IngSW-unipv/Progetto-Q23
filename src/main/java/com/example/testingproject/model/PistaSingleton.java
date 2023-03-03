@@ -10,12 +10,12 @@ public class PistaSingleton {
 
     private ArrayList<Pista> Piste = null;
 
-    private PistaDAO pistaDAO;
+    private PistaDAO pistaDAO = new PistaDAO();
 
     private static PistaSingleton instance = new PistaSingleton();
 
     private PistaSingleton() {
-        pistaDAO = new PistaDAO();
+
     }
 
     public static PistaSingleton getInstance() {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public interface IBagagliDAO {
 
+    public  ArrayList<Luggage> getLuggage() throws SQLException;
     public Luggage getLuggaggeById(int id) throws SQLException;
     public void modifyStato(int id, String Stato) throws SQLException;
 
