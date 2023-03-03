@@ -58,10 +58,7 @@ public class Account {
         return this!= null && this.getPassword().equals(InputPassword);
     }
 
-    public boolean isLoggedIn(){
-        return true;
 
-    }
 
 
 

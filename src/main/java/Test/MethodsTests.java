@@ -18,21 +18,19 @@ public class MethodsTests {
 
 
 
-
-    @Test
-    void checkLoggedIn() {
-
-
-
-    }
-
     @Test
     void checkConversionDirection(){
+        String direction = "Sud";
+        Pista pista =new Pista(1,1234,"E");
+        assertEquals(pista.convertDirection(direction),"S");
 
     }
 
     @Test
     void checkPasswordTest(){
+        Account account = new Account("Tusername","Tpassword","Bagagli","Tname","Tsurname");
+        String inputPassword = "Tpassword";
+        assertTrue(account.checkPassword(inputPassword));
 
     }
 
